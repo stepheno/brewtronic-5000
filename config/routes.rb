@@ -1,4 +1,14 @@
 Brewtronic5000::Application.routes.draw do
+  resources :grain_inventories
+
+  resources :grain_suppliers
+
+  resources :grains
+
+  resources :hop_suppliers
+
+  resources :hops
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
