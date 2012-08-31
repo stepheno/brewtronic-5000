@@ -1,0 +1,2 @@
+module GrainInventoriesHelper
+end

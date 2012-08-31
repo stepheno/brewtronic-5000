@@ -1,0 +1,21 @@
+<%= form_for(@hop_supplier) do |f| %>
+  <% if @hop_supplier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hop_supplier.errors.count, "error") %> prohibited this hop_supplier from being saved:</h2>
+
+      <ul>
+      <% @hop_supplier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_area :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

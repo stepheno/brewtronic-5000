@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @hop.name %>
+</p>
+
+<p>
+  <b>Alpha:</b>
+  <%= @hop.alpha %>
+</p>
+
+
+<%= link_to 'Edit', edit_hop_path(@hop) %> |
+<%= link_to 'Back', hops_path %>

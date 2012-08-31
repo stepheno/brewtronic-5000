@@ -1,0 +1,2 @@
+module HopSuppliersHelper
+end

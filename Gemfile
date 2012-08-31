@@ -11,7 +11,7 @@ gem 'sqlite3'
 gem 'therubyracer', require:"v8"
 
 # Hobo admin interface
-gem 'hobo'
+#gem 'hobo'
 
 # Gems used only for assets and not required
 # in production environments by default.
