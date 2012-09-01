@@ -1,4 +1,6 @@
 Brewtronic5000::Application.routes.draw do
+  get "home/index"
+
   resources :grain_inventories
 
   resources :grain_suppliers
@@ -58,7 +60,7 @@ Brewtronic5000::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

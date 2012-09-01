@@ -20,13 +20,13 @@ ActiveRecord::Schema.define(:version => 20120829225251) do
   end
 
   create_table "grain_suppliers", :force => true do |t|
-    t.text     "name"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "grains", :force => true do |t|
-    t.text     "name"
+    t.string   "name"
     t.float    "extract_potential"
     t.float    "color"
     t.datetime "created_at",        :null => false
@@ -40,10 +40,13 @@ ActiveRecord::Schema.define(:version => 20120829225251) do
   end
 
   create_table "hops", :force => true do |t|
-    t.text     "name"
+    t.string   "name"
     t.float    "alpha"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "hop_supplier_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
+
+  add_index "hops", ["hop_supplier_id"], :name => "index_hops_on_hop_supplier_id"
 
 end
