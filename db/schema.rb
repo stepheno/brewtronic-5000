@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829225251) do
+ActiveRecord::Schema.define(:version => 20120920044303) do
+
+  create_table "brewers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "grain_inventories", :force => true do |t|
     t.float    "amount"

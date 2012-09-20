@@ -1,0 +1,23 @@
+<h1>Listing brewers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @brewers.each do |brewer| %>
+  <tr>
+    <td><%= brewer.name %></td>
+    <td><%= link_to 'Show', brewer %></td>
+    <td><%= link_to 'Edit', edit_brewer_path(brewer) %></td>
+    <td><%= link_to 'Destroy', brewer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Brewer', new_brewer_path %>

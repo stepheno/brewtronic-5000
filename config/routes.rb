@@ -1,4 +1,6 @@
 Brewtronic5000::Application.routes.draw do
+  resources :brewers
+
   get "home/index"
 
   resources :grain_inventories

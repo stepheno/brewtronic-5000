@@ -1,0 +1,2 @@
+module BrewersHelper
+end
