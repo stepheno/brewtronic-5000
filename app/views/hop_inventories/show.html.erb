@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Hop:</b>
+  <%= @hop_inventory.hop %>
+</p>
+
+<p>
+  <b>Hop supplier:</b>
+  <%= @hop_inventory.hop_supplier %>
+</p>
+
+<p>
+  <b>Crop year:</b>
+  <%= @hop_inventory.crop_year %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= @hop_inventory.amount %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @hop_inventory.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_hop_inventory_path(@hop_inventory) %> |
+<%= link_to 'Back', hop_inventories_path %>

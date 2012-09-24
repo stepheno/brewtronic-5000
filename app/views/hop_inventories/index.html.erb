@@ -1,0 +1,31 @@
+<h1>Listing hop_inventories</h1>
+
+<table>
+  <tr>
+    <th>Hop</th>
+    <th>Hop supplier</th>
+    <th>Crop year</th>
+    <th>Amount</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hop_inventories.each do |hop_inventory| %>
+  <tr>
+    <td><%= hop_inventory.hop %></td>
+    <td><%= hop_inventory.hop_supplier %></td>
+    <td><%= hop_inventory.crop_year %></td>
+    <td><%= hop_inventory.amount %></td>
+    <td><%= hop_inventory.type %></td>
+    <td><%= link_to 'Show', hop_inventory %></td>
+    <td><%= link_to 'Edit', edit_hop_inventory_path(hop_inventory) %></td>
+    <td><%= link_to 'Destroy', hop_inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hop inventory', new_hop_inventory_path %>
