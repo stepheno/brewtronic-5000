@@ -15,7 +15,7 @@
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
     <%= f.label :grain_id %>
-    <%= f.select :grain_id, GrainSupplier.all.collect {|c| [c.name, c.id]} %>
+    <%= f.select :grain_id, Grain.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>

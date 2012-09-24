@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20120920044303) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "grain_inventories", ["grain_id"], :name => "index_grain_inventories_on_grain_id"
+
   create_table "grain_suppliers", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -55,6 +57,5 @@ ActiveRecord::Schema.define(:version => 20120920044303) do
   end
 
   add_index "hops", ["hop_supplier_id"], :name => "index_hops_on_hop_supplier_id"
-  add_index "grain_inventories", ["grain_id"], :name => "index_grain_inventories_on_grain_id"
 
 end
