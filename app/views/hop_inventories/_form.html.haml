@@ -1,10 +1,10 @@
 .group
   = f.label :hop_id, t("activerecord.attributes.hop_inventory.hop_id", :default => "Hop"), :class => :label
-  = f.number_field :hop_id, :class => 'number_field'
+  = f.select :hop, Hop.all.collect {|c| [c.name, c.id]}  
   %span.description Ex: a simple text
 .group
   = f.label :hop_supplier_id, t("activerecord.attributes.hop_inventory.hop_supplier_id", :default => "Hop supplier"), :class => :label
-  = f.number_field :hop_supplier_id, :class => 'number_field'
+  = f.select :hop_supplier_id, HopSupplier.all.collect {|c| [c.name, c.id]}
   %span.description Ex: a simple text
 .group
   = f.label :crop_year, t("activerecord.attributes.hop_inventory.crop_year", :default => "Crop year"), :class => :label
