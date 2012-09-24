@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920044303) do
+ActiveRecord::Schema.define(:version => 20120924034324) do
 
   create_table "brewers", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(:version => 20120920044303) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
+
+  create_table "hop_inventories", :force => true do |t|
+    t.integer  "hop_id"
+    t.integer  "hop_supplier_id"
+    t.integer  "crop_year"
+    t.float    "amount"
+    t.string   "type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "hop_inventories", ["hop_id"], :name => "index_hop_inventories_on_hop_id"
+  add_index "hop_inventories", ["hop_supplier_id"], :name => "index_hop_inventories_on_hop_supplier_id"
 
   create_table "hop_suppliers", :force => true do |t|
     t.text     "name"
