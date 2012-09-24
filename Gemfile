@@ -13,6 +13,20 @@ gem 'therubyracer', :require => "v8"
 # Hobo admin interface
 #gem 'hobo'
 
+# Themeing
+gem 'haml'
+gem 'devise'
+gem 'kaminari'
+
+group :development, :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'haml-rails'
+  gem 'hpricot'
+  gem 'ruby_parser'
+  gem 'web-app-theme', :git =>'git://github.com/pilu/web-app-theme.git'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

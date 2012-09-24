@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %title Brewtronic 5000
+    = stylesheet_link_tag 'web_app_theme'
+    = javascript_include_tag "application" 
+    = csrf_meta_tag
+  %body
+    #container
+      #header
+        %h1
+          %a{:href => "/"} Brewtronic 5000
+        #user-navigation
+          %ul.wat-cf
+            %li
+              %a{:href => "#"}= t("web-app-theme.profile", :default => "Profile")
+            %li
+              %a{:href => "#"}= t("web-app-theme.settings", :default => "Settings")
+            %li
+              %a.logout{:href => "/logout"}= t("web-app-theme.logout", :default => "Logout")
+        #main-navigation
+          %ul.wat-cf
+      #wrapper.wat-cf
+        .flash
+          - flash.each do |type, message|
+            %div{:class => "message #{type}"}
+              %p= message
+        #main
+          = yield
+          #footer
+            .block
+              %p
+                Copyright &copy; #{Time.now.year} Brewtronic 5000.
+        #sidebar
+          = yield :sidebar
