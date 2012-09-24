@@ -2,7 +2,7 @@ class BrewersController < ApplicationController
   # GET /brewers
   # GET /brewers.json
   def index
-    @brewers = Brewer.all
+    @brewers = Brewer.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

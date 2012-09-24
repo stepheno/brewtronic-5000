@@ -1,0 +1,37 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", hop_inventories_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_hop_inventory_path
+      %li.active= link_to "#{t("web-app-theme.show", :default => "Show")}", hop_inventory_path
+  .content
+    .inner
+      %p
+        %b
+          = t("activerecord.attributes.hop_inventory.hop_id", :default => t("activerecord.labels.hop_id", :default => "Hop"))
+          \:
+        = @hop_inventory.hop_id
+      %p
+        %b
+          = t("activerecord.attributes.hop_inventory.hop_supplier_id", :default => t("activerecord.labels.hop_supplier_id", :default => "Hop supplier"))
+          \:
+        = @hop_inventory.hop_supplier_id
+      %p
+        %b
+          = t("activerecord.attributes.hop_inventory.crop_year", :default => t("activerecord.labels.crop_year", :default => "Crop year"))
+          \:
+        = @hop_inventory.crop_year
+      %p
+        %b
+          = t("activerecord.attributes.hop_inventory.amount", :default => t("activerecord.labels.amount", :default => "Amount"))
+          \:
+        = @hop_inventory.amount
+      %p
+        %b
+          = t("activerecord.attributes.hop_inventory.type", :default => t("activerecord.labels.type", :default => "Type"))
+          \:
+        = @hop_inventory.type
+      .wat-cf
+        = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_hop_inventory_path(@hop_inventory), :class => "button"
+        = link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), hop_inventory_path(@hop_inventory), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
+- content_for :sidebar, render(:partial => 'sidebar')

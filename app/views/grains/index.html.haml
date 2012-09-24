@@ -1,0 +1,34 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", grains_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_grain_path
+  .content
+    %h2.title
+      = t("web-app-theme.all", :default => "All")
+      Grains
+    .inner
+      %table.table
+        %tr
+          %th.first ID
+          %th
+            = t("activerecord.attributes.grain.name", :default => t("activerecord.labels.name", :default => "Name"))
+          %th= t("web-app-theme.created_at", :default => "Created at")
+          %th.last &nbsp;
+        - @grains.each do |grain|
+          %tr{:class => cycle("odd", "even")}
+            %td
+              = grain.id
+            %td
+              = link_to grain.name, grain_path(grain)
+            %td
+              = grain.created_at
+            %td.last
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", grain_path(grain)
+              |
+              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_grain_path(grain)} |
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", grain_path(grain), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+      .actions-bar.wat-cf
+        .actions
+        = paginate @grains
+- content_for :sidebar, render(:partial => 'sidebar')

@@ -1,0 +1,34 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "#{t("web-app-theme.list", :default => "List")}", grain_inventories_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_grain_inventory_path
+  .content
+    %h2.title
+      = t("web-app-theme.all", :default => "All")
+      GrainInventories
+    .inner
+      %table.table
+        %tr
+          %th.first ID
+          %th
+            = t("activerecord.attributes.grain_inventory.amount", :default => t("activerecord.labels.amount", :default => "Amount"))
+          %th= t("web-app-theme.created_at", :default => "Created at")
+          %th.last &nbsp;
+        - @grain_inventories.each do |grain_inventory|
+          %tr{:class => cycle("odd", "even")}
+            %td
+              = grain_inventory.id
+            %td
+              = link_to grain_inventory.amount, grain_inventory_path(grain_inventory)
+            %td
+              = grain_inventory.created_at
+            %td.last
+              = link_to "#{t("web-app-theme.show", :default => "Show")}", grain_inventory_path(grain_inventory)
+              |
+              \#{link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_grain_inventory_path(grain_inventory)} |
+              \#{link_to "#{t("web-app-theme.delete", :default => "Delete")}", grain_inventory_path(grain_inventory), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"}
+      .actions-bar.wat-cf
+        .actions
+        = paginate @grain_inventories
+- content_for :sidebar, render(:partial => 'sidebar')

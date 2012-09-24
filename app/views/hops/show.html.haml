@@ -1,0 +1,27 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", hops_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_hop_path
+      %li.active= link_to "#{t("web-app-theme.show", :default => "Show")}", hop_path
+  .content
+    .inner
+      %p
+        %b
+          = t("activerecord.attributes.hop.name", :default => t("activerecord.labels.name", :default => "Name"))
+          \:
+        = @hop.name
+      %p
+        %b
+          = t("activerecord.attributes.hop.alpha", :default => t("activerecord.labels.alpha", :default => "Alpha"))
+          \:
+        = @hop.alpha
+      %p
+        %b
+          = t("activerecord.attributes.hop.hop_supplier_id", :default => t("activerecord.labels.hop_supplier_id", :default => "Hop supplier"))
+          \:
+        = @hop.hop_supplier_id
+      .wat-cf
+        = link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_hop_path(@hop), :class => "button"
+        = link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), hop_path(@hop), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}"
+- content_for :sidebar, render(:partial => 'sidebar')

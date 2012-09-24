@@ -1,0 +1,14 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "#{t("web-app-theme.list", :default => "List")}", brewers_path
+      %li= link_to "#{t("web-app-theme.new", :default => "New")}", new_brewer_path
+      %li.active= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_brewer_path
+  .content
+    %h2.title
+      = t("web-app-theme.edit", :default => "Edit")
+      Brewer
+    .inner
+      = form_for @brewer, :url => brewer_path(@brewer), :html => { :class => :form } do |f|
+        = render :partial => "form", :locals => {:f => f}
+- content_for :sidebar, render(:partial => 'sidebar')

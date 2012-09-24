@@ -5,4 +5,5 @@ class Hop < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :alpha, :presence => true
+  paginates_per 15
 end
