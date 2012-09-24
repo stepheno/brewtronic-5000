@@ -25,6 +25,7 @@ class GrainInventoriesController < ApplicationController
   # GET /grain_inventories/new.json
   def new
     @grain_inventory = GrainInventory.new
+    @grains = Grain.all
 
     respond_to do |format|
       format.html # new.html.erb

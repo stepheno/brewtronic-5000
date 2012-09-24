@@ -19,6 +19,10 @@
     <%= f.label :alpha %><br />
     <%= f.text_field :alpha %>
   </div>
+  <div class="filed">
+    <%= f.label :hop_supplier_id %>
+    <%= f.select :hop_supplier_id, HopSupplier.all.collect {|c| [c.name, c.id]} %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
