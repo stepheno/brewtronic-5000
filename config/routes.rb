@@ -1,4 +1,6 @@
 Brewtronic5000::Application.routes.draw do
+  devise_for :users
+
   resources :hop_inventories
 
   resources :brewers
