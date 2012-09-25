@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924034324) do
+ActiveRecord::Schema.define(:version => 20120925022556) do
 
   create_table "brewers", :force => true do |t|
     t.string   "name"
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(:version => 20120924034324) do
   create_table "hops", :force => true do |t|
     t.string   "name"
     t.float    "alpha"
-    t.float    "beta"
     t.integer  "hop_supplier_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.float    "beta"
   end
 
   add_index "hops", ["hop_supplier_id"], :name => "index_hops_on_hop_supplier_id"
