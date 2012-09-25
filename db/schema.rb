@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20120924034324) do
   create_table "hops", :force => true do |t|
     t.string   "name"
     t.float    "alpha"
+    t.float    "beta"
     t.integer  "hop_supplier_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

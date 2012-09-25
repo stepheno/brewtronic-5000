@@ -1,5 +1,5 @@
 class Hop < ActiveRecord::Base
-  attr_accessible :alpha, :name
+  attr_accessible :alpha, :name, :beta
   belongs_to :hop_supplier
   has_many :hop_inventories
 
