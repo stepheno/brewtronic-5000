@@ -16,6 +16,9 @@ gem 'therubyracer', :require => "v8"
 # Quantity gem for unit converion
 gem 'quantify'
 
+# Theming
+gem 'bootstrap-sass'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
