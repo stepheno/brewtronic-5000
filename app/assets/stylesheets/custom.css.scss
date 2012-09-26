@@ -1,26 +1,31 @@
 @import "bootstrap";
-/* universal */
+/* footer */
 
-html {
-    overflow-y: scroll;
+footer {
+    margin-top: 45px;
+      padding-top: 5px;
+        border-top: 1px solid #eaeaea;
+          color: #999;
 }
 
-body {
-    padding-top: 60px;
+footer a {
+    color: #555;
+}  
+
+footer a:hover { 
+    color: #222;
 }
 
-section {
-    overflow: auto;
+footer small {
+    float: left;
 }
 
-textarea {
-    resize: vertical;
+footer ul {
+    float: right;
+      list-style: none;
 }
 
-.center {
-    text-align: center;
-}
-
-.center h1 {
-    margin-bottom: 10px;
+footer ul li {
+    float: left;
+      margin-left: 10px;
 }
