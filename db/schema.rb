@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925022556) do
+ActiveRecord::Schema.define(:version => 20121009055847) do
 
   create_table "brewers", :force => true do |t|
     t.string   "name"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20120925022556) do
     t.integer  "hop_supplier_id"
     t.integer  "crop_year"
     t.float    "amount"
-    t.string   "type"
+    t.string   "hop_type"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
