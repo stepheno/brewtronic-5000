@@ -13,6 +13,9 @@ gem 'therubyracer', :require => "v8"
 # Hobo admin interface
 #gem 'hobo'
 
+# Quantity gem for unit converion
+gem 'quantify'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
