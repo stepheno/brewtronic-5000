@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20121010032648) do
   end
 
   add_index "grain_inventories", ["grain_id"], :name => "index_grain_inventories_on_grain_id"
+  add_index "grain_inventories", ["grain_supplier_id"], :name => "index_grain_inventories_on_grain_supplier_id"
 
   create_table "grain_suppliers", :force => true do |t|
     t.string   "name"
