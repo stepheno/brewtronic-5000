@@ -41,9 +41,8 @@ class GrainInventoriesController < ApplicationController
   # POST /grain_inventories
   # POST /grain_inventories.json
   def create
-    if params[:grain_inventory][:unit] == "Lb" 
-      #params[:grain_inventory][:amount] = Quantity.new(params[:grain_inventory][:amount].to_f, :lb).kg.value.to_s
-      params[:grain_inventory][:amount] = params[:grain_inventory][:amount].to_f.lb.to_si.value.to_s
+    if params[:grain_inventory][:unit] == "lb" 
+      params[:grain_inventory][:amount] = params[:grain_inventory][:amount].to_f.lb.to_si.value
     end
 
     @grain_inventory = GrainInventory.new(params[:grain_inventory])

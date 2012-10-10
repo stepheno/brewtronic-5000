@@ -40,6 +40,20 @@ class HopInventoriesController < ApplicationController
   # POST /hop_inventories
   # POST /hop_inventories.json
   def create
+    if params[:hop_inventory][:unit] == "lb" 
+      params[:hop_inventory][:amount] = params[:hop_inventory][:amount].to_f.lb.to_kg.value
+    end
+
+    if params[:hop_inventory][:unit] == "g" 
+      params[:hop_inventory][:amount] = params[:hop_inventory][:amount].to_f.g.to_kg.value
+    end
+    
+    if params[:hop_inventory][:unit] == "oz" 
+      params[:hop_inventory][:amount] = params[:hop_inventory][:amount].to_f.oz.to_kg.value
+    end
+
+
+
     @hop_inventory = HopInventory.new(params[:hop_inventory])
 
     respond_to do |format|

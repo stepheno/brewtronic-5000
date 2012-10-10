@@ -2,14 +2,15 @@
 
 <table>
   <tr>
+    <th>Grain name</th>
     <th>Amount</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @grain_inventories.each do |grain_inventory| %>
   <tr>
+    <td><%= grain_inventory.grain.name %></td>
     <td><%= grain_inventory.amount %></td>
     <td><%= link_to 'Show', grain_inventory %></td>
     <td><%= link_to 'Edit', edit_grain_inventory_path(grain_inventory) %></td>

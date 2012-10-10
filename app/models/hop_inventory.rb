@@ -6,6 +6,8 @@ class HopInventory < ActiveRecord::Base
     }.first
   end
 
+  attr_accessor :unit #Virtual field for units in forms
+  attr_accessible :unit #Virtual field for units in forms
 
   belongs_to :hop
   belongs_to :hop_supplier
