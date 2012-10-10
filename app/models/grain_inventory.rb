@@ -1,5 +1,5 @@
 class GrainInventory < ActiveRecord::Base
-  attr_accessible :amount, :grain_id
+  attr_accessible :amount, :grain_id, :grain_supplier_id
   attr_accessor :unit # Virtual field for units in forms
   attr_accessible :unit # Virtual field for units in forms
   belongs_to :grain
