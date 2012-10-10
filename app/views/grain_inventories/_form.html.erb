@@ -17,6 +17,10 @@
     <%= f.label :grain_id %>
     <%= f.select :grain_id, Grain.all.collect {|c| [c.name, c.id]} %>
   </div>
+  <div class="field">
+    <%= f.label :grain_supplier_id %><br />
+    <%= f.select :grain_supplier_id, GrainSupplier.all.collect {|c| [c.name, c.id]} %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

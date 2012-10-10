@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121009055847) do
+ActiveRecord::Schema.define(:version => 20121010032648) do
 
   create_table "brewers", :force => true do |t|
     t.string   "name"
@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(:version => 20121009055847) do
   create_table "grain_inventories", :force => true do |t|
     t.float    "amount"
     t.integer  "grain_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "grain_supplier_id"
   end
 
   add_index "grain_inventories", ["grain_id"], :name => "index_grain_inventories_on_grain_id"
