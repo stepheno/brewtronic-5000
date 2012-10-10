@@ -12,7 +12,7 @@
 
 <p>
   <b>Amount:</b>
-  <%= @grain_inventory.amount %>
+  <%= "%0.2f" % @grain_inventory.amount %>
 </p>
 
 <%= link_to 'Edit', edit_grain_inventory_path(@grain_inventory) %> |

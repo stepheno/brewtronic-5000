@@ -13,7 +13,7 @@
   <tr>
     <td><%= grain_inventory.grain.name %></td>
     <td><%= grain_inventory.grain_supplier.name %></td>
-    <td><%= grain_inventory.amount %></td>
+    <td><%= "%0.2f" % grain_inventory.amount %></td>
     <td><%= link_to 'Show', grain_inventory %></td>
     <td><%= link_to 'Edit', edit_grain_inventory_path(grain_inventory) %></td>
     <td><%= link_to 'Destroy', grain_inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
