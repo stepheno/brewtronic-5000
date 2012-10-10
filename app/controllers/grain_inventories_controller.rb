@@ -1,3 +1,4 @@
+
 class GrainInventoriesController < ApplicationController
   # GET /grain_inventories
   # GET /grain_inventories.json
@@ -25,7 +26,6 @@ class GrainInventoriesController < ApplicationController
   # GET /grain_inventories/new.json
   def new
     @grain_inventory = GrainInventory.new
-    @grains = Grain.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,8 +41,12 @@ class GrainInventoriesController < ApplicationController
   # POST /grain_inventories
   # POST /grain_inventories.json
   def create
-    @grain_inventory = GrainInventory.new(params[:grain_inventory])
+    if params[:grain_inventory][:unit] == "Lb" 
+      #params[:grain_inventory][:amount] = Quantity.new(params[:grain_inventory][:amount].to_f, :lb).kg.value.to_s
+      params[:grain_inventory][:amount] = params[:grain_inventory][:amount].to_f.lb.to_si.value.to_s
+    end
 
+    @grain_inventory = GrainInventory.new(params[:grain_inventory])
     respond_to do |format|
       if @grain_inventory.save
         format.html { redirect_to @grain_inventory, notice: 'Grain inventory was successfully created.' }

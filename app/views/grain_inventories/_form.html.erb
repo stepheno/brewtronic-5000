@@ -14,7 +14,13 @@
   <div class="field">
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
-    <%= f.label :grain_id %>
+  </div>
+  <div class="field">
+    <%= f.label :unit %><br />
+    <%= f.select :unit, options_for_select(["Kg", "Lb"])%>
+  </div>
+  <div class="field">
+    <%= f.label :grain_id %><br />
     <%= f.select :grain_id, Grain.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="actions">
