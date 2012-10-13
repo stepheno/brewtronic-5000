@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Size:</b>
+  <%= @fermenter.size %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @fermenter.name %>
+</p>
+
+<p>
+  <b>Fermenter type:</b>
+  <%= @fermenter.fermenter_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_fermenter_path(@fermenter) %> |
+<%= link_to 'Back', fermenters_path %>

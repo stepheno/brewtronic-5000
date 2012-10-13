@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  size: 1.5
+  name: MyString
+  fermenter_type: MyString
+
+two:
+  size: 1.5
+  name: MyString
+  fermenter_type: MyString

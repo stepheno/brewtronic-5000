@@ -1,4 +1,6 @@
 Brewtronic5000::Application.routes.draw do
+  resources :fermenters
+
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
 
   resources :hop_inventories
