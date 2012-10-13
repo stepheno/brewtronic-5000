@@ -1,0 +1,2 @@
+module FermentersHelper
+end

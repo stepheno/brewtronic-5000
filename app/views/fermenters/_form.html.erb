@@ -1,0 +1,29 @@
+<%= form_for(@fermenter) do |f| %>
+  <% if @fermenter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fermenter.errors.count, "error") %> prohibited this fermenter from being saved:</h2>
+
+      <ul>
+      <% @fermenter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :fermenter_type %><br />
+    <%= f.text_field :fermenter_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
