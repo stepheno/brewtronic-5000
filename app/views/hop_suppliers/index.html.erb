@@ -1,21 +1,23 @@
 <h1>Listing hop_suppliers</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @hop_suppliers.each do |hop_supplier| %>
-  <tr>
-    <td><%= hop_supplier.name %></td>
-    <td><%= link_to 'Show', hop_supplier %></td>
-    <td><%= link_to 'Edit', edit_hop_supplier_path(hop_supplier) %></td>
-    <td><%= link_to 'Destroy', hop_supplier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hop_suppliers.each do |hop_supplier| %>
+    <tr>
+      <td><%= link_to hop_supplier.name, hop_supplier%></td>
+      <td><%= link_to 'Edit', edit_hop_supplier_path(hop_supplier), :class => 'btn btn-mini' %></td>
+      <td><%= link_to 'Destroy', hop_supplier, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />

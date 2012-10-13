@@ -1,24 +1,26 @@
 <h1>Listing Grain Inventory</h1>
 
-<table>
-  <tr>
-    <th>Grain name</th>
-    <th>Grain Supplier</th>
-    <th>Amount</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @grain_inventories.each do |grain_inventory| %>
-  <tr>
-    <td><%= grain_inventory.grain.name %></td>
-    <td><%= grain_inventory.grain_supplier.name %></td>
-    <td><%= "%0.2f" % grain_inventory.amount %></td>
-    <td><%= link_to 'Show', grain_inventory %></td>
-    <td><%= link_to 'Edit', edit_grain_inventory_path(grain_inventory) %></td>
-    <td><%= link_to 'Destroy', grain_inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Grain name</th>
+      <th>Grain Supplier</th>
+      <th>Amount</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grain_inventories.each do |grain_inventory| %>
+    <tr>
+      <td><%= link_to grain_inventory.grain.name, grain_inventory%></td>
+      <td><%= grain_inventory.grain_supplier.name %></td>
+      <td><%= "%0.2f" % grain_inventory.amount %></td>
+      <td><%= link_to 'Edit', edit_grain_inventory_path(grain_inventory), :class => 'btn btn-mini' %></td>
+      <td><%= link_to 'Destroy', grain_inventory, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />

@@ -1,24 +1,27 @@
 <h1>Listing hops</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Alpha</th>
-    <th>Beta</th>
-    <th>Supplier</th>
-    <th></th>
-  </tr>
-
-<% @hops.each do |hop| %>
-  <tr>
-    <td><%= link_to hop.name, hop %></td>
-    <td><%= hop.alpha %></td>
-    <td><%= hop.beta %></td>
-    <td><%= hop.hop_supplier.name %></td>
-    <td><%= link_to 'Edit', edit_hop_path(hop) %></td>
-    <td><%= link_to 'Destroy', hop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Alpha</th>
+      <th>Beta</th>
+      <th>Supplier</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hops.each do |hop| %>
+    <tr>
+      <td><%= link_to hop.name, hop %></td>
+      <td><%= hop.alpha %></td>
+      <td><%= hop.beta %></td>
+      <td><%= hop.hop_supplier.name %></td>
+      <td><%= link_to 'Edit', edit_hop_path(hop), :class => 'btn btn-mini' %></td>
+      <td><%= link_to 'Destroy', hop, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />
