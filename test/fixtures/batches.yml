@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  recipe: 
+  date: 2012-10-13
+  fermenter: 
+  brewer: 
+  original_gravity: 1.5
+  finish_gravity: 1.5
+  yield: 1.5
+  target_date: 2012-10-13
+
+two:
+  recipe: 
+  date: 2012-10-13
+  fermenter: 
+  brewer: 
+  original_gravity: 1.5
+  finish_gravity: 1.5
+  yield: 1.5
+  target_date: 2012-10-13

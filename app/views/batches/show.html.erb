@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Recipe:</b>
+  <%= @batch.recipe %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @batch.date %>
+</p>
+
+<p>
+  <b>Fermenter:</b>
+  <%= @batch.fermenter %>
+</p>
+
+<p>
+  <b>Brewer:</b>
+  <%= @batch.brewer %>
+</p>
+
+<p>
+  <b>Original gravity:</b>
+  <%= @batch.original_gravity %>
+</p>
+
+<p>
+  <b>Finish gravity:</b>
+  <%= @batch.finish_gravity %>
+</p>
+
+<p>
+  <b>Yield:</b>
+  <%= @batch.yield %>
+</p>
+
+<p>
+  <b>Target date:</b>
+  <%= @batch.target_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_batch_path(@batch) %> |
+<%= link_to 'Back', batches_path %>
