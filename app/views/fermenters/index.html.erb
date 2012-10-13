@@ -1,25 +1,29 @@
 <h1>Listing fermenters</h1>
 
-<table>
-  <tr>
-    <th>Size</th>
-    <th>Name</th>
-    <th>Fermenter type</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Size</th>
+      <th>Name</th>
+      <th>Fermenter type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<% @fermenters.each do |fermenter| %>
-  <tr>
-    <td><%= fermenter.size %></td>
-    <td><%= fermenter.name %></td>
-    <td><%= fermenter.fermenter_type %></td>
-    <td><%= link_to 'Show', fermenter %></td>
-    <td><%= link_to 'Edit', edit_fermenter_path(fermenter) %></td>
-    <td><%= link_to 'Destroy', fermenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @fermenters.each do |fermenter| %>
+      <tr>
+        <td><%= fermenter.size %></td>
+        <td><%= fermenter.name %></td>
+        <td><%= fermenter.fermenter_type %></td>
+        <td><%= link_to 'Show', fermenter %></td>
+        <td><%= link_to 'Edit', edit_fermenter_path(fermenter) %></td>
+        <td><%= link_to 'Destroy', fermenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <br />
