@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017025628) do
+ActiveRecord::Schema.define(:version => 20121017042711) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -99,6 +99,40 @@ ActiveRecord::Schema.define(:version => 20121017025628) do
 
   add_index "hops", ["hop_supplier_id"], :name => "index_hops_on_hop_supplier_id"
 
+  create_table "mash_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "minerals", :force => true do |t|
+    t.string   "name"
+    t.float    "calcium"
+    t.float    "magnesium"
+    t.float    "sodium"
+    t.float    "sulfate"
+    t.float    "carbonate"
+    t.float    "chloride"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "styles", :force => true do |t|
+    t.string   "name"
+    t.integer  "category"
+    t.integer  "sub_category"
+    t.float    "og_range_low"
+    t.float    "og_range_high"
+    t.float    "fg_range_low"
+    t.float    "fg_range_high"
+    t.float    "ibu_range_low"
+    t.float    "ibu_range_high"
+    t.float    "srm_range_low"
+    t.float    "srm_range_high"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -118,12 +152,14 @@ ActiveRecord::Schema.define(:version => 20121017025628) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "yeasts", :force => true do |t|
+    t.integer  "manufacturer_id"
     t.string   "name"
-    t.string   "manufacturer"
-    t.string   "type"
+    t.string   "yeast_type"
     t.float    "efficiency"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
+
+  add_index "yeasts", ["manufacturer_id"], :name => "index_yeasts_on_manufacturer_id"
 
 end

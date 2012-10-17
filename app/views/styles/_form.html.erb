@@ -1,0 +1,61 @@
+<%= form_for(@style) do |f| %>
+  <% if @style.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@style.errors.count, "error") %> prohibited this style from being saved:</h2>
+
+      <ul>
+      <% @style.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.number_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_category %><br />
+    <%= f.number_field :sub_category %>
+  </div>
+  <div class="field">
+    <%= f.label :og_range_low %><br />
+    <%= f.text_field :og_range_low %>
+  </div>
+  <div class="field">
+    <%= f.label :og_range_high %><br />
+    <%= f.text_field :og_range_high %>
+  </div>
+  <div class="field">
+    <%= f.label :fg_range_low %><br />
+    <%= f.text_field :fg_range_low %>
+  </div>
+  <div class="field">
+    <%= f.label :fg_range_high %><br />
+    <%= f.text_field :fg_range_high %>
+  </div>
+  <div class="field">
+    <%= f.label :ibu_range_low %><br />
+    <%= f.text_field :ibu_range_low %>
+  </div>
+  <div class="field">
+    <%= f.label :ibu_range_high %><br />
+    <%= f.text_field :ibu_range_high %>
+  </div>
+  <div class="field">
+    <%= f.label :srm_range_low %><br />
+    <%= f.text_field :srm_range_low %>
+  </div>
+  <div class="field">
+    <%= f.label :srm_range_high %><br />
+    <%= f.text_field :srm_range_high %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

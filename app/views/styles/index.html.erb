@@ -1,0 +1,46 @@
+<h1>Listing styles</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Sub category</th>
+      <th>Og range low</th>
+      <th>Og range high</th>
+      <th>Fg range low</th>
+      <th>Fg range high</th>
+      <th>Ibu range low</th>
+      <th>Ibu range high</th>
+      <th>Srm range low</th>
+      <th>Srm range high</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @styles.each do |style| %>
+      <tr>
+        <td><%= style.name %></td>
+        <td><%= style.category %></td>
+        <td><%= style.sub_category %></td>
+        <td><%= style.og_range_low %></td>
+        <td><%= style.og_range_high %></td>
+        <td><%= style.fg_range_low %></td>
+        <td><%= style.fg_range_high %></td>
+        <td><%= style.ibu_range_low %></td>
+        <td><%= style.ibu_range_high %></td>
+        <td><%= style.srm_range_low %></td>
+        <td><%= style.srm_range_high %></td>
+        <td><%= link_to 'Show', style %></td>
+        <td><%= link_to 'Edit', edit_style_path(style) %></td>
+        <td><%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Style', new_style_path %>
