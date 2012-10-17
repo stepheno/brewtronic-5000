@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <b>Style:</b>
+  <%= @recipe.style %>
+</p>
+
+<p>
+  <b>Target og:</b>
+  <%= @recipe.target_og %>
+</p>
+
+<p>
+  <b>Target fg:</b>
+  <%= @recipe.target_fg %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @recipe.size %>
+</p>
+
+<p>
+  <b>Yeast:</b>
+  <%= @recipe.yeast %>
+</p>
+
+<p>
+  <b>Minerals:</b>
+  <%= @recipe.minerals %>
+</p>
+
+<p>
+  <b>Grains:</b>
+  <%= @recipe.grains %>
+</p>
+
+<p>
+  <b>Hops:</b>
+  <%= @recipe.hops %>
+</p>
+
+<p>
+  <b>Mash steps:</b>
+  <%= @recipe.mash_steps %>
+</p>
+
+<p>
+  <b>Boil time:</b>
+  <%= @recipe.boil_time %>
+</p>
+
+<p>
+  <b>Ibu:</b>
+  <%= @recipe.ibu %>
+</p>
+
+<p>
+  <b>Abv:</b>
+  <%= @recipe.abv %>
+</p>
+
+<p>
+  <b>Srm:</b>
+  <%= @recipe.srm %>
+</p>
+
+<p>
+  <b>Pitch temperature:</b>
+  <%= @recipe.pitch_temperature %>
+</p>
+
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>

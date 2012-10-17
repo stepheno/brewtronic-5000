@@ -1,0 +1,77 @@
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :style %><br />
+    <%= f.text_field :style %>
+  </div>
+  <div class="field">
+    <%= f.label :target_og %><br />
+    <%= f.text_field :target_og %>
+  </div>
+  <div class="field">
+    <%= f.label :target_fg %><br />
+    <%= f.text_field :target_fg %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :yeast %><br />
+    <%= f.text_field :yeast %>
+  </div>
+  <div class="field">
+    <%= f.label :minerals %><br />
+    <%= f.text_field :minerals %>
+  </div>
+  <div class="field">
+    <%= f.label :grains %><br />
+    <%= f.text_field :grains %>
+  </div>
+  <div class="field">
+    <%= f.label :hops %><br />
+    <%= f.text_field :hops %>
+  </div>
+  <div class="field">
+    <%= f.label :mash_steps %><br />
+    <%= f.text_field :mash_steps %>
+  </div>
+  <div class="field">
+    <%= f.label :boil_time %><br />
+    <%= f.text_field :boil_time %>
+  </div>
+  <div class="field">
+    <%= f.label :ibu %><br />
+    <%= f.text_field :ibu %>
+  </div>
+  <div class="field">
+    <%= f.label :abv %><br />
+    <%= f.text_field :abv %>
+  </div>
+  <div class="field">
+    <%= f.label :srm %><br />
+    <%= f.text_field :srm %>
+  </div>
+  <div class="field">
+    <%= f.label :pitch_temperature %><br />
+    <%= f.text_field :pitch_temperature %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -2,6 +2,8 @@ class Hop < ActiveRecord::Base
   attr_accessible :alpha, :name, :beta, :hop_supplier_id
   belongs_to :hop_supplier
   has_many :hop_inventories
+  has_many :recipes, :through => :recipe_hops
+  has_many :recipe_hops
 
   validates :name, :presence => true
   validates :alpha, :presence => true, :numericality => true

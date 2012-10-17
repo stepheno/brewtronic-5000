@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017042711) do
+ActiveRecord::Schema.define(:version => 20121017042735) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -132,6 +132,80 @@ ActiveRecord::Schema.define(:version => 20121017042711) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  create_table "recipe_grains", :force => true do |t|
+    t.integer  "recipe_id"
+    t.integer  "grain_id"
+    t.float    "amount"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "recipe_grains", ["grain_id"], :name => "index_recipe_grains_on_grain_id"
+  add_index "recipe_grains", ["recipe_id"], :name => "index_recipe_grains_on_recipe_id"
+
+  create_table "recipe_hops", :force => true do |t|
+    t.integer  "recipe_id"
+    t.integer  "hop_id"
+    t.float    "amount"
+    t.float    "time"
+    t.string   "location"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "recipe_hops", ["hop_id"], :name => "index_recipe_hops_on_hop_id"
+  add_index "recipe_hops", ["recipe_id"], :name => "index_recipe_hops_on_recipe_id"
+
+  create_table "recipe_mashes", :force => true do |t|
+    t.integer  "recipe_id"
+    t.integer  "mash_type_id"
+    t.float    "time"
+    t.float    "temperature"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "recipe_mashes", ["mash_type_id"], :name => "index_recipe_mashes_on_mash_type_id"
+  add_index "recipe_mashes", ["recipe_id"], :name => "index_recipe_mashes_on_recipe_id"
+
+  create_table "recipe_minerals", :force => true do |t|
+    t.integer  "recipe_id"
+    t.integer  "mineral_id"
+    t.float    "amount"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "recipe_minerals", ["mineral_id"], :name => "index_recipe_minerals_on_mineral_id"
+  add_index "recipe_minerals", ["recipe_id"], :name => "index_recipe_minerals_on_recipe_id"
+
+  create_table "recipes", :force => true do |t|
+    t.string   "name"
+    t.integer  "style_id"
+    t.float    "target_og"
+    t.float    "target_fg"
+    t.float    "size"
+    t.integer  "yeast_id"
+    t.integer  "minerals_id"
+    t.integer  "grains_id"
+    t.integer  "hops_id"
+    t.integer  "mash_steps_id"
+    t.float    "boil_time"
+    t.float    "ibu"
+    t.float    "abv"
+    t.float    "srm"
+    t.float    "pitch_temperature"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "recipes", ["grains_id"], :name => "index_recipes_on_grains_id"
+  add_index "recipes", ["hops_id"], :name => "index_recipes_on_hops_id"
+  add_index "recipes", ["mash_steps_id"], :name => "index_recipes_on_mash_steps_id"
+  add_index "recipes", ["minerals_id"], :name => "index_recipes_on_minerals_id"
+  add_index "recipes", ["style_id"], :name => "index_recipes_on_style_id"
+  add_index "recipes", ["yeast_id"], :name => "index_recipes_on_yeast_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

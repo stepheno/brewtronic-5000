@@ -1,6 +1,10 @@
 Brewtronic5000::Application.routes.draw do
   resources :styles
 
+  resources :recipe_minerals
+
+  resources :recipes
+
   resources :mash_types
 
   resources :minerals
