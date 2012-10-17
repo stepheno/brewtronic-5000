@@ -1,4 +1,6 @@
 Brewtronic5000::Application.routes.draw do
+  resources :minerals
+
   resources :yeasts
 
   resources :batches
