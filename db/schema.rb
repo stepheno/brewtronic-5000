@@ -117,22 +117,6 @@ ActiveRecord::Schema.define(:version => 20121017042735) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "styles", :force => true do |t|
-    t.string   "name"
-    t.integer  "category"
-    t.integer  "sub_category"
-    t.float    "og_range_low"
-    t.float    "og_range_high"
-    t.float    "fg_range_low"
-    t.float    "fg_range_high"
-    t.float    "ibu_range_low"
-    t.float    "ibu_range_high"
-    t.float    "srm_range_low"
-    t.float    "srm_range_high"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
   create_table "recipe_grains", :force => true do |t|
     t.integer  "recipe_id"
     t.integer  "grain_id"
@@ -206,6 +190,22 @@ ActiveRecord::Schema.define(:version => 20121017042735) do
   add_index "recipes", ["minerals_id"], :name => "index_recipes_on_minerals_id"
   add_index "recipes", ["style_id"], :name => "index_recipes_on_style_id"
   add_index "recipes", ["yeast_id"], :name => "index_recipes_on_yeast_id"
+
+  create_table "styles", :force => true do |t|
+    t.string   "name"
+    t.integer  "category"
+    t.integer  "sub_category"
+    t.float    "og_range_low"
+    t.float    "og_range_high"
+    t.float    "fg_range_low"
+    t.float    "fg_range_high"
+    t.float    "ibu_range_low"
+    t.float    "ibu_range_high"
+    t.float    "srm_range_low"
+    t.float    "srm_range_high"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

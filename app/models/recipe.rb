@@ -7,5 +7,7 @@ class Recipe < ActiveRecord::Base
   has_many :minerals, :through => :recipe_minerals
   has_many :recipe_mashes
   has_many :mash_types, :through => :recipe_mashes
-  attr_accessible :abv, :boil_time, :ibu, :name, :pitch_temperature, :size, :srm, :style, :target_fg, :target_og, :yeast
+  belongs_to :yeast
+  belongs_to :style
+  attr_accessible :abv, :boil_time, :ibu, :name, :pitch_temperature, :size, :srm, :target_fg, :target_og
 end
