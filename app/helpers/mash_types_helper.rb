@@ -1,0 +1,2 @@
+module MashTypesHelper
+end

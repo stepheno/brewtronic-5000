@@ -1,0 +1,23 @@
+<h1>Listing mash_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @mash_types.each do |mash_type| %>
+  <tr>
+    <td><%= mash_type.name %></td>
+    <td><%= link_to 'Show', mash_type %></td>
+    <td><%= link_to 'Edit', edit_mash_type_path(mash_type) %></td>
+    <td><%= link_to 'Destroy', mash_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mash type', new_mash_type_path %>
