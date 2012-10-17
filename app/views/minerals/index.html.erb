@@ -1,0 +1,35 @@
+<h1>Listing minerals</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Calcium</th>
+    <th>Magnesium</th>
+    <th>Sodium</th>
+    <th>Sulfate</th>
+    <th>Carbonate</th>
+    <th>Chloride</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @minerals.each do |mineral| %>
+  <tr>
+    <td><%= mineral.name %></td>
+    <td><%= mineral.calcium %></td>
+    <td><%= mineral.magnesium %></td>
+    <td><%= mineral.sodium %></td>
+    <td><%= mineral.sulfate %></td>
+    <td><%= mineral.carbonate %></td>
+    <td><%= mineral.chloride %></td>
+    <td><%= link_to 'Show', mineral %></td>
+    <td><%= link_to 'Edit', edit_mineral_path(mineral) %></td>
+    <td><%= link_to 'Destroy', mineral, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mineral', new_mineral_path %>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @mineral.name %>
+</p>
+
+<p>
+  <b>Calcium:</b>
+  <%= @mineral.calcium %>
+</p>
+
+<p>
+  <b>Magnesium:</b>
+  <%= @mineral.magnesium %>
+</p>
+
+<p>
+  <b>Sodium:</b>
+  <%= @mineral.sodium %>
+</p>
+
+<p>
+  <b>Sulfate:</b>
+  <%= @mineral.sulfate %>
+</p>
+
+<p>
+  <b>Carbonate:</b>
+  <%= @mineral.carbonate %>
+</p>
+
+<p>
+  <b>Chloride:</b>
+  <%= @mineral.chloride %>
+</p>
+
+
+<%= link_to 'Edit', edit_mineral_path(@mineral) %> |
+<%= link_to 'Back', minerals_path %>

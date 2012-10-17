@@ -1,0 +1,45 @@
+<%= form_for(@mineral) do |f| %>
+  <% if @mineral.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mineral.errors.count, "error") %> prohibited this mineral from being saved:</h2>
+
+      <ul>
+      <% @mineral.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :calcium %><br />
+    <%= f.text_field :calcium %>
+  </div>
+  <div class="field">
+    <%= f.label :magnesium %><br />
+    <%= f.text_field :magnesium %>
+  </div>
+  <div class="field">
+    <%= f.label :sodium %><br />
+    <%= f.text_field :sodium %>
+  </div>
+  <div class="field">
+    <%= f.label :sulfate %><br />
+    <%= f.text_field :sulfate %>
+  </div>
+  <div class="field">
+    <%= f.label :carbonate %><br />
+    <%= f.text_field :carbonate %>
+  </div>
+  <div class="field">
+    <%= f.label :chloride %><br />
+    <%= f.text_field :chloride %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
