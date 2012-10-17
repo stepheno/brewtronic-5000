@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @yeast.name %>
+</p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @yeast.manufacturer %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @yeast.yeast_type %>
+</p>
+
+<p>
+  <b>Efficiency:</b>
+  <%= @yeast.efficiency %>
+</p>
+
+
+<%= link_to 'Edit', edit_yeast_path(@yeast) %> |
+<%= link_to 'Back', yeasts_path %>

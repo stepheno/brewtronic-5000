@@ -1,0 +1,33 @@
+<%= form_for(@yeast) do |f| %>
+  <% if @yeast.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yeast.errors.count, "error") %> prohibited this yeast from being saved:</h2>
+
+      <ul>
+      <% @yeast.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :manufacturer %><br />
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :yeast_type %><br />
+    <%= f.text_field :yeast_type %>
+  </div>
+  <div class="field">
+    <%= f.label :efficiency %><br />
+    <%= f.text_field :efficiency %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
