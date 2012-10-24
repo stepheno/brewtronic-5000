@@ -1,4 +1,6 @@
 Brewtronic5000::Application.routes.draw do
+  resources :yeast_manufacturers
+
   resources :styles
 
   resources :recipe_minerals

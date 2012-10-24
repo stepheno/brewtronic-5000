@@ -22,7 +22,7 @@
   <tbody>
     <% @styles.each do |style| %>
       <tr>
-        <td><%= style.name %></td>
+        <td><%= link_to style.name, style %></td>
         <td><%= style.category %></td>
         <td><%= style.sub_category %></td>
         <td><%= style.og_range_low %></td>
@@ -33,9 +33,8 @@
         <td><%= style.ibu_range_high %></td>
         <td><%= style.srm_range_low %></td>
         <td><%= style.srm_range_high %></td>
-        <td><%= link_to 'Show', style %></td>
-        <td><%= link_to 'Edit', edit_style_path(style) %></td>
-        <td><%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_style_path(style), :class => 'btn btn-mini' %></td>
+        <td><%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

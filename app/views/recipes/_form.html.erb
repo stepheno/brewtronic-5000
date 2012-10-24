@@ -16,8 +16,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :style %><br />
-    <%= f.text_field :style %>
+    <%= f.label :style_id %><br />
+    <%= f.select :style_id, Style.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :target_og %><br />
@@ -32,24 +32,32 @@
     <%= f.text_field :size %>
   </div>
   <div class="field">
-    <%= f.label :yeast %><br />
-    <%= f.text_field :yeast %>
+    <%= f.label :yeast_id %><br />
+    <%= f.select :yeast_id, Yeast.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
-    <%= f.label :minerals %><br />
-    <%= f.text_field :minerals %>
+    <% f.fields_for :minerals do |mineral| %>
+      <%= mineral.label :minerals %><br />
+      <%= mineral.collection_select(:mineral_id, Mineral.all, :name, :id) %>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :grains %><br />
-    <%= f.text_field :grains %>
+    <% f.fields_for :grains do |mineral| %>
+      <%= mineral.label :grains %><br />
+      <%= mineral.collection_select(:grain_id, Grain.all, :name, :id) %>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :hops %><br />
-    <%= f.text_field :hops %>
+    <% f.fields_for :hops do |mineral| %>
+      <%= mineral.label :hops %><br />
+      <%= mineral.collection_select(:hop_id, Hop.all, :name, :id) %>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :mash_steps %><br />
-    <%= f.text_field :mash_steps %>
+    <% f.fields_for :mash_steps do |mineral| %>
+      <%= mineral.label :mash_steps %><br />
+      <%= mineral.collection_select(:mash_step_id, MashType.all, :name, :id) %>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :boil_time %><br />

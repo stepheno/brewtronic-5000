@@ -16,8 +16,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :manufacturer %><br />
-    <%= f.text_field :manufacturer %>
+    <%= f.label :manufacturer_id %><br />
+    <%= f.select :manufacturer_id, YeastManufacturer.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :yeast_type %><br />
