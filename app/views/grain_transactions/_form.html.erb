@@ -1,0 +1,33 @@
+<%= form_for(@grain_transaction) do |f| %>
+  <% if @grain_transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grain_transaction.errors.count, "error") %> prohibited this grain_transaction from being saved:</h2>
+
+      <ul>
+      <% @grain_transaction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :grain %><br />
+    <%= f.text_field :grain %>
+  </div>
+  <div class="field">
+    <%= f.label :grain_supplier %><br />
+    <%= f.text_field :grain_supplier %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_amount %><br />
+    <%= f.text_field :unit_amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

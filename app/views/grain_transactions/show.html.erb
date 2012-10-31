@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Grain:</b>
+  <%= @grain_transaction.grain %>
+</p>
+
+<p>
+  <b>Grain supplier:</b>
+  <%= @grain_transaction.grain_supplier %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @grain_transaction.quantity %>
+</p>
+
+<p>
+  <b>Unit amount:</b>
+  <%= @grain_transaction.unit_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_grain_transaction_path(@grain_transaction) %> |
+<%= link_to 'Back', grain_transactions_path %>
