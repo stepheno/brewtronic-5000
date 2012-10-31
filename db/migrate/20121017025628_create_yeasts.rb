@@ -1,7 +1,7 @@
 class CreateYeasts < ActiveRecord::Migration
   def change
     create_table :yeasts do |t|
-      t.references :manufacturer
+      t.references :yeast_manufacturer
       t.string :name
       t.string :yeast_type
       t.float :efficiency
@@ -10,6 +10,6 @@ class CreateYeasts < ActiveRecord::Migration
 
     end
       
-    add_index :yeasts, :manufacturer_id
+    add_index :yeasts, :yeast_manufacturer_id
   end
 end
