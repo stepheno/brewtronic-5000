@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :grain %><br />
-    <%= f.text_field :grain %>
+    <%= f.select :grain_id, Grain.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :grain_supplier %><br />
-    <%= f.text_field :grain_supplier %>
+    <%= f.select :grain_supplier_id, GrainSupplier.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :quantity %><br />
