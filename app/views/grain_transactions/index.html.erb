@@ -19,7 +19,7 @@
         <td><%= grain_transaction.grain.name %></td>
         <td><%= grain_transaction.grain_supplier.name %></td>
         <td><%= grain_transaction.quantity %></td>
-        <td><%= grain_transaction.unit_amount %></td>
+        <td><%= grain_transaction.amount %></td>
         <td><%= grain_transaction.updated_at.localtime.strftime('%F %r') %></td>
         <td><%= link_to 'Edit', edit_grain_transaction_path(grain_transaction), :class=> 'btn btn-mini' %></td>
         <td><%= link_to 'Destroy', grain_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
