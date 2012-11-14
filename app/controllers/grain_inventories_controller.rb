@@ -41,9 +41,7 @@ class GrainInventoriesController < ApplicationController
   # POST /grain_inventories
   # POST /grain_inventories.json
   def create
-    if params[:grain_inventory][:unit] == "lb" 
-      params[:grain_inventory][:amount] = params[:grain_inventory][:amount].to_f.lb.to_si.value
-    end
+    params[:grain_inventory][:amount] = Units.convert_units(params[:grain_inventory][:amount],params[:grain_inventory][:unit])
 
     @grain_inventory = GrainInventory.new(params[:grain_inventory])
     respond_to do |format|
@@ -60,8 +58,9 @@ class GrainInventoriesController < ApplicationController
   # PUT /grain_inventories/1
   # PUT /grain_inventories/1.json
   def update
+    params[:grain_inventory][:amount] = Units.convert_units(params[:grain_inventory][:amount],params[:grain_inventory][:unit])
+   
     @grain_inventory = GrainInventory.find(params[:id])
-
     respond_to do |format|
       if @grain_inventory.update_attributes(params[:grain_inventory])
         format.html { redirect_to @grain_inventory, notice: 'Grain inventory was successfully updated.' }

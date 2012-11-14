@@ -26,6 +26,7 @@
   <div class="field">
     <%= f.label :unit_amount %><br />
     <%= f.text_field :unit_amount %>
+    <%= f.select :unit, options_for_select(["kg", "lb"])%>
   </div>
   <div class="actions">
     <%= f.submit %>
