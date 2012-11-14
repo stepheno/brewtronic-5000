@@ -256,14 +256,14 @@ ActiveRecord::Schema.define(:version => 20121114061810) do
   end
 
   create_table "yeasts", :force => true do |t|
-    t.integer  "manufacturer_id"
+    t.integer  "yeast_manufacturer_id"
     t.string   "name"
     t.string   "yeast_type"
     t.float    "efficiency"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
-  add_index "yeasts", ["manufacturer_id"], :name => "index_yeasts_on_manufacturer_id"
+  add_index "yeasts", ["yeast_manufacturer_id"], :name => "index_yeasts_on_yeast_manufacturer_id"
 
 end
