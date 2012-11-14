@@ -15,8 +15,8 @@
   <tbody>
     <% @hop_transactions.each do |hop_transaction| %>
       <tr>
-        <td><%= hop_transaction.hop %></td>
-        <td><%= hop_transaction.hop_supplier %></td>
+        <td><%= hop_transaction.hop.name %></td>
+        <td><%= hop_transaction.hop_supplier.name %></td>
         <td><%= hop_transaction.quantity %></td>
         <td><%= "%0.2f" % hop_transaction.unit_amount %></td>
         <td><%= link_to 'Show', hop_transaction %></td>

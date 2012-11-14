@@ -40,7 +40,7 @@ class HopTransactionsController < ApplicationController
   # POST /hop_transactions
   # POST /hop_transactions.json
   def create
-    params[:hop_transaction][:amount] = convert_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
+    params[:hop_transaction][:unit_amount] = convert_units(params[:hop_transaction][:unit_amount],params[:hop_transaction][:unit])
 
     @hop_transaction = HopTransaction.new(params[:hop_transaction])
 
@@ -58,7 +58,7 @@ class HopTransactionsController < ApplicationController
   # PUT /hop_transactions/1
   # PUT /hop_transactions/1.json
   def update
-    params[:hop_transaction][:amount] = convert_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
+    params[:hop_transaction][:unit_amount] = convert_units(params[:hop_transaction][:unit_amount],params[:hop_transaction][:unit])
     @hop_transaction = HopTransaction.find(params[:id])
 
     respond_to do |format|
