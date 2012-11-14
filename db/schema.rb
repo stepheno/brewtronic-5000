@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114041847) do
+ActiveRecord::Schema.define(:version => 20121114061810) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(:version => 20121114041847) do
     t.integer  "hop_id"
     t.integer  "hop_supplier_id"
     t.integer  "quantity"
-    t.float    "unit_amount"
+    t.float    "amount"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -256,14 +256,14 @@ ActiveRecord::Schema.define(:version => 20121114041847) do
   end
 
   create_table "yeasts", :force => true do |t|
-    t.integer  "yeast_manufacturer_id"
+    t.integer  "manufacturer_id"
     t.string   "name"
     t.string   "yeast_type"
     t.float    "efficiency"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "yeasts", ["yeast_manufacturer_id"], :name => "index_yeasts_on_yeast_manufacturer_id"
+  add_index "yeasts", ["manufacturer_id"], :name => "index_yeasts_on_manufacturer_id"
 
 end
