@@ -2,6 +2,7 @@ class Hop < ActiveRecord::Base
   attr_accessible :alpha, :name, :beta, :hop_supplier_id
   belongs_to :hop_supplier
   has_many :hop_inventories
+  has_many :hop_transactions
   has_many :recipes, :through => :recipe_hops
   has_many :recipe_hops
 

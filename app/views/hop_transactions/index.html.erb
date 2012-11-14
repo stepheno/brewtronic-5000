@@ -1,0 +1,32 @@
+<h1>Listing hop_transactions</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th>Hop</th>
+    <th>Hop supplier</th>
+    <th>Quantity</th>
+    <th>Unit amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hop_transactions.each do |hop_transaction| %>
+      <tr>
+        <td><%= hop_transaction.hop %></td>
+        <td><%= hop_transaction.hop_supplier %></td>
+        <td><%= hop_transaction.quantity %></td>
+        <td><%= "%0.2f" % hop_transaction.unit_amount %></td>
+        <td><%= link_to 'Show', hop_transaction %></td>
+        <td><%= link_to 'Edit', edit_hop_transaction_path(hop_transaction), :class => 'btn btn-mini' %></td>
+        <td><%= link_to 'Destroy', hop_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Hop transaction', new_hop_transaction_path %>

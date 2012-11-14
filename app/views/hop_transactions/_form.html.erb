@@ -1,0 +1,34 @@
+<%= form_for(@hop_transaction) do |f| %>
+  <% if @hop_transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hop_transaction.errors.count, "error") %> prohibited this hop_transaction from being saved:</h2>
+
+      <ul>
+      <% @hop_transaction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hop_id %><br />
+    <%= f.select :hop_id, Hop.all.collect {|c| [c.name, c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :hop_supplier_d %><br />
+    <%= f.select :hop_supplier_id, HopSupplier.all.collect {|c| [c.name, c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_amount %><br />
+    <%= f.text_field :unit_amount %>
+    <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"])%>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

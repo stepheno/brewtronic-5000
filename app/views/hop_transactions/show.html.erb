@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Hop:</b>
+  <%= @hop_transaction.hop %>
+</p>
+
+<p>
+  <b>Hop supplier:</b>
+  <%= @hop_transaction.hop_supplier %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @hop_transaction.quantity %>
+</p>
+
+<p>
+  <b>Unit amount:</b>
+  <%= @hop_transaction.unit_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_hop_transaction_path(@hop_transaction) %> |
+<%= link_to 'Back', hop_transactions_path %>
