@@ -1,4 +1,4 @@
-<h1>Listing grain_transactions</h1>
+<h1>Listing Grain Transactions</h1>
 
 <table class="table table-striped">
   <thead>
@@ -21,8 +21,8 @@
         <td><%= grain_transaction.quantity %></td>
         <td><%= grain_transaction.amount %></td>
         <td><%= grain_transaction.updated_at.localtime.strftime('%F %r') %></td>
-        <td><%= link_to 'Edit', edit_grain_transaction_path(grain_transaction), :class=> 'btn btn-mini' %></td>
-        <td><%= link_to 'Destroy', grain_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+        <td><%= link_to 'Edit', edit_grain_transaction_path(grain_transaction), :class=> 'btn btn-mini pull-right' %></td>
+        <td><%= link_to 'Destroy', grain_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
       </tr>
     <% end %>
   </tbody>

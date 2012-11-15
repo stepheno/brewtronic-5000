@@ -1,22 +1,15 @@
-<h1>Listing recipes</h1>
+<h1>Listing Recipes</h1>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Style</th>
-    <th>Target og</th>
-    <th>Target fg</th>
+    <th>OG</th>
+    <th>FG</th>
     <th>Size</th>
-    <th>Yeast</th>
-    <th>Minerals</th>
-    <th>Grains</th>
-    <th>Hops</th>
-    <th>Mash steps</th>
-    <th>Boil time</th>
     <th>Ibu</th>
     <th>Abv</th>
     <th>Srm</th>
-    <th>Pitch temperature</th>
     <th></th>
     <th></th>
     <th></th>
@@ -29,16 +22,9 @@
     <td><%= recipe.target_og %></td>
     <td><%= recipe.target_fg %></td>
     <td><%= recipe.size %></td>
-    <td><%= recipe.yeast %></td>
-    <td><%= recipe.minerals %></td>
-    <td><%= recipe.grains %></td>
-    <td><%= recipe.hops %></td>
-    <td><%= recipe.mash_steps %></td>
-    <td><%= recipe.boil_time %></td>
     <td><%= recipe.ibu %></td>
     <td><%= recipe.abv %></td>
     <td><%= recipe.srm %></td>
-    <td><%= recipe.pitch_temperature %></td>
     <td><%= link_to 'Show', recipe %></td>
     <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
     <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>

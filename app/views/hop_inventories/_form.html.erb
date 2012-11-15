@@ -30,7 +30,7 @@
   </div>
   <div class="field">
     <%= f.label :hop_type %><br />
-    <%= f.text_field :hop_type %>
+    <%= f.select :hop_type, options_for_select(["Whole", "Pellet", "Plug"])%>
   </div>
   <div class="actions">
     <%= f.submit %>
