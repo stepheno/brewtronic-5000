@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :yeast_type %><br />
-    <%= f.text_field :yeast_type %>
+    <%= f.select :yeast_type, options_for_select(["Ale", "Lager"])%>
   </div>
   <div class="field">
     <%= f.label :efficiency %><br />

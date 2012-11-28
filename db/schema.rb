@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114061810) do
+ActiveRecord::Schema.define(:version => 20121114064509) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20121114061810) do
     t.integer  "grain_id"
     t.integer  "grain_supplier_id"
     t.integer  "quantity"
-    t.float    "unit_amount"
+    t.float    "amount"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end

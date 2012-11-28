@@ -8,7 +8,6 @@
       <th>Color</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -17,8 +16,8 @@
       <td><%= link_to grain.name, grain %></td>
       <td><%= grain.extract_potential %></td>
       <td><%= grain.color %></td>
-      <td><%= link_to 'Edit', edit_grain_path(grain), :class => 'btn btn-mini' %></td>
-      <td><%= link_to 'Destroy', grain, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+      <td><%= link_to 'Edit', edit_grain_path(grain), :class => 'btn btn-mini pull-right' %></td>
+      <td><%= link_to 'Destroy', grain, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
     </tr>
     <% end %>
   </tbody>

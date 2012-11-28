@@ -10,7 +10,6 @@
       <th>Type</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -21,8 +20,8 @@
       <td><%= hop_inventory.crop_year %></td>
       <td><%= "%0.2f" % hop_inventory.amount %></td>
       <td><%= hop_inventory.hop_type %></td>
-      <td><%= link_to 'Edit', edit_hop_inventory_path(hop_inventory), :class => 'btn btn-mini' %></td>
-      <td><%= link_to 'Destroy', hop_inventory, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+      <td><%= link_to 'Edit', edit_hop_inventory_path(hop_inventory), :class => 'btn btn-mini pull-right' %></td>
+      <td><%= link_to 'Destroy', hop_inventory, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
     </tr>
     <% end %>
   </tbody>
