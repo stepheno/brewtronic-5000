@@ -7,6 +7,7 @@
     <th>Hop supplier</th>
     <th>Quantity</th>
     <th>Unit amount</th>
+    <th>Total</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,8 +18,9 @@
       <tr>
         <td><%= hop_transaction.hop.name %></td>
         <td><%= hop_transaction.hop_supplier.name %></td>
-        <td><%= hop_transaction.quantity %></td>
-        <td><%= "%0.2f" % hop_transaction.amount %></td>
+        <td><%= "%d units" % hop_transaction.quantity %></td>
+        <td><%= "%0.2f kg" % hop_transaction.amount %></td>
+        <td><%= "%0.2f kg" % (hop_transaction.amount * hop_transaction.quantity) %></td>
         <td><%= link_to 'Show', hop_transaction %></td>
         <td><%= link_to 'Edit', edit_hop_transaction_path(hop_transaction), :class => 'btn btn-mini' %></td>
         <td><%= link_to 'Destroy', hop_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>

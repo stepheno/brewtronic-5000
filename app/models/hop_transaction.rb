@@ -1,4 +1,6 @@
 class HopTransaction < ActiveRecord::Base
+  include Units
+
   belongs_to :hop
   belongs_to :hop_supplier
   attr_accessible :quantity, :amount, :hop_id, :hop_supplier_id
