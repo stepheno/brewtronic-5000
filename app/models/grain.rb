@@ -5,4 +5,5 @@ class Grain < ActiveRecord::Base
   has_many :recipe_grains
   validates :extract_potential, :numericality => true
   validates :color, :numericality => true
+  validates_uniqueness_of :name
 end
