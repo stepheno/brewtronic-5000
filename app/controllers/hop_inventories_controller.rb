@@ -2,7 +2,7 @@ class HopInventoriesController < ApplicationController
   # GET /hop_inventories
   # GET /hop_inventories.json
   def index
-    @hop_inventories = HopInventory.all
+    @hop_inventories = HopInventory.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,7 +2,7 @@ class BatchesController < ApplicationController
   # GET /batches
   # GET /batches.json
   def index
-    @batches = Batch.all
+    @batches = Batch.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

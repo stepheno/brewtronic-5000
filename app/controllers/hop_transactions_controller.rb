@@ -2,7 +2,7 @@ class HopTransactionsController < ApplicationController
   # GET /hop_transactions
   # GET /hop_transactions.json
   def index
-    @hop_transactions = HopTransaction.all
+    @hop_transactions = HopTransaction.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

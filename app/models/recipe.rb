@@ -14,4 +14,6 @@ class Recipe < ActiveRecord::Base
   belongs_to :yeast
   belongs_to :style
   attr_accessible :abv, :boil_time, :ibu, :name, :pitch_temperature, :size, :srm, :target_fg, :target_og
+
+  self.per_page = 10
 end

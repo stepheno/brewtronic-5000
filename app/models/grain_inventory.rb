@@ -5,4 +5,6 @@ class GrainInventory < ActiveRecord::Base
   belongs_to :grain
   belongs_to :grain_supplier
   validates :amount, :numericality => true
+
+  self.per_page = 10
 end

@@ -11,4 +11,6 @@ class Hop < ActiveRecord::Base
   validates :beta, :numericality => true, :allow_blank => true
   validates :hop_supplier_id, :presence => true
   validates_uniqueness_of :name, :scope => [:hop_supplier_id]
+
+  self.per_page = 10
 end

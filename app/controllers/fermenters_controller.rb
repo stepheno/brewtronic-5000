@@ -2,7 +2,7 @@ class FermentersController < ApplicationController
   # GET /fermenters
   # GET /fermenters.json
   def index
-    @fermenters = Fermenter.all
+    @fermenters = Fermenter.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -11,4 +11,6 @@ class Style < ActiveRecord::Base
   validates :ibu_range_low, :presence => true, :numericality => true
   validates :srm_range_high, :presence => true, :numericality => true
   validates :srm_range_low, :presence => true, :numericality => true
+
+  self.per_page = 10
 end
