@@ -5,6 +5,7 @@ class GrainInventory < ActiveRecord::Base
   belongs_to :grain
   belongs_to :grain_supplier
   validates :amount, :numericality => true
+  validates :grain_id, :uniqueness => {:scope => :grain_supplier_id}
 
   self.per_page = 10
 end

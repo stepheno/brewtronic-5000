@@ -11,7 +11,7 @@ module Units
       when "kg"
         amount
       else
-        raise "Units.convert_units: Unkown unit ${unit}. Try again, sucker."
+        raise "Units.convert_units: Unknown unit #{unit}. Try again, sucker."
     end
   end
 
