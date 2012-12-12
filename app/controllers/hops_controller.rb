@@ -44,7 +44,7 @@ class HopsController < ApplicationController
 
     respond_to do |format|
       if @hop.save
-        format.html { redirect_to @hop, notice: 'Hop was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Hop #{@hop.name} was successfully created." }
         format.json { render json: @hop, status: :created, location: @hop }
       else
         format.html { render action: "new" }

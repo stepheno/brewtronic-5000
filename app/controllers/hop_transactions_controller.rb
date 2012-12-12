@@ -46,7 +46,7 @@ class HopTransactionsController < ApplicationController
 
     respond_to do |format|
       if @hop_transaction.save
-        format.html { redirect_to @hop_transaction, notice: 'Hop transaction was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Hop Transaction #{@hop_transaction.hop.name}:#{@hop_transaction.hop_supplier.name} was successfully created." }
         format.json { render json: @hop_transaction, status: :created, location: @hop_transaction }
       else
         format.html { render action: "new" }

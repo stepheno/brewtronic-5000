@@ -46,7 +46,7 @@ class HopInventoriesController < ApplicationController
 
     respond_to do |format|
       if @hop_inventory.save
-        format.html { redirect_to @hop_inventory, notice: 'Hop inventory was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "#{@hop_inventory.hop.name}(#{@hop_inventory.crop_year}) was successfully created." }
         format.json { render json: @hop_inventory, status: :created, location: @hop_inventory }
       else
         format.html { render action: "new" }
