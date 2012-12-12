@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

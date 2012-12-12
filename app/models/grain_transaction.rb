@@ -7,4 +7,6 @@ class GrainTransaction < ActiveRecord::Base
 
   validates :quantity, :presence => true, :numericality => true
   validates :amount, :presence => true, :numericality => true
+
+  self.per_page = 10
 end

@@ -2,7 +2,7 @@ class MashTypesController < ApplicationController
   # GET /mash_types
   # GET /mash_types.json
   def index
-    @mash_types = MashType.all
+    @mash_types = MashType.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

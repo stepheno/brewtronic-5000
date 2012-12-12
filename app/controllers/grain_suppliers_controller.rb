@@ -2,7 +2,7 @@ class GrainSuppliersController < ApplicationController
   # GET /grain_suppliers
   # GET /grain_suppliers.json
   def index
-    @grain_suppliers = GrainSupplier.all
+    @grain_suppliers = GrainSupplier.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

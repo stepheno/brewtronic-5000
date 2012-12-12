@@ -3,7 +3,7 @@ class GrainInventoriesController < ApplicationController
   # GET /grain_inventories
   # GET /grain_inventories.json
   def index
-    @grain_inventories = GrainInventory.all
+    @grain_inventories = GrainInventory.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

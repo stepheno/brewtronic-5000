@@ -6,4 +6,6 @@ class Grain < ActiveRecord::Base
   validates :extract_potential, :numericality => true
   validates :color, :numericality => true
   validates_uniqueness_of :name
+
+  self.per_page = 10
 end
