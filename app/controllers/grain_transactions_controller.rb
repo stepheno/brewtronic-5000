@@ -50,9 +50,9 @@ class GrainTransactionsController < ApplicationController
 
         if (grain_inventory.nil?)
           grain_inventory = GrainInventory.create(:grain_id => gt_params[:grain_id], :grain_supplier_id => gt_params[:grain_supplier_id], :amount => total_amount)
+        else
+          grain_inventory.amount = grain_inventory.amount + total_amount
         end
-
-        grain_inventory.amount = grain_inventory.amount + total_amount
         grain_inventory.save
 
         format.html { redirect_to @grain_transaction, notice: 'Grain transaction was successfully created.' }
