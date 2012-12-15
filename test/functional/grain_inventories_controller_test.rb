@@ -18,7 +18,7 @@ class GrainInventoriesControllerTest < ActionController::TestCase
 
   test "should create grain_inventory" do
     assert_difference('GrainInventory.count') do
-      post :create, grain_inventory: { amount: @grain_inventory.amount }
+      post :create, grain_inventory: { amount: @grain_inventory.amount, unit: 'kg' }
     end
 
     assert_redirected_to grain_inventory_path(assigns(:grain_inventory))
@@ -35,7 +35,7 @@ class GrainInventoriesControllerTest < ActionController::TestCase
   end
 
   test "should update grain_inventory" do
-    put :update, id: @grain_inventory, grain_inventory: { amount: @grain_inventory.amount }
+    put :update, id: @grain_inventory, grain_inventory: { amount: @grain_inventory.amount, unit: 'kg' }
     assert_redirected_to grain_inventory_path(assigns(:grain_inventory))
   end
 

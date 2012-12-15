@@ -1,35 +1,35 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  style: 
-  target_og: 1.5
-  target_fg: 1.5
-  size: 1.5
-  yeast: 
-  minerals: 
-  grains: 
-  hops: 
-  mash_steps: 
-  boil_time: 
-  ibu: 1.5
-  abv: 1.5
-  srm: 1.5
-  pitch_temperature: 1.5
-
-two:
-  name: MyString
-  style: 
-  target_og: 1.5
-  target_fg: 1.5
-  size: 1.5
-  yeast: 
-  minerals: 
-  grains: 
-  hops: 
-  mash_steps: 
-  boil_time: 
-  ibu: 1.5
-  abv: 1.5
-  srm: 1.5
-  pitch_temperature: 1.5
+#one:
+#  name: MyString
+#  style: 
+#  target_og: 1.5
+#  target_fg: 1.5
+#  size: 1.5
+#  yeast: 
+#  recipe_minerals: 
+#  recipe_grains: 
+#  recipe_hops: 
+#  recipe_mashes: 
+#  boil_time: 
+#  ibu: 1.5
+#  abv: 1.5
+#  srm: 1.5
+#  pitch_temperature: 1.5
+#
+#two:
+#  name: MyString
+#  style: 
+#  target_og: 1.5
+#  target_fg: 1.5
+#  size: 1.5
+#  yeast: 
+#  recipe_minerals: 
+#  recipe_grains: 
+#  recipe_hops: 
+#  recipe_mashes: 
+#  boil_time: 
+#  ibu: 1.5
+#  abv: 1.5
+#  srm: 1.5
+#  pitch_temperature: 1.5

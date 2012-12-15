@@ -5,11 +5,11 @@ one:
   hop_supplier: 
   crop_year: 1
   amount: 1.5
-  type: 
+  hop_type: 
 
 two:
   hop: 
   hop_supplier: 
   crop_year: 1
   amount: 1.5
-  type: 
+  hop_type: 

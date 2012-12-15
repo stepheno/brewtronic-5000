@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  name: IPA
   category: 1
   sub_category: 1
   og_range_low: 1.5
@@ -14,7 +14,7 @@ one:
   srm_range_high: 1.5
 
 two:
-  name: MyString
+  name: Stout 
   category: 1
   sub_category: 1
   og_range_low: 1.5

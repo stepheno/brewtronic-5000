@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  manufacturer: MyString
-  type: 
+  name: 'Cal Common'
+  yeast_manufacturer_id: 1
+  yeast_type: Ale 
   efficiency: 1.5
 
 two:
-  name: MyString
-  manufacturer: MyString
-  type: 
+  name: 'American Ale' 
+  yeast_manufacturer_id: 1
+  yeast_type: Ale
   efficiency: 1.5

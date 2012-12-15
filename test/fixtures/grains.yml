@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyText
+  name: '2-Row' 
   extract_potential: 1.5
   color: 1.5
 
 two:
-  name: MyText
+  name: 'Crystal 40'
   extract_potential: 1.5
   color: 1.5

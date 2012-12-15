@@ -1,15 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  recipe: 
-  hop: 
+  recipe_id: 1
+  hop_id: 1
   amount: 1.5
   time: 1.5
   location: MyString
+  created_at: DateTime.now
+  updated_at: DateTime.now
 
 two:
-  recipe: 
-  hop: 
+  recipe_id: 1
+  hop_id: 1 
   amount: 1.5
   time: 1.5
   location: MyString
+  created_at: DateTime.now
+  updated_at: DateTime.now

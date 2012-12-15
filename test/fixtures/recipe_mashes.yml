@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  recipe: 
-  mash_type: 
+  recipe_id: 1 
+  mash_type_id: 1 
   time: 1.5
   temperature: 1.5
+  created_at: DateTime.now
+  updated_at: DateTime.now
 
 two:
-  recipe: 
-  mash_type: 
+  recipe_id: 1 
+  mash_type_id: 1 
   time: 1.5
   temperature: 1.5
+  created_at: DateTime.now
+  updated_at: DateTime.now

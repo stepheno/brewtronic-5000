@@ -18,7 +18,7 @@ class YeastsControllerTest < ActionController::TestCase
 
   test "should create yeast" do
     assert_difference('Yeast.count') do
-      post :create, yeast: { efficiency: @yeast.efficiency, manufacturer: @yeast.manufacturer, name: @yeast.name, type: @yeast.type }
+      post :create, yeast: { efficiency: @yeast.efficiency, yeast_manufacturer_id: @yeast.yeast_manufacturer_id, name: @yeast.name, yeast_type: @yeast.yeast_type }
     end
 
     assert_redirected_to yeast_path(assigns(:yeast))
@@ -35,7 +35,7 @@ class YeastsControllerTest < ActionController::TestCase
   end
 
   test "should update yeast" do
-    put :update, id: @yeast, yeast: { efficiency: @yeast.efficiency, manufacturer: @yeast.manufacturer, name: @yeast.name, type: @yeast.type }
+    put :update, id: @yeast, yeast: { efficiency: @yeast.efficiency, yeast_manufacturer_id: @yeast.yeast_manufacturer_id, name: @yeast.name, yeast_type: @yeast.yeast_type }
     assert_redirected_to yeast_path(assigns(:yeast))
   end
 
