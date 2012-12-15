@@ -43,9 +43,23 @@ class HopTransactionsController < ApplicationController
     params[:hop_transaction][:amount] = Units.convert_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
 
     @hop_transaction = HopTransaction.new(params[:hop_transaction])
+    ht_params = params[:hop_transaction] #get the grain transaction parameters
 
     respond_to do |format|
       if @hop_transaction.save
+        hop_inventory = HopInventory.where(:hop_id => ht_params[:hop_id]).where(:hop_supplier_id => ht_params[:hop_supplier_id]).first
+        total_amount = Units.convert_units(ht_params[:quantity].to_i * ht_params[:amount].to_f, ht_params[:unit])
+
+        if (hop_inventory.nil?)
+          hop_inventory = HopInventory.create(:hop_id => ht_params[:hop_id],
+                                              :hop_supplier_id => ht_params[:hop_supplier_id],
+                                              :amount => total_amount,
+                                              :crop_year => ht_params[:hop_year])
+        end 
+
+        hop_inventory.amount = hop_inventory.amount + total_amount
+        hop_inventory.save
+
         format.html { redirect_to action: "index" and flash[:notice] = "Hop Transaction #{@hop_transaction.hop.name}:#{@hop_transaction.hop_supplier.name} was successfully created." }
         format.json { render json: @hop_transaction, status: :created, location: @hop_transaction }
       else

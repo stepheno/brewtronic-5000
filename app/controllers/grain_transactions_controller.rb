@@ -41,19 +41,19 @@ class GrainTransactionsController < ApplicationController
   # POST /grain_transactions.json
   def create
     @grain_transaction = GrainTransaction.new(params[:grain_transaction])
-
+    gt_params = params[:grain_transaction] #get the grain transaction parameters
     respond_to do |format|
       if @grain_transaction.save
 
-        grain_inventory = GrainInventory.where(params[:grain_id]).where(params[:grain_supplier_id]).first
-        total_amount = Units.convert_units(params[:grain_transaction][:quantity].to_i * params[:grain_transaction][:amount].to_f, params[:grain_transaction][:unit])
+        grain_inventory = GrainInventory.where(:grain_id => gt_params[:grain_id]).where(:grain_supplier_id => gt_params[:grain_supplier_id]).first
+        total_amount = Units.convert_units(gt_params[:quantity].to_i * gt_params[:amount].to_f, gt_params[:unit])
 
         if (grain_inventory.nil?)
-          grain_inventory = GrainInventory.create(:grain_id => params[:grain_transaction][:grain_id], :grain_supplier_id => params[:grain_transaction][:grain_supplier_id], :amount => total_amount)
-        else
-          grain_inventory.amount = grain_inventory.amount + total_amount
-          grain_inventory.save
-        end 
+          grain_inventory = GrainInventory.create(:grain_id => gt_params[:grain_id], :grain_supplier_id => gt_params[:grain_supplier_id], :amount => total_amount)
+        end
+
+        grain_inventory.amount = grain_inventory.amount + total_amount
+        grain_inventory.save
 
         format.html { redirect_to @grain_transaction, notice: 'Grain transaction was successfully created.' }
         format.json { render json: @grain_transaction, status: :created, location: @grain_transaction }
