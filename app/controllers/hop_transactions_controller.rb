@@ -47,17 +47,21 @@ class HopTransactionsController < ApplicationController
 
     respond_to do |format|
       if @hop_transaction.save
-        hop_inventory = HopInventory.where(:hop_id => ht_params[:hop_id]).where(:hop_supplier_id => ht_params[:hop_supplier_id]).first
+        hop_inventory = HopInventory.where(:hop_id => ht_params[:hop_id])
+                                     .where(:hop_supplier_id => ht_params[:hop_supplier_id])
+                                     .where(:hop_type => ht_params[:hop_type])
+                                     .first
         total_amount = Units.convert_units(ht_params[:quantity].to_i * ht_params[:amount].to_f, ht_params[:unit])
 
         if (hop_inventory.nil?)
           hop_inventory = HopInventory.create(:hop_id => ht_params[:hop_id],
                                               :hop_supplier_id => ht_params[:hop_supplier_id],
                                               :amount => total_amount,
+                                              :hop_type => ht_params[:hop_type],
                                               :crop_year => ht_params[:hop_year])
+        else
+          hop_inventory.amount = hop_inventory.amount + total_amount
         end 
-
-        hop_inventory.amount = hop_inventory.amount + total_amount
         hop_inventory.save
 
         format.html { redirect_to action: "index" and flash[:notice] = "Hop Transaction #{@hop_transaction.hop.name}:#{@hop_transaction.hop_supplier.name} was successfully created." }
