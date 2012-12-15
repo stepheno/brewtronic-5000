@@ -5,6 +5,7 @@
     <tr>
     <th>Hop</th>
     <th>Hop supplier</th>
+    <th>Hop year</th>
     <th>Quantity</th>
     <th>Unit amount</th>
     <th>Total</th>
@@ -18,6 +19,7 @@
       <tr>
         <td><%= hop_transaction.hop.name %></td>
         <td><%= hop_transaction.hop_supplier.name %></td>
+        <td><%= hop_transaction.hop_year%></td>
         <td><%= "%d units" % hop_transaction.quantity %></td>
         <td><%= "%0.2f kg" % hop_transaction.amount %></td>
         <td><%= "%0.2f kg" % (hop_transaction.amount * hop_transaction.quantity) %></td>

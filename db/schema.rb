@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114064509) do
+ActiveRecord::Schema.define(:version => 20121215070926) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20121114064509) do
     t.float    "amount"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "hop_year"
   end
 
   add_index "hop_transactions", ["hop_id"], :name => "index_hop_transactions_on_hop_id"

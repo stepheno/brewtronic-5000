@@ -1,9 +1,15 @@
 class HopTransaction < ActiveRecord::Base
   include Units
 
+  def is_valid_year?(date_str, start_year=1900, end_year=2099)
+    date_str.grep(/^(\d)+$/) { |date_str|
+      (start_year..end_year).include?(date_str.to_i)
+    }.first
+  end
+
   belongs_to :hop
   belongs_to :hop_supplier
-  attr_accessible :quantity, :amount, :hop_id, :hop_supplier_id
+  attr_accessible :quantity, :amount, :hop_year, :hop_id, :hop_supplier_id
 
   attr_accessor :unit #Virtual field for units in forms
   attr_accessible :unit #Virtual field for units in forms

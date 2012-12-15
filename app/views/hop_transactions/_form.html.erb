@@ -20,6 +20,10 @@
     <%= f.select :hop_supplier_id, HopSupplier.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
+    <%= f.label :hop_year %><br />
+    <%= f.number_field :hop_year %>
+  </div>
+  <div class="field">
     <%= f.label :quantity %><br />
     <%= f.number_field :quantity %>
   </div>
