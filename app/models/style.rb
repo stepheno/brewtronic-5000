@@ -1,6 +1,6 @@
 class Style < ActiveRecord::Base
   attr_accessible :category, :fg_range_high, :fg_range_low, :ibu_range_high, :ibu_range_low, :name, :og_range_high, :og_range_low, :srm_range_high, :srm_range_low, :sub_category
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => true
   validates :category, :presence => true, :numericality => true
   validates :sub_category, :presence => true 
   validates :og_range_high, :presence => true, :numericality => true
