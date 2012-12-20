@@ -40,7 +40,7 @@ class HopInventoriesController < ApplicationController
   # POST /hop_inventories
   # POST /hop_inventories.json
   def create
-     params[:hop_inventory][:amount] = convert_units(params[:hop_inventory][:amount],params[:hop_inventory][:unit])
+     params[:hop_inventory][:amount] = Units.convert_units(params[:hop_inventory][:amount],params[:hop_inventory][:unit])
 
     @hop_inventory = HopInventory.new(params[:hop_inventory])
 
@@ -58,7 +58,7 @@ class HopInventoriesController < ApplicationController
   # PUT /hop_inventories/1
   # PUT /hop_inventories/1.json
   def update
-    params[:hop_inventory][:amount] = convert_units(params[:hop_inventory][:amount],params[:hop_inventory][:unit])
+    params[:hop_inventory][:amount] = Units.convert_units(params[:hop_inventory][:amount],params[:hop_inventory][:unit])
     @hop_inventory = HopInventory.find(params[:id])
 
     respond_to do |format|
@@ -81,21 +81,6 @@ class HopInventoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to hop_inventories_url }
       format.json { head :no_content }
-    end
-  end
-
-  def convert_units(amount, unit)
-    case unit
-      when "lb" 
-        amount.to_f.lb.to_kg.value
-      when "g" 
-        amount.to_f.g.to_kg.value
-      when "oz" 
-        amount.to_f.oz.to_kg.value
-      when "kg"
-        amount
-      else
-        raise "Unkown unit"
     end
   end
 

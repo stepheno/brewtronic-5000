@@ -2,12 +2,12 @@
 
 <p>
   <b>Grain:</b>
-  <%= @grain_transaction.grain.name %>
+  <%= @grain_transaction.grain.name unless @grain_transaction.grain.nil? %>
 </p>
 
 <p>
   <b>Grain supplier:</b>
-  <%= @grain_transaction.grain_supplier.name %>
+  <%= @grain_transaction.grain_supplier.name unless @grain_transaction.grain_supplier.nil? %>
 </p>
 
 <p>

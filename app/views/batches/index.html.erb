@@ -19,10 +19,10 @@
   <tbody>
     <% @batches.each do |batch| %>
       <tr>
-        <td><%= batch.recipe.name %></td>
+        <td><%= batch.recipe.name unless batch.recipe.nil? %></td>
         <td><%= batch.date %></td>
-        <td><%= batch.fermenter %></td>
-        <td><%= batch.brewer %></td>
+        <td><%= batch.fermenter unless batch.fermenter.nil? %></td>
+        <td><%= batch.brewer unless batch.brewer.nil? %></td>
         <td><%= batch.original_gravity %></td>
         <td><%= batch.finish_gravity %></td>
         <td><%= batch.yield %></td>

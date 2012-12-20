@@ -18,8 +18,8 @@
   <tbody>
     <% @hop_transactions.each do |hop_transaction| %>
       <tr>
-        <td><%= hop_transaction.hop.name %></td>
-        <td><%= hop_transaction.hop_supplier.name %></td>
+        <td><%= hop_transaction.hop.name unless hop_transaction.hop.nil? %></td>
+        <td><%= hop_transaction.hop_supplier.name unless hop_transaction.hop_supplier.nil? %></td>
         <td><%= hop_transaction.hop_year%></td>
         <td><%= hop_transaction.hop_type%></td>
         <td><%= "%d units" % hop_transaction.quantity %></td>

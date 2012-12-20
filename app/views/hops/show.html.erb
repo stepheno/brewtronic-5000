@@ -17,7 +17,7 @@
 
 <p>
   <b>Hop Supplier:</b>
-  <%= @hop.hop_supplier.name %>
+  <%= @hop.hop_supplier.name unless @hop.hop_supplier.nil? %>
 </p>
 
 <%= link_to 'Edit', edit_hop_path(@hop) %> |

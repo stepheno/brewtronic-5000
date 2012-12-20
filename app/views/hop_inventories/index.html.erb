@@ -15,8 +15,8 @@
   <tbody>
     <% @hop_inventories.each do |hop_inventory| %>
     <tr>
-      <td><%= link_to hop_inventory.hop.name, hop_inventory%></td>
-      <td><%= hop_inventory.hop_supplier.name %></td>
+      <td><%= link_to hop_inventory.hop.name, hop_inventory unless hop_inventory.hop.nil? %></td>
+      <td><%= hop_inventory.hop_supplier.name unless hop_inventory.hop_supplier.nil? %></td>
       <td><%= hop_inventory.crop_year %></td>
       <td><%= "%0.2f kg" % hop_inventory.amount %></td>
       <td><%= hop_inventory.hop_type %></td>

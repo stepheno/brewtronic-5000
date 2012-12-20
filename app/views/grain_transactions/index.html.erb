@@ -16,8 +16,8 @@
   <tbody>
     <% @grain_transactions.each do |grain_transaction| %>
       <tr>
-        <td><%= grain_transaction.grain.name %></td>
-        <td><%= grain_transaction.grain_supplier.name %></td>
+        <td><%= grain_transaction.grain.name unless grain_transaction.grain.nil? %></td>
+        <td><%= grain_transaction.grain_supplier.name unless grain_transaction.grain_supplier.nil? %></td>
         <td><%= grain_transaction.quantity %></td>
         <td><%= grain_transaction.amount %></td>
         <td><%= grain_transaction.updated_at.localtime.strftime('%F %r') %></td>

@@ -18,10 +18,10 @@ class HopInventoriesControllerTest < ActionController::TestCase
 
   test "should create hop_inventory" do
     assert_difference('HopInventory.count') do
-      post :create, hop_inventory: { amount: @hop_inventory.amount, crop_year: @hop_inventory.crop_year, type: @hop_inventory.type }
+      post :create, hop_inventory: { amount: @hop_inventory.amount, crop_year: @hop_inventory.crop_year, hop_type: @hop_inventory.hop_type, unit:'kg' }
     end
 
-    assert_redirected_to hop_inventory_path(assigns(:hop_inventory))
+    assert_redirected_to hop_inventory_path
   end
 
   test "should show hop_inventory" do
@@ -35,8 +35,8 @@ class HopInventoriesControllerTest < ActionController::TestCase
   end
 
   test "should update hop_inventory" do
-    put :update, id: @hop_inventory, hop_inventory: { amount: @hop_inventory.amount, crop_year: @hop_inventory.crop_year, type: @hop_inventory.type }
-    assert_redirected_to hop_inventory_path(assigns(:hop_inventory))
+    put :update, id: @hop_inventory, hop_inventory: { amount: @hop_inventory.amount, crop_year: @hop_inventory.crop_year, hop_type: @hop_inventory.hop_type, unit:'kg' }
+    assert_redirected_to hop_inventory_path
   end
 
   test "should destroy hop_inventory" do

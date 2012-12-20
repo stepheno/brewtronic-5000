@@ -18,10 +18,10 @@ class HopTransactionsControllerTest < ActionController::TestCase
 
   test "should create hop_transaction" do
     assert_difference('HopTransaction.count') do
-      post :create, hop_transaction: { quantity: @hop_transaction.quantity, unit_amount: @hop_transaction.unit_amount }
+      post :create, hop_transaction: { hop_id: 1, hop_supplier_id:1, hop_year:2012, quantity: @hop_transaction.quantity, amount: @hop_transaction.amount, unit: 'kg' }
     end
 
-    assert_redirected_to hop_transaction_path(assigns(:hop_transaction))
+    assert_redirected_to hop_transaction_path
   end
 
   test "should show hop_transaction" do
@@ -35,8 +35,8 @@ class HopTransactionsControllerTest < ActionController::TestCase
   end
 
   test "should update hop_transaction" do
-    put :update, id: @hop_transaction, hop_transaction: { quantity: @hop_transaction.quantity, unit_amount: @hop_transaction.unit_amount }
-    assert_redirected_to hop_transaction_path(assigns(:hop_transaction))
+    put :update, id: @hop_transaction, hop_transaction: { hop_id: 1, hop_supplier_id:1, hop_year:2012, quantity: @hop_transaction.quantity, amount: @hop_transaction.amount, unit: 'kg' }
+    assert_redirected_to hop_transaction_path
   end
 
   test "should destroy hop_transaction" do

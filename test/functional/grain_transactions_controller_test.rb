@@ -18,7 +18,7 @@ class GrainTransactionsControllerTest < ActionController::TestCase
 
   test "should create grain_transaction" do
     assert_difference('GrainTransaction.count') do
-      post :create, grain_transaction: { quantity: @grain_transaction.quantity, unit_amount: @grain_transaction.unit_amount }
+      post :create, grain_transaction: { quantity: @grain_transaction.quantity, amount: @grain_transaction.amount, unit: 'kg' }
     end
 
     assert_redirected_to grain_transaction_path(assigns(:grain_transaction))
@@ -35,7 +35,7 @@ class GrainTransactionsControllerTest < ActionController::TestCase
   end
 
   test "should update grain_transaction" do
-    put :update, id: @grain_transaction, grain_transaction: { quantity: @grain_transaction.quantity, unit_amount: @grain_transaction.unit_amount }
+    put :update, id: @grain_transaction, grain_transaction: { quantity: @grain_transaction.quantity, amount: @grain_transaction.amount, unit: 'kg'  }
     assert_redirected_to grain_transaction_path(assigns(:grain_transaction))
   end
 

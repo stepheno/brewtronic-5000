@@ -7,7 +7,7 @@
 
 <p>
   <b>Manufacturer:</b>
-  <%= @yeast.yeast_manufacturer.name%>
+  <%= @yeast.yeast_manufacturer.name unless @yeast.yeast_manufacturer.nil? %>
 </p>
 
 <p>

@@ -2,12 +2,12 @@
 
 <p>
   <b>Hop:</b>
-  <%= @hop_transaction.hop.name %>
+  <%= @hop_transaction.hop.name unless @hop_transaction.hop.nil? %>
 </p>
 
 <p>
   <b>Hop supplier:</b>
-  <%= @hop_transaction.hop_supplier.name %>
+  <%= @hop_transaction.hop_supplier.name unless @hop_transaction.hop_supplier.nil? %>
 </p>
 
 <p>

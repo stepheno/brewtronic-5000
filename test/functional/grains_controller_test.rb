@@ -18,7 +18,7 @@ class GrainsControllerTest < ActionController::TestCase
 
   test "should create grain" do
     assert_difference('Grain.count') do
-      post :create, grain: { color: @grain.color, extract_potential: @grain.extract_potential, name: @grain.name }
+      post :create, grain: { color: @grain.color.to_f, extract_potential: @grain.extract_potential.to_f, name: @grain.name }
     end
 
     assert_redirected_to grain_path(assigns(:grain))
@@ -35,7 +35,7 @@ class GrainsControllerTest < ActionController::TestCase
   end
 
   test "should update grain" do
-    put :update, id: @grain, grain: { color: @grain.color, extract_potential: @grain.extract_potential, name: @grain.name }
+    put :update, id: @grain, grain: { color: @grain.color.to_f, extract_potential: @grain.extract_potential.to_f, name: @grain.name }
     assert_redirected_to grain_path(assigns(:grain))
   end
 
