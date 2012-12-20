@@ -17,5 +17,9 @@ class Recipe < ActiveRecord::Base
   attr_accessible :abv, :boil_time, :ibu, :name, :pitch_temperature, :size, :srm, :target_fg, :target_og
   attr_accessible :yeast_id, :style_id
 
+  attr_accessor :unit # Virtual field for units in forms
+  attr_accessible :unit # Virtual field for units in forms
+
+
   self.per_page = 10
 end

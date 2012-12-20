@@ -40,6 +40,7 @@ class BatchesController < ApplicationController
   # POST /batches
   # POST /batches.json
   def create
+    params[:batch][:yield] = Units.convert_volume_units(params[:batch][:yield],params[:batch][:unit])
     @batch = Batch.new(params[:batch])
 
     respond_to do |format|
@@ -56,6 +57,7 @@ class BatchesController < ApplicationController
   # PUT /batches/1
   # PUT /batches/1.json
   def update
+    params[:batch][:yield] = Units.convert_volume_units(params[:batch][:yield],params[:batch][:unit])
     @batch = Batch.find(params[:id])
 
     respond_to do |format|

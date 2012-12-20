@@ -2,7 +2,7 @@
 
 <p>
   <b>Recipe:</b>
-  <%= @batch.recipe %>
+  <%= @batch.recipe.name unless @batch.recipe.nil?  %>
 </p>
 
 <p>
@@ -12,12 +12,12 @@
 
 <p>
   <b>Fermenter:</b>
-  <%= @batch.fermenter %>
+  <%= @batch.fermenter.name unless @batch.fermenter.nil? %>
 </p>
 
 <p>
   <b>Brewer:</b>
-  <%= @batch.brewer %>
+  <%= @batch.brewer.name  unless @batch.brewer.nil? %>
 </p>
 
 <p>

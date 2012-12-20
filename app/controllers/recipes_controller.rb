@@ -40,6 +40,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
+    params[:recipe][:size] = Units.convert_volume_units(params[:recipe][:size],params[:recipe][:unit])
     @recipe = Recipe.new(params[:recipe])
 
     respond_to do |format|
@@ -56,6 +57,7 @@ class RecipesController < ApplicationController
   # PUT /recipes/1
   # PUT /recipes/1.json
   def update
+    params[:recipe][:size] = Units.convert_volume_units(params[:recipe][:size],params[:recipe][:unit])
     @recipe = Recipe.find(params[:id])
 
     respond_to do |format|
