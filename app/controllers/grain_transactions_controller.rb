@@ -46,7 +46,7 @@ class GrainTransactionsController < ApplicationController
       if @grain_transaction.save
 
         grain_inventory = GrainInventory.where(:grain_id => gt_params[:grain_id]).where(:grain_supplier_id => gt_params[:grain_supplier_id]).first
-        total_amount = Units.convert_units(gt_params[:quantity].to_i * gt_params[:amount].to_f, gt_params[:unit])
+        total_amount = Units.convert_mass_units(gt_params[:quantity].to_i * gt_params[:amount].to_f, gt_params[:unit])
 
         if (grain_inventory.nil?)
           grain_inventory = GrainInventory.create(:grain_id => gt_params[:grain_id], :grain_supplier_id => gt_params[:grain_supplier_id], :amount => total_amount)

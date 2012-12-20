@@ -4,12 +4,12 @@
   <thead>
     <tr>
       <th>Recipe</th>
-      <th>Date</th>
       <th>Fermenter</th>
       <th>Brewer</th>
       <th>OG</th>
       <th>FG</th>
       <th>Yield</th>
+      <th>Brew Date</th>
       <th>Target date</th>
       <th></th>
       <th></th>
@@ -20,12 +20,12 @@
     <% @batches.each do |batch| %>
       <tr>
         <td><%= batch.recipe.name unless batch.recipe.nil? %></td>
-        <td><%= batch.date %></td>
-        <td><%= batch.fermenter unless batch.fermenter.nil? %></td>
-        <td><%= batch.brewer unless batch.brewer.nil? %></td>
+        <td><%= batch.fermenter.name unless batch.fermenter.nil? %></td>
+        <td><%= batch.brewer.name unless batch.brewer.nil? %></td>
         <td><%= batch.original_gravity %></td>
         <td><%= batch.finish_gravity %></td>
         <td><%= batch.yield %></td>
+        <td><%= batch.date %></td>
         <td><%= batch.target_date %></td>
         <td><%= link_to 'Show', batch %></td>
         <td><%= link_to 'Edit', edit_batch_path(batch), :class => 'btn btn-mini pull-right' %></td>

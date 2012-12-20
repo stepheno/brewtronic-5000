@@ -12,20 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :recipe %><br />
-    <%= f.text_field :recipe %>
+    <%= f.label :recipe_id %><br />
+    <%= f.select :recipe_id, Recipe.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :fermenter %><br />
-    <%= f.text_field :fermenter %>
+    <%= f.label :fermenter_id %><br />
+    <%= f.select :fermenter_id, Fermenter.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
-    <%= f.label :brewer %><br />
-    <%= f.text_field :brewer %>
+    <%= f.label :brewer_id %><br />
+    <%= f.select :brewer_id, Brewer.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :original_gravity %><br />

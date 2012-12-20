@@ -13,7 +13,9 @@ class Recipe < ActiveRecord::Base
   has_many :mash_types, :through => :recipe_mashes
   belongs_to :yeast
   belongs_to :style
+  has_many :batches
   attr_accessible :abv, :boil_time, :ibu, :name, :pitch_temperature, :size, :srm, :target_fg, :target_og
+  attr_accessible :yeast_id, :style_id
 
   self.per_page = 10
 end

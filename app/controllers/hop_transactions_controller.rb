@@ -40,7 +40,7 @@ class HopTransactionsController < ApplicationController
   # POST /hop_transactions
   # POST /hop_transactions.json
   def create
-    params[:hop_transaction][:amount] = Units.convert_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
+    params[:hop_transaction][:amount] = Units.convert_mass_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
 
     @hop_transaction = HopTransaction.new(params[:hop_transaction])
     ht_params = params[:hop_transaction] #get the grain transaction parameters
@@ -51,7 +51,7 @@ class HopTransactionsController < ApplicationController
                                      .where(:hop_supplier_id => ht_params[:hop_supplier_id])
                                      .where(:hop_type => ht_params[:hop_type])
                                      .first
-        total_amount = Units.convert_units(ht_params[:quantity].to_i * ht_params[:amount].to_f, ht_params[:unit])
+        total_amount = Units.convert_mass_units(ht_params[:quantity].to_i * ht_params[:amount].to_f, ht_params[:unit])
 
         if (hop_inventory.nil?)
           hop_inventory = HopInventory.create(:hop_id => ht_params[:hop_id],
@@ -76,7 +76,7 @@ class HopTransactionsController < ApplicationController
   # PUT /hop_transactions/1
   # PUT /hop_transactions/1.json
   def update
-    params[:hop_transaction][:amount] = Units.convert_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
+    params[:hop_transaction][:amount] = Units.convert_mass_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
     @hop_transaction = HopTransaction.find(params[:id])
 
     respond_to do |format|
