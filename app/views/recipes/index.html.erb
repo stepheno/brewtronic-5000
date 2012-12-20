@@ -29,7 +29,7 @@
         <td><%= recipe.srm %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe), :class => 'btn btn-mini pull-right' %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini pull-right' %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
       </tr>
     <% end %>
   </tbody>

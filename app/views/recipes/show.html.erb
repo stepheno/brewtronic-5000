@@ -7,7 +7,7 @@
 
 <p>
   <b>Style:</b>
-  <%= @recipe.style %>
+  <%= @recipe.style.name unless @recipe.style.nil? %>
 </p>
 
 <p>
@@ -27,27 +27,7 @@
 
 <p>
   <b>Yeast:</b>
-  <%= @recipe.yeast %>
-</p>
-
-<p>
-  <b>Minerals:</b>
-  <%= @recipe.minerals %>
-</p>
-
-<p>
-  <b>Grains:</b>
-  <%= @recipe.grains %>
-</p>
-
-<p>
-  <b>Hops:</b>
-  <%= @recipe.hops %>
-</p>
-
-<p>
-  <b>Mash steps:</b>
-  <%= @recipe.mash_steps %>
+  <%= @recipe.yeast.name unless @recipe.yeast.nil? %>
 </p>
 
 <p>
