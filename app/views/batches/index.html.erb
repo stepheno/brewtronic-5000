@@ -29,7 +29,7 @@
         <td><%= batch.target_date %></td>
         <td><%= link_to 'Show', batch %></td>
         <td><%= link_to 'Edit', edit_batch_path(batch), :class => 'btn btn-mini pull-right' %></td>
-        <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini pull-right' %></td>
+        <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
       </tr>
     <% end %>
   </tbody>
