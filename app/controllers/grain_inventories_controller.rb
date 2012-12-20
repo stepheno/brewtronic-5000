@@ -41,7 +41,7 @@ class GrainInventoriesController < ApplicationController
   # POST /grain_inventories
   # POST /grain_inventories.json
   def create
-    params[:grain_inventory][:amount] = Units.convert_units(params[:grain_inventory][:amount],params[:grain_inventory][:unit])
+    params[:grain_inventory][:amount] = Units.convert_mass_units(params[:grain_inventory][:amount],params[:grain_inventory][:unit])
 
     @grain_inventory = GrainInventory.new(params[:grain_inventory])
     respond_to do |format|
@@ -58,7 +58,7 @@ class GrainInventoriesController < ApplicationController
   # PUT /grain_inventories/1
   # PUT /grain_inventories/1.json
   def update
-    params[:grain_inventory][:amount] = Units.convert_units(params[:grain_inventory][:amount],params[:grain_inventory][:unit])
+    params[:grain_inventory][:amount] = Units.convert_mass_units(params[:grain_inventory][:amount],params[:grain_inventory][:unit])
    
     @grain_inventory = GrainInventory.find(params[:id])
     respond_to do |format|

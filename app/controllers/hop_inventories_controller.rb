@@ -40,7 +40,7 @@ class HopInventoriesController < ApplicationController
   # POST /hop_inventories
   # POST /hop_inventories.json
   def create
-     params[:hop_inventory][:amount] = Units.convert_units(params[:hop_inventory][:amount],params[:hop_inventory][:unit])
+     params[:hop_inventory][:amount] = Units.convert_mass_units(params[:hop_inventory][:amount],params[:hop_inventory][:unit])
 
     @hop_inventory = HopInventory.new(params[:hop_inventory])
 
@@ -58,7 +58,7 @@ class HopInventoriesController < ApplicationController
   # PUT /hop_inventories/1
   # PUT /hop_inventories/1.json
   def update
-    params[:hop_inventory][:amount] = Units.convert_units(params[:hop_inventory][:amount],params[:hop_inventory][:unit])
+    params[:hop_inventory][:amount] = Units.convert_mass_units(params[:hop_inventory][:amount],params[:hop_inventory][:unit])
     @hop_inventory = HopInventory.find(params[:id])
 
     respond_to do |format|

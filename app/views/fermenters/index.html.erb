@@ -15,12 +15,11 @@
   <tbody>
     <% @fermenters.each do |fermenter| %>
       <tr>
-        <td><%= fermenter.size %></td>
         <td><%= fermenter.name %></td>
+        <td><%= fermenter.size %></td>
         <td><%= fermenter.fermenter_type %></td>
-        <td><%= link_to 'Show', fermenter %></td>
-        <td><%= link_to 'Edit', edit_fermenter_path(fermenter) %></td>
-        <td><%= link_to 'Destroy', fermenter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_fermenter_path(fermenter), :class => 'btn btn-mini' %></td>
+        <td><%= link_to 'Destroy', fermenter, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

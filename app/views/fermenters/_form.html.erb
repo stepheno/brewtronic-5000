@@ -12,16 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :size %><br />
-    <%= f.text_field :size %>
-  </div>
-  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+    <%= f.select :unit, options_for_select(["l", "gal", "bbl"])%>
+  </div>
+  <div class="field">
     <%= f.label :fermenter_type %><br />
-    <%= f.text_field :fermenter_type %>
+    <%= f.select :fermenter_type, options_for_select(["CCV", "Grundy", "Carboy"])%>
   </div>
   <div class="actions">
     <%= f.submit %>

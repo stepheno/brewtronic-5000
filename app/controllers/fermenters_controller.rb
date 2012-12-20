@@ -40,6 +40,7 @@ class FermentersController < ApplicationController
   # POST /fermenters
   # POST /fermenters.json
   def create
+    params[:fermenter][:size] = Units.convert_volume_units(params[:fermenter][:size], params[:fermenter][:unit])
     @fermenter = Fermenter.new(params[:fermenter])
 
     respond_to do |format|
@@ -56,6 +57,7 @@ class FermentersController < ApplicationController
   # PUT /fermenters/1
   # PUT /fermenters/1.json
   def update
+    params[:fermenter][:size] = Units.convert_volume_units(params[:fermenter][:size], params[:fermenter][:unit])
     @fermenter = Fermenter.find(params[:id])
 
     respond_to do |format|
