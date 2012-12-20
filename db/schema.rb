@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215074931) do
+ActiveRecord::Schema.define(:version => 20121220023303) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -220,7 +220,7 @@ ActiveRecord::Schema.define(:version => 20121215074931) do
   create_table "styles", :force => true do |t|
     t.string   "name"
     t.integer  "category"
-    t.integer  "sub_category"
+    t.string   "sub_category"
     t.float    "og_range_low"
     t.float    "og_range_high"
     t.float    "fg_range_low"
