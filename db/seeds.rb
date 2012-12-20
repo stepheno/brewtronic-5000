@@ -24,3 +24,8 @@ CSV.foreach("db/seeds/hops.csv") do |hop|
   newHop = Hop.new(:name => hop[0], :alpha=> hop[1].to_f, :hop_supplier_id => HopSupplier.first.id)
   newHop.save
 end
+
+# Insert for Yeasts
+yeast_manufacturers = ['Wyeast','White Labs']
+yeast_manufacturers.each { |yeast_manufacturer| YeastManufacturer.create(:name => yeast_manufacturer) }
+
