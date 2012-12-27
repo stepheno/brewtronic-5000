@@ -28,6 +28,17 @@ module Units
     end
   end
 
+  def Units.convert_density_units(amount, unit)
+    case unit
+      when "sg" 
+        259 - (259/ amount.to_f) 
+      when "p" 
+        amount
+      else
+        raise "Units.convert_density_units: Unknown unit #{unit}. Try again, sucker."
+    end
+  end
+
   def Units.format_mass_for_user(amount,user)
     if not user.nil?
       case user.mass_units
