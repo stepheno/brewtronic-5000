@@ -23,7 +23,7 @@
         <td><%= recipe.style.name %></td>
         <td><%= recipe.target_og %></td>
         <td><%= recipe.target_fg %></td>
-        <td><%= "%0.2f L" % recipe.size %></td>
+        <td><%= Units.format_volume_for_user(recipe.size, current_user) %></td>
         <td><%= recipe.ibu %></td>
         <td><%= recipe.abv %></td>
         <td><%= recipe.srm %></td>

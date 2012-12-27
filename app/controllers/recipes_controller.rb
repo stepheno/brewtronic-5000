@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+ before_filter :authenticate_user!
   # GET /recipes
   # GET /recipes.json
   def index
@@ -25,7 +26,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new.json
   def new
     @recipe = Recipe.new
-    @recipe.recipe_mineral.build.build_mineral
+    #@recipe.recipe_mineral.build.build_mineral
 
     respond_to do |format|
       format.html # new.html.erb

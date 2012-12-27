@@ -16,7 +16,7 @@
     <% @fermenters.each do |fermenter| %>
       <tr>
         <td><%= fermenter.name %></td>
-        <td><%= "%0.2f L" % fermenter.size %></td>
+        <td><%= Units.format_volume_for_user(fermenter.size, current_user) %></td>
         <td><%= fermenter.fermenter_type %></td>
         <td><%= link_to 'Edit', edit_fermenter_path(fermenter), :class => 'btn btn-mini' %></td>
         <td><%= link_to 'Destroy', fermenter, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>

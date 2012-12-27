@@ -24,7 +24,7 @@
         <td><%= batch.brewer.name unless batch.brewer.nil? %></td>
         <td><%= batch.original_gravity %></td>
         <td><%= batch.finish_gravity %></td>
-        <td><%= "%0.2f L" % batch.yield %></td>
+        <td><%= Units.format_volume_for_user(batch.yield, current_user) %></td>
         <td><%= batch.date %></td>
         <td><%= batch.target_date %></td>
         <td><%= link_to 'Show', batch %></td>
