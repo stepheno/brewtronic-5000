@@ -37,9 +37,13 @@
     <%= f.select :yeast_id, Yeast.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
-    <% f.fields_for :minerals do |mineral| %>
-      <%= mineral.label :minerals %><br />
-      <%= mineral.collection_select(:mineral_id, Mineral.all, :name, :id) %>
+    <% f.fields_for :recipe_mineral do |rm| %>
+      <% f.fields_for :minerals do |mineral| %>
+        <%= mineral.label :minerals %><br />
+        <%= mineral.collection_select(:mineral_id, Mineral.all, :name, :id) %>
+      <% end %>
+      <%= rm.label :amount %>
+      <%= rm.text_field :amount %>
     <% end %>
   </div>
   <div class="field">

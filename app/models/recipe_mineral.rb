@@ -1,4 +1,4 @@
-class RecipeMinerals < ActiveRecord::Base
+class RecipeMineral < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :mineral
   attr_accessible :amount
