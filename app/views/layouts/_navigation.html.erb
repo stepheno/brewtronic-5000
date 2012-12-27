@@ -70,4 +70,22 @@
     </ul>
   </li>
 </ul>
-
+<ul class="nav pull-right">
+  <li class="dropdown">
+    <% if user_signed_in? %>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <%= current_user.email %>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to('Edit account', edit_user_registration_path) %>
+        </li>
+        <li>
+          <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
+        </li>
+      </ul>
+    <% else %>
+      <%= link_to('Login', new_user_session_path)  %>
+    <% end %>
+  </li>
+</ul>
