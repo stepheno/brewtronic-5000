@@ -18,6 +18,27 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
+  <div>
+    <%= f.label :mass_units %><br />
+    <%= f.select :mass_units, options_for_select(["kg", "lb"])%>
+  </div>
+
+  <div>
+    <%= f.label :volume_units %><br />
+    <%= f.select :volume_units, options_for_select(["bbl", "l", "gal"])%>
+  </div>
+
+  <div>
+    <%= f.label :length_units %><br />
+    <%= f.select :length_units, options_for_select(["m", "ft"])%>
+  </div>
+
+  <div>
+    <%= f.label :time_zone %><br />
+    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
+  </div>
+
+
   <div><%= f.submit "Update" %></div>
 <% end %>
 

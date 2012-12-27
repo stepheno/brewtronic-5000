@@ -6,10 +6,16 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :name,  :password_confirmation, :remember_me
+  attr_accessible :email, :password, :name, :password_confirmation, :remember_me
+  # User preferences
+  attr_accessible :mass_units, :volume_units, :length_units, :time_zone
   # attr_accessible :title, :body
   validate :name, :presence => true
   validate :email, :presence => true, :uniqueness => true
+  validate :mass_units, :presence => true
+  validate :volume_units, :presence => true
+  validate :length_units, :presence => true
+  validate :time_zone, :presence => true
   
   self.per_page = 10
 end
