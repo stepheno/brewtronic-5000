@@ -1,4 +1,5 @@
 class GrainTransactionsController < ApplicationController
+ before_filter :authenticate_user!
   # GET /grain_transactions
   # GET /grain_transactions.json
   def index

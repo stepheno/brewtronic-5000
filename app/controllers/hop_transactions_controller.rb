@@ -1,4 +1,5 @@
 class HopTransactionsController < ApplicationController
+ before_filter :authenticate_user!
   # GET /hop_transactions
   # GET /hop_transactions.json
   def index

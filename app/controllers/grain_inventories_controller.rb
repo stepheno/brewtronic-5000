@@ -1,5 +1,5 @@
-
 class GrainInventoriesController < ApplicationController
+ before_filter :authenticate_user!
   # GET /grain_inventories
   # GET /grain_inventories.json
   def index

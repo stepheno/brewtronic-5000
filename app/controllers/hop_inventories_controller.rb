@@ -1,4 +1,5 @@
 class HopInventoriesController < ApplicationController
+ before_filter :authenticate_user!
   # GET /hop_inventories
   # GET /hop_inventories.json
   def index
