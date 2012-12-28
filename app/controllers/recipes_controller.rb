@@ -26,7 +26,10 @@ class RecipesController < ApplicationController
   # GET /recipes/new.json
   def new
     @recipe = Recipe.new
-    #@recipe.recipe_mineral.build.build_mineral
+    @recipe.recipe_minerals.build
+    @recipe.recipe_grains.build
+    @recipe.recipe_hops.build
+    @recipe.recipe_mashes.build
 
     respond_to do |format|
       format.html # new.html.erb
