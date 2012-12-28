@@ -24,6 +24,18 @@ CSV.foreach("db/seeds/hops.csv") do |hop|
   newHop.save
 end
 
+# Insert minerals 
+CSV.foreach("db/seeds/minerals.csv") do |mineral|
+  newMineral = Mineral.new(:name => mineral[0],
+                       :calcium => mineral[1].to_f,
+                       :magnesium => mineral[2].to_f,
+                       :sodium => mineral[3].to_f,
+                       :sulfate => mineral[4].to_f,
+                       :carbonate => mineral[5].to_f,
+                       :chloride => mineral[6].to_f)
+  newMineral.save
+end
+
 # Insert for Yeasts
 yeast_manufacturers = ['Wyeast','White Labs']
 yeast_manufacturers.each { |yeast_manufacturer| YeastManufacturer.create(:name => yeast_manufacturer) }
