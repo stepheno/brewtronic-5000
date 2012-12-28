@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228055956) do
+ActiveRecord::Schema.define(:version => 20121228074715) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(:version => 20121228055956) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "recipe_grain", :force => true do |t|
+  create_table "recipe_grains", :force => true do |t|
     t.integer  "recipe_id"
     t.integer  "grain_id"
     t.float    "amount"
@@ -151,10 +151,10 @@ ActiveRecord::Schema.define(:version => 20121228055956) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "recipe_grain", ["grain_id"], :name => "index_recipe_grains_on_grain_id"
-  add_index "recipe_grain", ["recipe_id"], :name => "index_recipe_grains_on_recipe_id"
+  add_index "recipe_grains", ["grain_id"], :name => "index_recipe_grains_on_grain_id"
+  add_index "recipe_grains", ["recipe_id"], :name => "index_recipe_grains_on_recipe_id"
 
-  create_table "recipe_hop", :force => true do |t|
+  create_table "recipe_hops", :force => true do |t|
     t.integer  "recipe_id"
     t.integer  "hop_id"
     t.float    "amount"
@@ -164,10 +164,10 @@ ActiveRecord::Schema.define(:version => 20121228055956) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "recipe_hop", ["hop_id"], :name => "index_recipe_hops_on_hop_id"
-  add_index "recipe_hop", ["recipe_id"], :name => "index_recipe_hops_on_recipe_id"
+  add_index "recipe_hops", ["hop_id"], :name => "index_recipe_hops_on_hop_id"
+  add_index "recipe_hops", ["recipe_id"], :name => "index_recipe_hops_on_recipe_id"
 
-  create_table "recipe_mash", :force => true do |t|
+  create_table "recipe_mashes", :force => true do |t|
     t.integer  "recipe_id"
     t.integer  "mash_type_id"
     t.float    "time"
@@ -176,10 +176,10 @@ ActiveRecord::Schema.define(:version => 20121228055956) do
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "recipe_mash", ["mash_type_id"], :name => "index_recipe_mashes_on_mash_type_id"
-  add_index "recipe_mash", ["recipe_id"], :name => "index_recipe_mashes_on_recipe_id"
+  add_index "recipe_mashes", ["mash_type_id"], :name => "index_recipe_mashes_on_mash_type_id"
+  add_index "recipe_mashes", ["recipe_id"], :name => "index_recipe_mashes_on_recipe_id"
 
-  create_table "recipe_mineral", :force => true do |t|
+  create_table "recipe_minerals", :force => true do |t|
     t.integer  "recipe_id"
     t.integer  "mineral_id"
     t.float    "amount"
@@ -187,8 +187,8 @@ ActiveRecord::Schema.define(:version => 20121228055956) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "recipe_mineral", ["mineral_id"], :name => "index_recipe_minerals_on_mineral_id"
-  add_index "recipe_mineral", ["recipe_id"], :name => "index_recipe_minerals_on_recipe_id"
+  add_index "recipe_minerals", ["mineral_id"], :name => "index_recipe_minerals_on_mineral_id"
+  add_index "recipe_minerals", ["recipe_id"], :name => "index_recipe_minerals_on_recipe_id"
 
   create_table "recipes", :force => true do |t|
     t.string   "name"
