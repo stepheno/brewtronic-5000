@@ -19,6 +19,11 @@
   <%= f.password_field :current_password %></div>
 
   <div>
+    <%= f.label :temp_units %><br />
+    <%= f.select :temp_units, options_for_select(["C", "F"])%>
+  </div>
+
+  <div>
     <%= f.label :mass_units %><br />
     <%= f.select :mass_units, options_for_select(["kg", "lb"])%>
   </div>

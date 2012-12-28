@@ -39,6 +39,32 @@ module Units
     end
   end
 
+  def Units.convert_temp_units(amount, unit)
+    case unit
+      when "C"
+        amount
+      when "F"
+        amount.to_f.deg_f.to_deg_c.value
+      else
+        raise "Units.convert_temp_units: Unknown unit #{unit}. Try again, sucker."
+    end
+  end
+
+  def Units.format_temp_for_user(amount,user)
+    if not user.nil?
+      case user.temp_units
+        when "F"
+          amount.deg_c.to_deg_f.round!(2)
+        when "C"
+          amount.deg_c.round!(2)
+        else
+          raise "Units.format_temp_for_user: Unknown unit #{user.temp_units}."
+      end
+    else
+      amount.deg_c.round!(2)
+    end
+  end
+
   def Units.format_mass_for_user(amount,user)
     if not user.nil?
       case user.mass_units

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228054630) do
+ActiveRecord::Schema.define(:version => 20121228055956) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -251,6 +251,7 @@ ActiveRecord::Schema.define(:version => 20121228054630) do
     t.string   "mass_units",             :default => "kg"
     t.string   "length_units",           :default => "m"
     t.string   "time_zone"
+    t.string   "temp_units",             :default => "C"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

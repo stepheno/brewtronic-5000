@@ -19,8 +19,8 @@
       <td><%= link_to yeast.name, yeast%></td>
       <td><%= yeast.yeast_manufacturer.name unless yeast.yeast_manufacturer.nil? %></td>
       <td><%= yeast.yeast_type %></td>
-      <td><%= "%d\ - %d %" % [yeast.attenuation_low, yeast.attenuation_high] %></td>
-      <td><%= "%d\ - %d" % [yeast.temp_low, yeast.temp_high] %></td>
+      <td><%= "%d - %d %" % [yeast.attenuation_low, yeast.attenuation_high] %></td>
+      <td><%= "%s - %s" % [Units.format_temp_for_user(yeast.temp_low, current_user), Units.format_temp_for_user(yeast.temp_high, current_user)] %></td>
       <td><%= link_to 'Edit', edit_yeast_path(yeast), :class => 'btn btn-mini' %></td>
       <td><%= link_to 'Destroy', yeast, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
     </tr>

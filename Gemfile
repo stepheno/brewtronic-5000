@@ -15,7 +15,8 @@ gem 'therubyracer', :require => "v8"
 #gem 'hobo'
 
 # Quantity gem for unit converion
-gem 'quantify'
+gem 'quantify', :git => 'git://github.com/spatchcock/quantify.git'
+
 
 # Theming
 gem 'bootstrap-sass'
