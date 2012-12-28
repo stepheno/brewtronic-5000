@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'activerecord-postgresql-adapter'
 
 # Javascript runtime
-gem 'therubyracer', :require => "v8"
+gem 'therubyracer', '0.11.0beta8', :require => "v8"
 
 # Hobo admin interface
 #gem 'hobo'
