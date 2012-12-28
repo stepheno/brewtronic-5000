@@ -40,7 +40,7 @@
     <% f.fields_for :recipe_mineral do |rm| %>
       <% f.fields_for :minerals do |mineral| %>
         <%= mineral.label :minerals %><br />
-        <%= mineral.collection_select(:mineral_id, Mineral.all, :name, :id) %>
+        <%= mineral.collection_select(:minerals, Mineral.all, :name, :id) %>
       <% end %>
       <%= rm.label :amount %>
       <%= rm.text_field :amount %>

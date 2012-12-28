@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228074715) do
+ActiveRecord::Schema.define(:version => 20121228084618) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -210,10 +210,6 @@ ActiveRecord::Schema.define(:version => 20121228074715) do
     t.datetime "updated_at",        :null => false
   end
 
-  add_index "recipes", ["grains_id"], :name => "index_recipes_on_grains_id"
-  add_index "recipes", ["hops_id"], :name => "index_recipes_on_hops_id"
-  add_index "recipes", ["mash_steps_id"], :name => "index_recipes_on_mash_steps_id"
-  add_index "recipes", ["minerals_id"], :name => "index_recipes_on_minerals_id"
   add_index "recipes", ["style_id"], :name => "index_recipes_on_style_id"
   add_index "recipes", ["yeast_id"], :name => "index_recipes_on_yeast_id"
 
