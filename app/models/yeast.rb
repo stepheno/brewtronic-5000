@@ -1,5 +1,5 @@
 class Yeast < ActiveRecord::Base
-  attr_accessible :efficiency, :yeast_manufacturer_id, :name, :yeast_type
+  attr_accessible :attenuation_low, :attenuation_high, :yeast_manufacturer_id, :name, :yeast_type, :temp_low, :temp_high
   belongs_to :yeast_manufacturer
   validates :name, :uniqueness => {:scope => :yeast_manufacturer_id}
   validates :yeast_manufacturer_id, :presence => true

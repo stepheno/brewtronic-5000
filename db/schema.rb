@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121227050125) do
+ActiveRecord::Schema.define(:version => 20121228054630) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -266,9 +266,12 @@ ActiveRecord::Schema.define(:version => 20121227050125) do
     t.integer  "yeast_manufacturer_id"
     t.string   "name"
     t.string   "yeast_type"
-    t.float    "efficiency"
+    t.float    "attenuation_low"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.float    "temp_low"
+    t.float    "temp_high"
+    t.float    "attenuation_high"
   end
 
   add_index "yeasts", ["yeast_manufacturer_id"], :name => "index_yeasts_on_yeast_manufacturer_id"

@@ -24,8 +24,20 @@
     <%= f.select :yeast_type, options_for_select(["Ale", "Lager"])%>
   </div>
   <div class="field">
-    <%= f.label :efficiency %><br />
-    <%= f.text_field :efficiency %>
+    <%= f.label :attenuation_low %><br />
+    <%= f.text_field :attenuation_low %>
+  </div>
+  <div class="field">
+    <%= f.label :attenuation_high %><br />
+    <%= f.text_field :attenuation_high %>
+  </div>
+    <div class="field">
+    <%= f.label :temp_low %><br />
+    <%= f.text_field :temp_low%>
+  </div>
+   <div class="field">
+    <%= f.label :temp_high%><br />
+    <%= f.text_field :temp_high%>
   </div>
   <div class="actions">
     <%= f.submit %>
