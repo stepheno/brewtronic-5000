@@ -25,10 +25,10 @@
         <td><%= link_to style.name, style %></td>
         <td><%= style.category %></td>
         <td><%= style.sub_category %></td>
-        <td><%= style.og_range_low %></td>
-        <td><%= style.og_range_high %></td>
-        <td><%= style.fg_range_low %></td>
-        <td><%= style.fg_range_high %></td>
+        <td><%= "%0.2f" % style.og_range_low %></td>
+        <td><%= "%0.2f" % style.og_range_high %></td>
+        <td><%= "%0.2f" % style.fg_range_low %></td>
+        <td><%= "%0.2f" % style.fg_range_high %></td>
         <td><%= style.ibu_range_low %></td>
         <td><%= style.ibu_range_high %></td>
         <td><%= style.srm_range_low %></td>

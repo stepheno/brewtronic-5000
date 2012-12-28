@@ -35,7 +35,7 @@ doc.elements.each('styleguide/class/category') do |cat|
   cat_id = cat.attributes["id"].to_i
   cat.elements.each('subcategory') do |subcat|
     name =  subcat.elements["name"].text
-    subcat_id = subcat.attributes["id"].to_i
+    subcat_id = subcat.attributes["id"].match('\D')[0]
     begin
     og_low = Units.convert_density_units(subcat.elements["stats/og/low"].text.to_f, "sg")
     og_high = Units.convert_density_units(subcat.elements["stats/og/high"].text.to_f, "sg")
