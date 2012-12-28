@@ -14,7 +14,7 @@
   <div class="field">
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
-    <%= f.select :unit, options_for_select(["kg", "lb"])%>
+    <%= f.select :unit, options_for_select(["kg", "lb"], :selected => current_user.mass_units)%>
   </div>
   <div class="field">
     <%= f.label :grain_id %><br />
@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :grain_supplier_id %><br />
-    <%= f.select :grain_supplier_id, GrainSupplier.all.collect {|c| [c.name, c.id]} %>
+    <%= f.select :grain_supplier_id, GrainSupplier.all.collect {|c| [c.name, c.id]}, :selected => current_user.mass_units %>
   </div>
   <div class="actions">
     <%= f.submit %>

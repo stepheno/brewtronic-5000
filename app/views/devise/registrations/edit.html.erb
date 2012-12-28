@@ -20,22 +20,22 @@
 
   <div>
     <%= f.label :temp_units %><br />
-    <%= f.select :temp_units, options_for_select(["C", "F"])%>
+    <%= f.select :temp_units, options_for_select(["C", "F"], :selected => current_user.temp_units)%>
   </div>
 
   <div>
     <%= f.label :mass_units %><br />
-    <%= f.select :mass_units, options_for_select(["kg", "lb"])%>
+    <%= f.select :mass_units, options_for_select(["kg", "lb"], :selected => current_user.mass_units)%>
   </div>
 
   <div>
     <%= f.label :volume_units %><br />
-    <%= f.select :volume_units, options_for_select(["bbl", "l", "gal"])%>
+    <%= f.select :volume_units, options_for_select(["bbl", "l", "gal"], :selected => current_user.volume_units)%>
   </div>
 
   <div>
     <%= f.label :length_units %><br />
-    <%= f.select :length_units, options_for_select(["m", "ft"])%>
+    <%= f.select :length_units, options_for_select(["m", "ft"], :selected => current_user.length_units)%>
   </div>
 
   <div>

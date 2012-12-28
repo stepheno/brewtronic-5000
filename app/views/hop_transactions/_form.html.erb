@@ -34,7 +34,7 @@
   <div class="field">
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
-    <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"])%>
+    <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %>
   </div>
   <div class="actions">
     <%= f.submit %>

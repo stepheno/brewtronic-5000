@@ -18,7 +18,7 @@
   <div class="field">
     <%= f.label :size %><br />
     <%= f.text_field :size %>
-    <%= f.select :unit, options_for_select(["l", "gal", "bbl"])%>
+    <%= f.select :unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
   </div>
   <div class="field">
     <%= f.label :fermenter_type %><br />
