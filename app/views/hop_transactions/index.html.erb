@@ -1,6 +1,6 @@
-<h1>Listing Hop Transactions</h1>
+<h1>Hop Transactions</h1>
 
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
     <th>Hop</th>
@@ -32,7 +32,5 @@
   </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Hop transaction', new_hop_transaction_path %>
+<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Hop Transaction'), new_hop_transaction_path, :class => 'btn btn-primary'%>
 <%= will_paginate @hop_transactions %>

@@ -1,5 +1,5 @@
-<h1>Listing Yeast Manufacturers</h1>
-<table class="table table-striped">
+<h1>Yeast Manufacturers</h1>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -19,7 +19,5 @@
   </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Yeast manufacturer', new_yeast_manufacturer_path %>
+<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Yeast Manufacturer'), new_yeast_manufacturer_path, :class => 'btn btn-primary'%>
 <%= will_paginate @yeast_manufacturers %>

@@ -1,6 +1,6 @@
-<h1>Listing Grain Transactions</h1>
+<h1>Grain Transactions</h1>
 
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Grain</th>
@@ -30,7 +30,5 @@
   </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Grain transaction', new_grain_transaction_path %>
+<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Grain Trasaction'), new_grain_transaction_path, :class => 'btn btn-primary'%>
 <%= will_paginate @grain_transactions %>

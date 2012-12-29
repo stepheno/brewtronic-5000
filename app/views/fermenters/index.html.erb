@@ -1,6 +1,6 @@
-<h1>Listing Fermenters</h1>
+<h1>Fermenters</h1>
 
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Size</th>
@@ -25,7 +25,5 @@
   </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Fermenter', new_fermenter_path %>
+<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Fermenter'), new_fermenter_path, :class => 'btn btn-primary'%>
 <%= will_paginate @fermenters %>

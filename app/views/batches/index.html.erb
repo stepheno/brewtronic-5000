@@ -1,6 +1,6 @@
-<h1>Listing batches</h1>
+<h1>Batches</h1>
 
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Recipe</th>
@@ -35,7 +35,5 @@
   </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Batch', new_batch_path %>
+<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Batch'), new_batch_path, :class => 'btn btn-primary'%>
 <%= will_paginate @batches %>

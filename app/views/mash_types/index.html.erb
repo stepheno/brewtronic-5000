@@ -1,6 +1,6 @@
-<h1>Listing Mash Types</h1>
+<h1>Mash Types</h1>
 
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -21,7 +21,5 @@
   </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Mash type', new_mash_type_path %>
+<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Mash Type'), new_mash_type_path, :class => 'btn btn-primary'%>
 <%= will_paginate @mash_types %>

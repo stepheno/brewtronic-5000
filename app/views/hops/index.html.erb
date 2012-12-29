@@ -1,6 +1,6 @@
-<h1>Listing Hops</h1>
+<h1>Hops</h1>
 
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,8 +24,6 @@
   </tbody>
 </table>
 
-<br />
 
-<%= link_to 'New Hop', new_hop_path %>
-<%= link_to 'Back', home_index_path %>
+<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Hop'), new_hop_path, :class => 'btn btn-primary'%>
 <%= will_paginate @hops %>
