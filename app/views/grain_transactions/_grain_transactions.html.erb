@@ -1,0 +1,33 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Grain</th>
+      <th>Grain supplier</th>
+      <th>Quantity</th>
+      <th>Unit amount</th>
+      <th>Total</th>
+      <th>Last Updated</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grain_transactions.each do |grain_transaction| %>
+      <tr>
+        <td><%= grain_transaction.grain.name unless grain_transaction.grain.nil? %></td>
+        <td><%= grain_transaction.grain_supplier.name unless grain_transaction.grain_supplier.nil? %></td>
+        <td><%= "%d units" % grain_transaction.quantity %></td>
+        <td><%= Units.format_mass_for_user(grain_transaction.amount, current_user)%></td>
+        <td><%= Units.format_mass_for_user(grain_transaction.amount * grain_transaction.quantity, current_user) %></td>
+        <td><%= grain_transaction.updated_at.localtime.strftime('%F %r') %></td>
+        <td><%= link_to 'Edit', edit_grain_transaction_path(grain_transaction), :class=> 'btn btn-mini pull-right' %></td>
+        <td><%= link_to 'Destroy', grain_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @grain_transactions %>

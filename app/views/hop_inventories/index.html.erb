@@ -1,31 +1,15 @@
 <h1>Hop Inventory</h1>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag hop_inventories_path, :method => 'get', :id => "hop_inventories_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Hop Inventory'), new_hop_inventory_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="hop_inventories"><%= render 'hop_inventories' %></div>
+</div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Hop</th>
-      <th>Hop supplier</th>
-      <th>Crop year</th>
-      <th>Amount</th>
-      <th>Type</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @hop_inventories.each do |hop_inventory| %>
-    <tr>
-      <td><%= link_to hop_inventory.hop.name, hop_inventory unless hop_inventory.hop.nil? %></td>
-      <td><%= hop_inventory.hop_supplier.name unless hop_inventory.hop_supplier.nil? %></td>
-      <td><%= hop_inventory.crop_year %></td>
-      <td><%= Units.format_mass_for_user(hop_inventory.amount, current_user)%></td>
-      <td><%= hop_inventory.hop_type %></td>
-      <td><%= link_to 'Edit', edit_hop_inventory_path(hop_inventory), :class => 'btn btn-mini pull-right' %></td>
-      <td><%= link_to 'Destroy', hop_inventory, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Hop Inventory'), new_hop_inventory_path, :class => 'btn btn-primary'%>
-<%= will_paginate @hop_inventories %>

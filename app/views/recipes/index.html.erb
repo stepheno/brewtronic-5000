@@ -1,39 +1,14 @@
 <h1>Recipes</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Style</th>
-      <th>OG</th>
-      <th>FG</th>
-      <th>Size</th>
-      <th>Ibu</th>
-      <th>Abv</th>
-      <th>Srm</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.name %></td>
-        <td><%= recipe.style.name %></td>
-        <td><%= recipe.target_og %></td>
-        <td><%= recipe.target_fg %></td>
-        <td><%= Units.format_volume_for_user(recipe.size, current_user) %></td>
-        <td><%= recipe.ibu %></td>
-        <td><%= recipe.abv %></td>
-        <td><%= recipe.srm %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe), :class => 'btn btn-mini pull-right' %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Recipe'), new_recipe_path, :class => 'btn btn-primary'%>
-<%= will_paginate @recipes %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag recipes_path, :method => 'get', :id => "recipes_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Recipe'), new_recipe_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="recipes"><%= render 'recipes' %></div>
+</div>

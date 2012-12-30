@@ -1,29 +1,14 @@
 <h1>Fermenters</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Size</th>
-      <th>Name</th>
-      <th>Fermenter type</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @fermenters.each do |fermenter| %>
-      <tr>
-        <td><%= fermenter.name %></td>
-        <td><%= Units.format_volume_for_user(fermenter.size, current_user) %></td>
-        <td><%= fermenter.fermenter_type %></td>
-        <td><%= link_to 'Edit', edit_fermenter_path(fermenter), :class => 'btn btn-mini' %></td>
-        <td><%= link_to 'Destroy', fermenter, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Fermenter'), new_fermenter_path, :class => 'btn btn-primary'%>
-<%= will_paginate @fermenters %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag fermenters_path, :method => 'get', :id => "fermenters_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Fermenter'), new_fermenter_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="fermenters"><%= render 'fermenters' %></div>
+</div>

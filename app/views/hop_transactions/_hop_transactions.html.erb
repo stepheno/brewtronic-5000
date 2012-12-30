@@ -1,0 +1,35 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+    <th>Hop</th>
+    <th>Hop supplier</th>
+    <th>Hop year</th>
+    <th>Hop type</th>
+    <th>Quantity</th>
+    <th>Unit amount</th>
+    <th>Total</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hop_transactions.each do |hop_transaction| %>
+      <tr>
+        <td><%= hop_transaction.hop.name unless hop_transaction.hop.nil? %></td>
+        <td><%= hop_transaction.hop_supplier.name unless hop_transaction.hop_supplier.nil? %></td>
+        <td><%= hop_transaction.hop_year%></td>
+        <td><%= hop_transaction.hop_type%></td>
+        <td><%= "%d units" % hop_transaction.quantity %></td>
+        <td><%= Units.format_mass_for_user(hop_transaction.amount, current_user)%></td>
+        <td><%= Units.format_mass_for_user(hop_transaction.amount * hop_transaction.quantity, current_user) %></td>
+        <td><%= link_to 'Edit', edit_hop_transaction_path(hop_transaction), :class => 'btn btn-mini pull-right' %></td>
+        <td><%= link_to 'Destroy', hop_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @hop_transactions %>

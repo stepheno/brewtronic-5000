@@ -1,0 +1,28 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Size</th>
+      <th>Name</th>
+      <th>Fermenter type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fermenters.each do |fermenter| %>
+      <tr>
+        <td><%= fermenter.name %></td>
+        <td><%= Units.format_volume_for_user(fermenter.size, current_user) %></td>
+        <td><%= fermenter.fermenter_type %></td>
+        <td><%= link_to 'Edit', edit_fermenter_path(fermenter), :class => 'btn btn-mini' %></td>
+        <td><%= link_to 'Destroy', fermenter, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @fermenters %>

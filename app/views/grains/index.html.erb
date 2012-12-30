@@ -1,27 +1,15 @@
 <h1>Grains</h1>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag grains_path, :method => 'get', :id => "grains_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Grain'), new_grain_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="grains"><%= render 'grains' %></div>
+</div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Extract potential</th>
-      <th>Color</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @grains.each do |grain| %>
-    <tr>
-      <td><%= link_to grain.name, grain %></td>
-      <td><%= grain.extract_potential %></td>
-      <td><%= grain.color %></td>
-      <td><%= link_to 'Edit', edit_grain_path(grain), :class => 'btn btn-mini pull-right' %></td>
-      <td><%= link_to 'Destroy', grain, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Grain'), new_grain_path, :class => 'btn btn-primary'%>
-<%= will_paginate @grains %>

@@ -1,32 +1,14 @@
 <h1>Yeasts</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Manufacturer</th>
-      <th>Type</th>
-      <th>Attenuation</th>
-      <th>Temp range</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @yeasts.each do |yeast| %>
-    <tr>
-      <td><%= link_to yeast.name, yeast%></td>
-      <td><%= yeast.yeast_manufacturer.name unless yeast.yeast_manufacturer.nil? %></td>
-      <td><%= yeast.yeast_type %></td>
-      <td><%= "%d - %d %" % [yeast.attenuation_low, yeast.attenuation_high] %></td>
-      <td><%= "%s - %s" % [Units.format_temp_for_user(yeast.temp_low, current_user), Units.format_temp_for_user(yeast.temp_high, current_user)] %></td>
-      <td><%= link_to 'Edit', edit_yeast_path(yeast), :class => 'btn btn-mini' %></td>
-      <td><%= link_to 'Destroy', yeast, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Yeast'), new_yeast_path, :class => 'btn btn-primary'%>
-<%= will_paginate @yeasts %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag yeasts_path, :method => 'get', :id => "yeasts_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Yeast'), new_yeast_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="yeasts"><%= render 'yeasts' %></div>
+</div>

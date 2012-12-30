@@ -1,39 +1,14 @@
 <h1>Batches</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Recipe</th>
-      <th>Fermenter</th>
-      <th>Brewer</th>
-      <th>OG</th>
-      <th>FG</th>
-      <th>Yield</th>
-      <th>Brew Date</th>
-      <th>Target date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @batches.each do |batch| %>
-      <tr>
-        <td><%= batch.recipe.name unless batch.recipe.nil? %></td>
-        <td><%= batch.fermenter.name unless batch.fermenter.nil? %></td>
-        <td><%= batch.brewer.name unless batch.brewer.nil? %></td>
-        <td><%= batch.original_gravity %></td>
-        <td><%= batch.finish_gravity %></td>
-        <td><%= Units.format_volume_for_user(batch.yield, current_user) %></td>
-        <td><%= batch.date %></td>
-        <td><%= batch.target_date %></td>
-        <td><%= link_to 'Show', batch %></td>
-        <td><%= link_to 'Edit', edit_batch_path(batch), :class => 'btn btn-mini pull-right' %></td>
-        <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Batch'), new_batch_path, :class => 'btn btn-primary'%>
-<%= will_paginate @batches %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag batches_path, :method => 'get', :id => "batches_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Batch'), new_batch_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="batches"><%= render 'batches' %></div>
+</div>

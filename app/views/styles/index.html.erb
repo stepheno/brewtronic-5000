@@ -1,44 +1,14 @@
 <h1>Styles</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Sub category</th>
-      <th>Og range low</th>
-      <th>Og range high</th>
-      <th>Fg range low</th>
-      <th>Fg range high</th>
-      <th>Ibu range low</th>
-      <th>Ibu range high</th>
-      <th>Srm range low</th>
-      <th>Srm range high</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @styles.each do |style| %>
-      <tr>
-        <td><%= link_to style.name, style %></td>
-        <td><%= style.category %></td>
-        <td><%= style.sub_category %></td>
-        <td><%= "%0.2f" % style.og_range_low %></td>
-        <td><%= "%0.2f" % style.og_range_high %></td>
-        <td><%= "%0.2f" % style.fg_range_low %></td>
-        <td><%= "%0.2f" % style.fg_range_high %></td>
-        <td><%= style.ibu_range_low %></td>
-        <td><%= style.ibu_range_high %></td>
-        <td><%= style.srm_range_low %></td>
-        <td><%= style.srm_range_high %></td>
-        <td><%= link_to 'Edit', edit_style_path(style), :class => 'btn btn-mini' %></td>
-        <td><%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Style'), new_style_path, :class => 'btn btn-primary'%>
-<%= will_paginate @styles %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag styles_path, :method => 'get', :id => "styles_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Style'), new_style_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="styles"><%= render 'styles' %></div>
+</div>

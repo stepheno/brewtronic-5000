@@ -1,0 +1,24 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mash_types.each do |mash_type| %>
+    <tr>
+      <td><%= mash_type.name %></td>
+      <td><%= link_to 'Show', mash_type %></td>
+      <td><%= link_to 'Edit', edit_mash_type_path(mash_type), :class => 'btn btn-mini'  %></td>
+      <td><%= link_to 'Destroy', mash_type, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'  %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @mash_types %>

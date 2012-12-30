@@ -1,23 +1,14 @@
-<h1>Hop Suppliers</h1>
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @hop_suppliers.each do |hop_supplier| %>
-    <tr>
-      <td><%= link_to hop_supplier.name, hop_supplier%></td>
-      <td><%= link_to 'Edit', edit_hop_supplier_path(hop_supplier), :class => 'btn btn-mini pull-right' %></td>
-      <td><%= link_to 'Destroy', hop_supplier, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Hop Supplier'), new_hop_supplier_path, :class => 'btn btn-primary'%>
-<%= will_paginate @hop_suppliers %>
+<h1>Hops Suppliers</h1>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag hop_suppliers_path, :method => 'get', :id => "hop_supplers_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Hop Supplier'), new_hop_supplier_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="hop_suppliers"><%= render 'hop_suppliers' %></div>
+</div>

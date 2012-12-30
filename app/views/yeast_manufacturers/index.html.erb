@@ -1,23 +1,14 @@
 <h1>Yeast Manufacturers</h1>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @yeast_manufacturers.each do |yeast_manufacturer| %>
-    <tr>
-      <td><%= link_to yeast_manufacturer.name, yeast_manufacturer%></td>
-      <td><%= link_to 'Edit', edit_yeast_manufacturer_path(yeast_manufacturer), :class => 'btn btn-mini' %></td>
-      <td><%= link_to 'Destroy', yeast_manufacturer, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Yeast Manufacturer'), new_yeast_manufacturer_path, :class => 'btn btn-primary'%>
-<%= will_paginate @yeast_manufacturers %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag yeast_manufacturers_path, :method => 'get', :id => "yeast_manufacturers_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Yeast Manufacturer'), new_yeast_manufacturer_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="yeast_manufacturers"><%= render 'yeast_manufacturers' %></div>
+</div>

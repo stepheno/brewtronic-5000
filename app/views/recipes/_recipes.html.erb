@@ -1,0 +1,38 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Style</th>
+      <th>OG</th>
+      <th>FG</th>
+      <th>Size</th>
+      <th>Ibu</th>
+      <th>Abv</th>
+      <th>Srm</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.name %></td>
+        <td><%= recipe.style.name %></td>
+        <td><%= recipe.target_og %></td>
+        <td><%= recipe.target_fg %></td>
+        <td><%= Units.format_volume_for_user(recipe.size, current_user) %></td>
+        <td><%= recipe.ibu %></td>
+        <td><%= recipe.abv %></td>
+        <td><%= recipe.srm %></td>
+        <td><%= link_to 'Show', recipe %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe), :class => 'btn btn-mini pull-right' %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @recipes %>

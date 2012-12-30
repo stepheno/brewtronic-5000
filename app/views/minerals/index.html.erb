@@ -1,36 +1,14 @@
 <h1>Minerals</h1>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Calcium</th>
-      <th>Magnesium</th>
-      <th>Sodium</th>
-      <th>Sulfate</th>
-      <th>Carbonate</th>
-      <th>Chloride</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-
-    <% @minerals.each do |mineral| %>
-    <tr>
-      <td><%= link_to mineral.name, mineral %></td>
-      <td><%= mineral.calcium %></td>
-      <td><%= mineral.magnesium %></td>
-      <td><%= mineral.sodium %></td>
-      <td><%= mineral.sulfate %></td>
-      <td><%= mineral.carbonate %></td>
-      <td><%= mineral.chloride %></td>
-      <td><%= link_to 'Edit', edit_mineral_path(mineral), :class => 'btn btn-mini'  %></td>
-      <td><%= link_to 'Destroy', mineral, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'  %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Mineral'), new_mineral_path, :class => 'btn btn-primary'%>
-<%= will_paginate @minerals %>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag minerals_path, :method => 'get', :id => "minerals_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Mineral'), new_mineral_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="minerals"><%= render 'minerals' %></div>
+</div>

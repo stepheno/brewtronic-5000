@@ -1,0 +1,23 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grain_suppliers.each do |grain_supplier| %>
+    <tr>
+      <td><%= link_to grain_supplier.name, grain_supplier %></td>
+      <td><%= link_to 'Edit', edit_grain_supplier_path(grain_supplier), :class => 'btn btn-mini' %></td>
+      <td><%= link_to 'Destroy', grain_supplier, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @grain_suppliers %>

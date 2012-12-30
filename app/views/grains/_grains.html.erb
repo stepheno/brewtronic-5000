@@ -1,0 +1,26 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Extract potential</th>
+      <th>Color</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grains.each do |grain| %>
+    <tr>
+      <td><%= link_to grain.name, grain %></td>
+      <td><%= grain.extract_potential %></td>
+      <td><%= grain.color %></td>
+      <td><%= link_to 'Edit', edit_grain_path(grain), :class => 'btn btn-mini pull-right' %></td>
+      <td><%= link_to 'Destroy', grain, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @grains %>

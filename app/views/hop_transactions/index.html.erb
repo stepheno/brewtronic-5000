@@ -1,36 +1,15 @@
 <h1>Hop Transactions</h1>
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="nav-collapse">
+        <%= form_tag hop_transactions_path, :method => 'get', :id => "hop_transactions_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
+        <% end %>
+        <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Hop Transaction'), new_hop_transaction_path, :class => 'btn btn-primary pull-right'%>
+      </div>
+    </div>
+  </div>
+  <div id="hop_transactions"><%= render 'hop_transactions' %></div>
+</div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-    <th>Hop</th>
-    <th>Hop supplier</th>
-    <th>Hop year</th>
-    <th>Hop type</th>
-    <th>Quantity</th>
-    <th>Unit amount</th>
-    <th>Total</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @hop_transactions.each do |hop_transaction| %>
-      <tr>
-        <td><%= hop_transaction.hop.name unless hop_transaction.hop.nil? %></td>
-        <td><%= hop_transaction.hop_supplier.name unless hop_transaction.hop_supplier.nil? %></td>
-        <td><%= hop_transaction.hop_year%></td>
-        <td><%= hop_transaction.hop_type%></td>
-        <td><%= "%d units" % hop_transaction.quantity %></td>
-        <td><%= Units.format_mass_for_user(hop_transaction.amount, current_user)%></td>
-        <td><%= Units.format_mass_for_user(hop_transaction.amount * hop_transaction.quantity, current_user) %></td>
-        <td><%= link_to 'Edit', edit_hop_transaction_path(hop_transaction), :class => 'btn btn-mini pull-right' %></td>
-        <td><%= link_to 'Destroy', hop_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Hop Transaction'), new_hop_transaction_path, :class => 'btn btn-primary'%>
-<%= will_paginate @hop_transactions %>
