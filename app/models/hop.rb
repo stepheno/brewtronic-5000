@@ -13,4 +13,13 @@ class Hop < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => [:hop_supplier_id]
 
   self.per_page = 10
+
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+
 end

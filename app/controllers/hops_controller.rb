@@ -1,8 +1,9 @@
 class HopsController < ApplicationController
+  helper_method :sort_column, :sort_direction
   # GET /hops
   # GET /hops.json
   def index
-    @hops = Hop.paginate(:page => params[:page])
+    @hops = Hop.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +81,15 @@ class HopsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private 
+
+  def sort_column
+    Hop.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
 end
