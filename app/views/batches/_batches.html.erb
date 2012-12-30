@@ -3,14 +3,14 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Recipe</th>
-      <th>Fermenter</th>
-      <th>Brewer</th>
-      <th>OG</th>
-      <th>FG</th>
-      <th>Yield</th>
-      <th>Brew Date</th>
-      <th>Target date</th>
+      <th><%= sortable "recipe_id", "Recipe" %></th>
+      <th><%= sortable "fermenter_id", "Fermenter" %></th>
+      <th><%= sortable "brewer_id", "Brewer" %></th>
+      <th><%= sortable "original_gravity", "OG" %></th>
+      <th><%= sortable "finish_gravity", "FG" %></th>
+      <th><%= sortable "yield" %></th>
+      <th><%= sortable "date" %></th>
+      <th><%= sortable "target_date" %></th>
       <th></th>
       <th></th>
       <th></th>

@@ -5,7 +5,6 @@
     <tr>
       <th><%= sortable "name" %></th>
       <th><%= sortable "category" %></th>
-      <th>Sub category</th>
       <th><%= sortable "og_range_low" ,"OG low" %></th>
       <th><%= sortable "og_range_high", "OG high" %></th>
       <th><%= sortable "fg_range_low" ,"FG low" %></th>
@@ -23,8 +22,7 @@
     <% @styles.each do |style| %>
       <tr>
         <td><%= link_to style.name, style %></td>
-        <td><%= style.category %></td>
-        <td><%= style.sub_category %></td>
+        <td><%= "%s%s" % [style.category,style.sub_category] %></td>
         <td><%= "%0.2f" % style.og_range_low %></td>
         <td><%= "%0.2f" % style.og_range_high %></td>
         <td><%= "%0.2f" % style.fg_range_low %></td>
