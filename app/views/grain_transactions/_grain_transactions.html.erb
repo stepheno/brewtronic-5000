@@ -3,12 +3,12 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Grain</th>
-      <th>Grain supplier</th>
-      <th>Quantity</th>
-      <th>Unit amount</th>
+      <th><%= sortable "grain_id", "Grain name" %></th>
+      <th><%= sortable "grain_supplier_id", "Grain Supplier" %></th>
+      <th><%= sortable "quantity" %></th>
+      <th><%= sortable "amount" , "Unit Amount" %></th>
       <th>Total</th>
-      <th>Last Updated</th>
+      <th><%= sortable "updated_at" , "Last Updated" %></th>
       <th></th>
       <th></th>
     </tr>
