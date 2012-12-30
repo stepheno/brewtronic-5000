@@ -6,33 +6,18 @@ class StylesController < ApplicationController
   # GET /styles.json
   def index
     @styles = Style.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @styles }
-    end
   end
 
   # GET /styles/1
   # GET /styles/1.json
   def show
     @style = Style.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @style }
-    end
   end
 
   # GET /styles/new
   # GET /styles/new.json
   def new
     @style = Style.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @style }
-    end
   end
 
   # GET /styles/1/edit

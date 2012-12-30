@@ -6,33 +6,18 @@ class HopSuppliersController < ApplicationController
   # GET /hop_suppliers.json
   def index
     @hop_suppliers = HopSupplier.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @hop_suppliers }
-    end
   end
 
   # GET /hop_suppliers/1
   # GET /hop_suppliers/1.json
   def show
     @hop_supplier = HopSupplier.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @hop_supplier }
-    end
   end
 
   # GET /hop_suppliers/new
   # GET /hop_suppliers/new.json
   def new
     @hop_supplier = HopSupplier.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @hop_supplier }
-    end
   end
 
   # GET /hop_suppliers/1/edit

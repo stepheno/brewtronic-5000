@@ -6,33 +6,18 @@ class MineralsController < ApplicationController
   # GET /minerals.json
   def index
     @minerals = Mineral.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @minerals }
-    end
   end
 
   # GET /minerals/1
   # GET /minerals/1.json
   def show
     @mineral = Mineral.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @mineral }
-    end
   end
 
   # GET /minerals/new
   # GET /minerals/new.json
   def new
     @mineral = Mineral.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @mineral }
-    end
   end
 
   # GET /minerals/1/edit

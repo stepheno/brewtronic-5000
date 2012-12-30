@@ -6,22 +6,12 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @recipes }
-    end
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @recipe }
-    end
   end
 
   # GET /recipes/new
@@ -32,11 +22,6 @@ class RecipesController < ApplicationController
     @recipe.recipe_grains.build
     @recipe.recipe_hops.build
     @recipe.recipe_mashes.build
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @recipe }
-    end
   end
 
   # GET /recipes/1/edit

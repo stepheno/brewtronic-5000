@@ -6,33 +6,18 @@ class MashTypesController < ApplicationController
   # GET /mash_types.json
   def index
     @mash_types = MashType.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @mash_types }
-    end
   end
 
   # GET /mash_types/1
   # GET /mash_types/1.json
   def show
     @mash_type = MashType.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @mash_type }
-    end
   end
 
   # GET /mash_types/new
   # GET /mash_types/new.json
   def new
     @mash_type = MashType.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @mash_type }
-    end
   end
 
   # GET /mash_types/1/edit

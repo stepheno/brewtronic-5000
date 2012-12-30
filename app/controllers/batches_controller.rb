@@ -6,33 +6,18 @@ class BatchesController < ApplicationController
   # GET /batches.json
   def index
     @batches = Batch.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @batches }
-    end
   end
 
   # GET /batches/1
   # GET /batches/1.json
   def show
     @batch = Batch.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @batch }
-    end
   end
 
   # GET /batches/new
   # GET /batches/new.json
   def new
     @batch = Batch.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @batch }
-    end
   end
 
   # GET /batches/1/edit

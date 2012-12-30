@@ -6,33 +6,18 @@ class YeastsController < ApplicationController
   # GET /yeasts.json
   def index
     @yeasts = Yeast.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @yeasts }
-    end
   end
 
   # GET /yeasts/1
   # GET /yeasts/1.json
   def show
     @yeast = Yeast.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @yeast }
-    end
   end
 
   # GET /yeasts/new
   # GET /yeasts/new.json
   def new
     @yeast = Yeast.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @yeast }
-    end
   end
 
   # GET /yeasts/1/edit

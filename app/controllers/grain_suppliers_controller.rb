@@ -6,33 +6,18 @@ class GrainSuppliersController < ApplicationController
   # GET /grain_suppliers.json
   def index
     @grain_suppliers = GrainSupplier.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @grain_suppliers }
-    end
   end
 
   # GET /grain_suppliers/1
   # GET /grain_suppliers/1.json
   def show
     @grain_supplier = GrainSupplier.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @grain_supplier }
-    end
   end
 
   # GET /grain_suppliers/new
   # GET /grain_suppliers/new.json
   def new
     @grain_supplier = GrainSupplier.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @grain_supplier }
-    end
   end
 
   # GET /grain_suppliers/1/edit

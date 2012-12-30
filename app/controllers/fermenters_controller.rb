@@ -6,33 +6,18 @@ class FermentersController < ApplicationController
   # GET /fermenters.json
   def index
     @fermenters = Fermenter.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @fermenters }
-    end
   end
 
   # GET /fermenters/1
   # GET /fermenters/1.json
   def show
     @fermenter = Fermenter.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @fermenter }
-    end
   end
 
   # GET /fermenters/new
   # GET /fermenters/new.json
   def new
     @fermenter = Fermenter.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @fermenter }
-    end
   end
 
   # GET /fermenters/1/edit
