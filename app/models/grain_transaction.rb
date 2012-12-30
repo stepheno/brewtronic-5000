@@ -10,4 +10,9 @@ class GrainTransaction < ActiveRecord::Base
   validates :amount, :presence => true, :numericality => true
 
   self.per_page = 10
+  
+  def self.search_query(search)
+    joins(:grain).where('grains.name LIKE ?', "%#{search}%")
+  end
+
 end

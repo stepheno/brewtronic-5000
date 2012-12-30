@@ -10,8 +10,8 @@ class GrainInventory < ActiveRecord::Base
 
   self.per_page = 10
 
-  def search_query
-    'grain_id == ?'
+  def self.search_query(search)
+    joins(:grain).where('grains.name LIKE ?', "%#{search}%")
   end
-
+ 
 end

@@ -11,4 +11,9 @@ class Batch < ActiveRecord::Base
 
 
   self.per_page = 10
+
+  def self.search_query(search)
+    joins(:recipe).where('recipes.name LIKE ?', "%#{search}%")
+  end
+
 end

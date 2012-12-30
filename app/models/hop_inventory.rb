@@ -17,4 +17,9 @@ class HopInventory < ActiveRecord::Base
   validates :hop_type, :presence => true
 
   self.per_page = 10
+
+  def self.search_query(search)
+    joins(:hop).where('hops.name LIKE ?', "%#{search}%")
+  end
+
 end
