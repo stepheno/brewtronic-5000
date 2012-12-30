@@ -5,7 +5,7 @@ class HopTransactionsController < ApplicationController
   # GET /hop_transactions
   # GET /hop_transactions.json
   def index
-    @hop_transactions = HopTransaction.paginate(:page => params[:page])
+    @hop_transactions = HopTransaction.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -107,6 +107,10 @@ class HopTransactionsController < ApplicationController
 
   def model
     HopTransaction
+  end
+
+  def default_sort_column
+    "hop_id"
   end
 
 end

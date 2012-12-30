@@ -1,4 +1,5 @@
 class Recipe < ActiveRecord::Base
+  include Searchable
   has_many :recipe_grains
   accepts_nested_attributes_for :recipe_grains
   has_many :grains, :through => :recipe_grains

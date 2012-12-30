@@ -5,7 +5,7 @@ class YeastManufacturersController < ApplicationController
   # GET /yeast_manufacturers
   # GET /yeast_manufacturers.json
   def index
-    @yeast_manufacturers = YeastManufacturer.paginate(:page => params[:page])
+    @yeast_manufacturers = YeastManufacturer.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,4 +1,5 @@
 class Grain < ActiveRecord::Base
+  include Searchable
   attr_accessible :color, :extract_potential, :name
   has_many :grain_inventories, :dependent => :destroy
   has_many :grain_transactions, :dependent => :destroy

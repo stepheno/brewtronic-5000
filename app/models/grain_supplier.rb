@@ -1,4 +1,5 @@
 class GrainSupplier < ActiveRecord::Base
+  include Searchable
   attr_accessible :name
   has_many :grain_inventories
   validates_uniqueness_of :name

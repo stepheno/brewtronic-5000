@@ -5,7 +5,7 @@ class BatchesController < ApplicationController
   # GET /batches
   # GET /batches.json
   def index
-    @batches = Batch.paginate(:page => params[:page])
+    @batches = Batch.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -90,4 +90,7 @@ class BatchesController < ApplicationController
     Batch
   end
 
+  def default_sort_column
+    "recipe_id"
+  end
 end

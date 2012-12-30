@@ -1,4 +1,5 @@
 class Batch < ActiveRecord::Base
+  include Searchable
   belongs_to :recipe
   belongs_to :fermenter
   belongs_to :brewer

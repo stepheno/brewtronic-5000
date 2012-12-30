@@ -5,7 +5,7 @@ class FermentersController < ApplicationController
   # GET /fermenters
   # GET /fermenters.json
   def index
-    @fermenters = Fermenter.paginate(:page => params[:page])
+    @fermenters = Fermenter.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

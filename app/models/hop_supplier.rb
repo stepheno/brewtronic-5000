@@ -1,4 +1,5 @@
 class HopSupplier < ActiveRecord::Base
+  include Searchable
   attr_accessible :name
   has_many :hops, :dependent => :destroy
   has_many :hop_inventories, :dependent => :destroy

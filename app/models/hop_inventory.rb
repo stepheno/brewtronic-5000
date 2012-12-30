@@ -1,4 +1,5 @@
 class HopInventory < ActiveRecord::Base
+  include Searchable
 
   def is_valid_year?(date_str, start_year=1900, end_year=2099)
     date_str.grep(/^(\d)+$/) { |date_str|

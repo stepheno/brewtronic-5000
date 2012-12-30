@@ -5,7 +5,7 @@ class GrainTransactionsController < ApplicationController
   # GET /grain_transactions
   # GET /grain_transactions.json
   def index
-    @grain_transactions = GrainTransaction.paginate(:page => params[:page])
+    @grain_transactions = GrainTransaction.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -97,6 +97,10 @@ class GrainTransactionsController < ApplicationController
 
   def model
     GrainTransaction
+  end
+
+  def default_sort_column
+    "grain_id"
   end
 
 end

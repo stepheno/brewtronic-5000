@@ -5,7 +5,7 @@ class HopInventoriesController < ApplicationController
   # GET /hop_inventories
   # GET /hop_inventories.json
   def index
-    @hop_inventories = HopInventory.paginate(:page => params[:page])
+    @hop_inventories = HopInventory.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -89,6 +89,10 @@ class HopInventoriesController < ApplicationController
 
   def model
     HopInventory
+  end
+
+  def default_sort_column
+    "hop_id"
   end
 
 end

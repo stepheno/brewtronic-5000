@@ -5,7 +5,7 @@ class GrainSuppliersController < ApplicationController
   # GET /grain_suppliers
   # GET /grain_suppliers.json
   def index
-    @grain_suppliers = GrainSupplier.paginate(:page => params[:page])
+    @grain_suppliers = GrainSupplier.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

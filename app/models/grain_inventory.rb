@@ -1,4 +1,5 @@
 class GrainInventory < ActiveRecord::Base
+  include Searchable
   attr_accessible :amount, :grain_id, :grain_supplier_id
   attr_accessor :unit # Virtual field for units in forms
   attr_accessible :unit # Virtual field for units in forms
@@ -8,4 +9,9 @@ class GrainInventory < ActiveRecord::Base
   validates :grain_id, :uniqueness => {:scope => :grain_supplier_id}
 
   self.per_page = 10
+
+  def search_query
+    'grain_id == ?'
+  end
+
 end

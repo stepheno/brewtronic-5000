@@ -5,7 +5,7 @@ class HopSuppliersController < ApplicationController
   # GET /hop_suppliers
   # GET /hop_suppliers.json
   def index
-    @hop_suppliers = HopSupplier.paginate(:page => params[:page])
+    @hop_suppliers = HopSupplier.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
