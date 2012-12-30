@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
- before_filter :authenticate_user!
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /recipes
   # GET /recipes.json
   def index
@@ -87,4 +89,9 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def model
+    Recipe
+  end
+
 end

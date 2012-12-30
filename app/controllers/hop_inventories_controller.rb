@@ -1,5 +1,7 @@
 class HopInventoriesController < ApplicationController
- before_filter :authenticate_user!
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /hop_inventories
   # GET /hop_inventories.json
   def index
@@ -83,6 +85,10 @@ class HopInventoriesController < ApplicationController
       format.html { redirect_to hop_inventories_url }
       format.json { head :no_content }
     end
+  end
+
+  def model
+    HopInventory
   end
 
 end

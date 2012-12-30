@@ -1,5 +1,7 @@
 class HopTransactionsController < ApplicationController
- before_filter :authenticate_user!
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /hop_transactions
   # GET /hop_transactions.json
   def index
@@ -102,5 +104,9 @@ class HopTransactionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
+  def model
+    HopTransaction
+  end
+
 end

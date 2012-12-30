@@ -1,4 +1,7 @@
 class StylesController < ApplicationController
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /styles
   # GET /styles.json
   def index
@@ -80,4 +83,9 @@ class StylesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def model
+    Style
+  end
+
 end

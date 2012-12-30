@@ -1,4 +1,7 @@
 class MashTypesController < ApplicationController
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /mash_types
   # GET /mash_types.json
   def index
@@ -80,4 +83,9 @@ class MashTypesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def model
+    MashType
+  end
+
 end

@@ -1,4 +1,7 @@
 class HopSuppliersController < ApplicationController
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /hop_suppliers
   # GET /hop_suppliers.json
   def index
@@ -80,4 +83,9 @@ class HopSuppliersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def model
+    HopSupplier
+  end
+
 end

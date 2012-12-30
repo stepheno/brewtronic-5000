@@ -1,4 +1,7 @@
 class GrainSuppliersController < ApplicationController
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /grain_suppliers
   # GET /grain_suppliers.json
   def index
@@ -80,4 +83,9 @@ class GrainSuppliersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def model
+    GrainSupplier
+  end
+
 end

@@ -1,4 +1,7 @@
 class YeastsController < ApplicationController
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /yeasts
   # GET /yeasts.json
   def index
@@ -80,4 +83,9 @@ class YeastsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def model
+    Yeast
+  end
+
 end

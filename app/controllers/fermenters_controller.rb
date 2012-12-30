@@ -1,4 +1,7 @@
 class FermentersController < ApplicationController
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /fermenters
   # GET /fermenters.json
   def index
@@ -82,4 +85,9 @@ class FermentersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def model
+    Fermenter
+  end
+
 end

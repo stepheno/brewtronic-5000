@@ -1,4 +1,7 @@
 class BatchesController < ApplicationController
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /batches
   # GET /batches.json
   def index
@@ -82,4 +85,9 @@ class BatchesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def model
+    Batch
+  end
+
 end

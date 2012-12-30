@@ -1,5 +1,7 @@
 class GrainTransactionsController < ApplicationController
- before_filter :authenticate_user!
+  include SortableController
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_user!
   # GET /grain_transactions
   # GET /grain_transactions.json
   def index
@@ -92,4 +94,9 @@ class GrainTransactionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def model
+    GrainTransaction
+  end
+
 end
