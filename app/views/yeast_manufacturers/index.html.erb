@@ -3,12 +3,12 @@
   <div class="navbar-inner">
     <div class="container">
       <div class="nav-collapse">
-        <%= form_tag yeast_manufacturers_path, :method => 'get', :id => "yeast_manufacturers_search", :class => "navbar-search pull-left" do %>
+        <%= form_tag yeast_manufacturers_path, :method => 'get', :id => "table_search", :class => "navbar-search pull-left", :autocomplete => "off" do %>
           <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
         <% end %>
         <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Yeast Manufacturer'), new_yeast_manufacturer_path, :class => 'btn btn-primary pull-right'%>
       </div>
     </div>
   </div>
-  <div id="yeast_manufacturers"><%= render 'yeast_manufacturers' %></div>
+  <div id="index_table"><%= render 'yeast_manufacturers' %></div>
 </div>

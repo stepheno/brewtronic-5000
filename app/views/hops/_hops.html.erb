@@ -17,8 +17,12 @@
       <td><%= hop.alpha %></td>
       <td><%= hop.beta %></td>
       <td><%= hop.hop_supplier.name unless hop.hop_supplier.nil? %></td>
-      <td><%= link_to 'Edit', edit_hop_path(hop), :class => 'btn btn-mini' %></td>
-      <td><%= link_to 'Destroy', hop, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+      <td>
+      <div class="pull-right">
+      <%= link_to 'Edit', edit_hop_path(hop), :class => 'btn btn-mini' %>
+      <%= link_to 'Destroy', hop, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+      </div>
+      </td>
     </tr>
     <% end %>
   </tbody>

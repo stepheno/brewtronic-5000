@@ -3,13 +3,13 @@
   <div class="navbar-inner">
     <div class="container">
       <div class="nav-collapse">
-        <%= form_tag hop_inventories_path, :method => 'get', :id => "hop_inventories_search", :class => "navbar-search pull-left" do %>
+        <%= form_tag hop_inventories_path, :method => 'get', :id => "table_search", :class => "navbar-search pull-left", :autocomplete => "off" do %>
           <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
         <% end %>
         <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Hop Inventory'), new_hop_inventory_path, :class => 'btn btn-primary pull-right'%>
       </div>
     </div>
   </div>
-  <div id="hop_inventories"><%= render 'hop_inventories' %></div>
+  <div id="index_table"><%= render 'hop_inventories' %></div>
 </div>
 

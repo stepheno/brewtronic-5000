@@ -15,3 +15,13 @@
 //= require bootstrap
 //= require_self
 //= require_tree .
+$(function() {
+  $("#index_table th a, #index_table .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#table_search input").keyup(function() {
+    $.get($("#table_search").attr("action"), $("#table_search").serialize(), null, "script");
+    return false;
+  });
+});

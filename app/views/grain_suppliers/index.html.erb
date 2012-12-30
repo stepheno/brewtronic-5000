@@ -3,12 +3,12 @@
   <div class="navbar-inner">
     <div class="container">
       <div class="nav-collapse">
-        <%= form_tag grain_suppliers_path, :method => 'get', :id => "grain_suppliers_search", :class => "navbar-search pull-left" do %>
+        <%= form_tag grain_suppliers_path, :method => 'get', :id => "table_search", :class => "navbar-search pull-left", :autocomplete => "off" do %>
           <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search" %>
         <% end %>
         <%= link_to raw('<i class="icon-plus-sign icon-white"></i> New Grain Supplier'), new_grain_supplier_path, :class => 'btn btn-primary pull-right'%>
       </div>
     </div>
   </div>
-  <div id="grain_suppliers"><%= render 'grain_suppliers' %></div>
+  <div id="index_table"><%= render 'grain_suppliers' %></div>
 </div>
