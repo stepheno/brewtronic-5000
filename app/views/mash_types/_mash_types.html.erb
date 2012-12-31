@@ -5,14 +5,12 @@
     <tr>
       <th><%= sortable "name" %></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @mash_types.each do |mash_type| %>
     <tr>
-      <td><%= mash_type.name %></td>
-      <td><%= link_to 'Show', mash_type %></td>
+      <td><%= link_to mash_type.name, mash_type %></td>
       <td>
         <div class="pull-right">
           <%= link_to 'Edit', edit_mash_type_path(mash_type), :class => 'btn btn-mini'  %>

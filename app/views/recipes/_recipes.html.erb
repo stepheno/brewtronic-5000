@@ -12,13 +12,12 @@
       <th><%= sortable "abv" %></th>
       <th><%= sortable "srm" %></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= recipe.name %></td>
+        <td><%= link_to recipe.name, recipe %></td>
         <td><%= recipe.style.name %></td>
         <td><%= recipe.target_og %></td>
         <td><%= recipe.target_fg %></td>
@@ -26,7 +25,6 @@
         <td><%= recipe.ibu %></td>
         <td><%= recipe.abv %></td>
         <td><%= recipe.srm %></td>
-        <td><%= link_to 'Show', recipe %></td>
         <td>
           <div class="pull-right">
             <%= link_to 'Edit', edit_recipe_path(recipe), :class => 'btn btn-mini' %>
