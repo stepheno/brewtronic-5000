@@ -39,6 +39,35 @@ end
 # Insert for Yeasts
 yeast_manufacturers = ['Wyeast','White Labs']
 yeast_manufacturers.each { |yeast_manufacturer| YeastManufacturer.create(:name => yeast_manufacturer) }
+wyeast = YeastManufacturer.where(:name => "Wyeast").first
+white_labs = YeastManufacturer.where(:name => "Wyeast").first
+
+# Insert for Yeasts
+
+# Wyeast
+CSV.foreach("db/seeds/yeasts_wyeast.csv") do |yeast|
+  newYeast= Yeast.new(:name => yeast[0],
+                       :attenuation_low => yeast[1].to_f,
+                       :attenuation_high => yeast[2].to_f,
+                       :temp_low => yeast[3].to_f,
+                       :temp_high => yeast[4].to_f,
+                       :yeast_type => yeast[7],
+                       :yeast_manufacturer_id => wyeast.id)
+  newYeast.save
+end
+
+# White Labs 
+CSV.foreach("db/seeds/yeasts_white_labs.csv") do |yeast|
+  newYeast= Yeast.new(:name => yeast[0],
+                       :attenuation_low => yeast[1].to_f,
+                       :attenuation_high => yeast[2].to_f,
+                       :temp_low => yeast[3].to_f,
+                       :temp_high => yeast[4].to_f,
+                       :yeast_type => yeast[7],
+                       :yeast_manufacturer_id => white_labs.id)
+  newYeast.save
+end
+
 
 # Insert for Styles
 xml = File.read('db/seeds/styleguide2008.xml')
@@ -73,4 +102,5 @@ doc.elements.each('styleguide/class/category') do |cat|
                :srm_range_high => srm_high)
   end
 end
+
 

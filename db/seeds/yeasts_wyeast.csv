@@ -1,0 +1,49 @@
+1007 German Ale,73,77,13,20,11,low,Ale
+1010 American Wheat,74,78,14,23,10,low,Ale
+1028 London Ale, 73,77,15,22,11,medium,Ale
+1056 American Ale,73,77,15,22,11,medium,Ale
+1084 Irish Ale,71,75,16,22,12,medium,Ale
+1098 British Ale,73,75,18,22,10,medium,Ale
+1099 Whitbread Ale,68,72,18,24,10,high,Ale
+1187 Ringwood Ale,68,72,18,23,10,high,Ale
+1272 American Ale II,72,76,15,22,10,medium-low,Ale
+1275 Thames Valley Ale,77,77,16,22,10,medium-low,Ale
+1318 London Ale III,71,75,18,23,10,high,Ale
+1332 Northwest Ale,67,71,18,24,10,high,Ale
+1335 British Ale II,73,76,17,24,10,high,Ale
+1450 Denny's Favorite 50,74,76,15,21,10,low,Ale
+1469 West Yorkshire Ale,67,61,18,22,9,high,Ale
+1728 Scottish Ale,69,73,13,24,12,high,Ale
+1968 London ESB Ale,67,71,18,22,9,very high,Ale
+2565 Kolsch,73,77,13,21,10,low,Ale
+2000 Budvar Lager,71,75,9,13,9,medium-high,Lager
+2001 Urquell Lager,72,76,9,13,9,medium-high,Lager
+2007 Pilsen Lager,71,75,9,13,9,medium,Lager
+2035 American Lager,73,77,9,14,9,medium,Lager
+2042 Danish Lager,73,77,8,13,9,low,Lager
+2112 California Lager,67,71,14,20,9,high,Lager
+2124 Bohemian Lager,73,77,8,22,9,medium-low,Lager
+2206 Bavarian Lager,73,77,8,14,9,medium-high,Lager
+2278 Czech Pils,70,74,10,14,9,medium-high,Lager
+2308 Munich Lager,70,74,9,13,9,medium,Lager
+2633 Octoberfest Lager Blend,73,77,9,14,9,medium-low,Lager
+1214 Belgian Abbey,74,78,20,24,12,medium-low,Ale
+1388 Belgian Strong Ale,74,78,18,27,13,low,Ale
+1762 Belgian Abbey II,73,77,18,24,12,medium,Ale
+3056 Bavarian Wheat Blend,73,77,18,23,10,medium,Ale
+3068 Weihenstephan Weizen,73,77,18,24,10,low,Ale
+3278 Belgian Lambic Blend,70,80,17,24,11,medium,Ale
+3333 German Wheat,70,76,17,24,10,high,Ale
+3463 Forbidden Fruit,72,76,17,24,12,low,Ale
+3522 Belgian Ardennes,72,76,18,24,12,high,Ale
+3638 Bavarian Wheat,70,76,18,24,10,low,Ale
+3711 French Saison,77,83,18,25,12,low,Ale
+3724 Belgian Saison,76,80,21,35,12,low,Ale
+3763 Roeselare Ale Blend,80,80,18,30,11,medium,Ale
+3787 Trappist High Gravity,74,78,18,25,13,medium,Ale
+3942 Belgian Wheat,72,76,18,23,12,medium,Ale
+3944 Belgian Witbier,72,76,16,24,12,medium,Ale
+5112 Brettanomyces bruxellensis,90,95,15,24,12,medium,Wild
+5335 Lactobacillus,90,95,15,35,9,medium,Wild
+5526 Brettanomyces lambicus,90,95,15,24,12,medium,Wild
+5733 Pediococcus,90,95,15,35,9,medium,Wild

@@ -1,0 +1,52 @@
+WLP001 California Ale,73,80,68,73,12,medium,Ale
+WLP002 English Ale,63,70,65,68,8,very high,Ale
+WLP003 German Ale II,73,80,65,70,8,medium,Ale
+WLP004 Irish Ale,69,74,65,68,12,high,Ale
+WLP005 British Ale,67,74,65,70,8,high,Ale
+WLP006 Bedford British Ale,72,80,65,70,8,high,Ale
+WLP007 Dry English Ale,70,80,65,70,9,medium,Ale
+WLP008 East Coast Ale,70,75,68,73,8,medium,Ale
+WLP009 Australian Ale,70,75,65,70,8,high,Ale
+WLP010 10 Year Anniversary Ale Blend,75,80,65,70,8,medium,Ale
+WLP011 European Ale,65,70,65,70,8,medium,Ale
+WLP013 London Ale,65,75,66,71,8,medium,Ale
+WLP017 Whitbread Ale,67,73,66,70,8,high,Ale
+WLP022 Essex Ale,71,76,66,70,8,medium,Ale
+WLP023 Burton Ale,69,75,68,73,8,medium,Ale
+WLP025 Southwold Ale,68,75,66,69,8,medium,Ale
+WLP026 Premium Bitter Ale,70,75,67,70,8,medium,Ale
+WLP028 Edinburgh Scottish Ale,70,75,65,70,10,medium,Ale
+WLP029 German Kolsch,72,78,65,69,8,medium,Ale
+WLP033 Klassic Ale,66,74,66,70,8,medium,Ale
+WLP036 Dusseldorf Alt,65,72,65,69,8,medium,Ale
+WLP041 Pacific Ale,65,70,65,68,8,high,Ale
+WLP051 California Ale V,70,75,66,70,10,medium,Ale
+WLP060 American Ale Blend,72,80,68,72,10,medium,Ale
+WLP099 Super High Gravity Ale,80,85,65,69,25,medium,Ale
+WLP300 Hefeweizen Ale,72,76,68,72,8,low,Ale
+WLP302 American Hefeweizen Ale,70,75,65,69,8,low,Ale
+WLP351 Bavarian Weizen,73,77,66,70,8,low,Ale
+WLP380 Hefeweizen IV Ale,73,80,66,70,8,low,Ale
+WLP400 Belgian Wit Ale,74,78,67,74,8,medium,Ale
+WLP500 Trappist Ale,75,80,65,72,12,medium,Ale
+WLP510 Bastogne Belgian Ale,74,80,66,72,12,medium,Ale
+WLP515 Antwerp Ale,73,80,67,70,8,medium,Ale
+WLP530 Abbey Ale,75,80,66,72,10,medium,Ale
+WLP550 Belgian Ale,78,85,68,78,10,medium,Ale
+WLP565 Belgian Saison I,65,75,68,75,8,medium,Ale
+WLP566 Belgian Saison II,78,85,68,78,8,medium,Ale
+WLP570 Belgian Golden Ale,73,78,68,75,12,low,Ale
+WLP575 Belgian Style Ale Blend,74,80,68,75,10,medium,Ale
+WLP800 Pilsner Lager,72,77,50,55,8,high,Lager
+WLP802 Czech Budejovice Lager,75,80,50,55,8,medium,Lager
+WLP810 San Francisco Lager,65,70,58,65,10,high,Lager
+WLP820 Oktoberfest/Märzen Lager,65,73,52,58,10,medium,Lager
+WLP830 German Lager,74,79,50,55,8,medium,Lager
+WLP833 German Bock Lager,70,76,48,55,10,medium,Lager
+WLP838 Southern German Lager,68,76,50,55,8,high,Lager
+WLP840 American Lager,75,80,50,55,8,medium,Lager
+WLP850 Copenhagen Lager,72,78,50,58,8,medium,Lager
+WLP885 Zurich Lager,70,80,50,55,15,medium,Lager
+WLP920 Old Bavarian Lager,66,73,50,55,10,medium,Lager
+WLP925 HP Lager,73,82,62,68,8,medium,Lager
+WLP940 Mexican Lager,70,78,50,55,8,medium,Lager
