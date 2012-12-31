@@ -5,14 +5,10 @@
     <tr>
       <th><%= sortable "name" %></th>
       <th><%= sortable "category" %></th>
-      <th><%= sortable "og_range_low" ,"OG low" %></th>
-      <th><%= sortable "og_range_high", "OG high" %></th>
-      <th><%= sortable "fg_range_low" ,"FG low" %></th>
-      <th><%= sortable "fg_range_high", "FG high" %></th>
-      <th><%= sortable "ibu_range_low" ,"IBU low" %></th>
-      <th><%= sortable "ibu_range_high", "IBU high" %></th>
-      <th><%= sortable "srm_range_low" ,"SRM low" %></th>
-      <th><%= sortable "srm_range_high", "SRM high" %></th>
+      <th><%= sortable "og_range_low" ,"OG Range" %></th>
+      <th><%= sortable "fg_range_low" ,"FG Range" %></th>
+      <th><%= sortable "ibu_range_low" ,"IBU Range" %></th>
+      <th><%= sortable "srm_range_low" ,"SRM Range" %></th>
       <th></th>
     </tr>
   </thead>
@@ -21,14 +17,10 @@
       <tr>
         <td><%= link_to style.name, style %></td>
         <td><%= "%s%s" % [style.category,style.sub_category] %></td>
-        <td><%= "%0.2f" % style.og_range_low %></td>
-        <td><%= "%0.2f" % style.og_range_high %></td>
-        <td><%= "%0.2f" % style.fg_range_low %></td>
-        <td><%= "%0.2f" % style.fg_range_high %></td>
-        <td><%= style.ibu_range_low %></td>
-        <td><%= style.ibu_range_high %></td>
-        <td><%= style.srm_range_low %></td>
-        <td><%= style.srm_range_high %></td>
+        <td><%= "%0.2f - %0.2f" % [style.og_range_low, style.og_range_high] %></td>
+        <td><%= "%0.2f - %0.2f" % [style.fg_range_low, style.fg_range_high] %></td>
+        <td><%= "%d - %d" % [style.ibu_range_low, style.ibu_range_high] %></td>
+        <td><%= "%d - %d" % [style.srm_range_low, style.srm_range_high] %></td>
         <td>
           <div class="pull-right">
           <%= link_to 'Edit', edit_style_path(style), :class => 'btn btn-mini' %>
