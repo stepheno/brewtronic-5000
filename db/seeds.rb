@@ -61,8 +61,8 @@ CSV.foreach("db/seeds/yeasts_white_labs.csv") do |yeast|
   newYeast= Yeast.new(:name => yeast[0],
                        :attenuation_low => yeast[1].to_f,
                        :attenuation_high => yeast[2].to_f,
-                       :temp_low => yeast[3].to_f,
-                       :temp_high => yeast[4].to_f,
+                       :temp_low => yeast[3].to_f.deg_f.to_deg_c.value,
+                       :temp_high => yeast[4].to_f.deg_f.to_deg_c.value,
                        :yeast_type => yeast[7],
                        :yeast_manufacturer_id => white_labs.id)
   newYeast.save
