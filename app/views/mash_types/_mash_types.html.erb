@@ -6,7 +6,6 @@
       <th><%= sortable "name" %></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +13,12 @@
     <tr>
       <td><%= mash_type.name %></td>
       <td><%= link_to 'Show', mash_type %></td>
-      <td><%= link_to 'Edit', edit_mash_type_path(mash_type), :class => 'btn btn-mini'  %></td>
-      <td><%= link_to 'Destroy', mash_type, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'  %></td>
+      <td>
+        <div class="pull-right">
+          <%= link_to 'Edit', edit_mash_type_path(mash_type), :class => 'btn btn-mini'  %>
+          <%= link_to 'Destroy', mash_type, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'  %>
+        </div>
+      </td>
     </tr>
     <% end %>
   </tbody>

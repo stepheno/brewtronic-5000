@@ -9,8 +9,6 @@
       <th><%= sortable "attenuation_low", "Attenuation" %></th>
       <th><%= sortable "temp_low", "Temp Range" %></th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -21,8 +19,12 @@
       <td><%= yeast.yeast_type %></td>
       <td><%= "%d - %d %" % [yeast.attenuation_low, yeast.attenuation_high] %></td>
       <td><%= "%s - %s" % [Units.format_temp_for_user(yeast.temp_low, current_user), Units.format_temp_for_user(yeast.temp_high, current_user)] %></td>
-      <td><%= link_to 'Edit', edit_yeast_path(yeast), :class => 'btn btn-mini' %></td>
-      <td><%= link_to 'Destroy', yeast, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+      <td>
+        <div class="pull-right">
+          <%= link_to 'Edit', edit_yeast_path(yeast), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', yeast, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+        </div>
+      </td>
     </tr>
     <% end %>
   </tbody>

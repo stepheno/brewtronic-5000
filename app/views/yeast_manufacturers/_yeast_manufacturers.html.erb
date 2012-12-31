@@ -5,16 +5,18 @@
     <tr>
       <th><%= sortable "name" %></th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @yeast_manufacturers.each do |yeast_manufacturer| %>
     <tr>
       <td><%= link_to yeast_manufacturer.name, yeast_manufacturer%></td>
-      <td><%= link_to 'Edit', edit_yeast_manufacturer_path(yeast_manufacturer), :class => 'btn btn-mini' %></td>
-      <td><%= link_to 'Destroy', yeast_manufacturer, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+      <td>
+        <div class="pull-right">
+          <%= link_to 'Edit', edit_yeast_manufacturer_path(yeast_manufacturer), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', yeast_manufacturer, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+        </div>
+      </td>
     </tr>
     <% end %>
   </tbody>

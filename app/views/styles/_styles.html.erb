@@ -14,8 +14,6 @@
       <th><%= sortable "srm_range_low" ,"SRM low" %></th>
       <th><%= sortable "srm_range_high", "SRM high" %></th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -31,8 +29,12 @@
         <td><%= style.ibu_range_high %></td>
         <td><%= style.srm_range_low %></td>
         <td><%= style.srm_range_high %></td>
-        <td><%= link_to 'Edit', edit_style_path(style), :class => 'btn btn-mini' %></td>
-        <td><%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+        <td>
+          <div class="pull-right">
+          <%= link_to 'Edit', edit_style_path(style), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>

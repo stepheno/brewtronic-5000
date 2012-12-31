@@ -11,8 +11,6 @@
       <td><%= sortable "carbonate" %></td>
       <td><%= sortable "chloride" %></td>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -26,8 +24,12 @@
       <td><%= mineral.sulfate %></td>
       <td><%= mineral.carbonate %></td>
       <td><%= mineral.chloride %></td>
-      <td><%= link_to 'Edit', edit_mineral_path(mineral), :class => 'btn btn-mini'  %></td>
-      <td><%= link_to 'Destroy', mineral, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'  %></td>
+      <td>
+        <div class="pull-right">
+          <%= link_to 'Edit', edit_mineral_path(mineral), :class => 'btn btn-mini'  %>
+          <%= link_to 'Destroy', mineral, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'  %>
+        </div>
+      </td>
     </tr>
     <% end %>
   </tbody>

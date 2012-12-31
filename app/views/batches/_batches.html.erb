@@ -13,7 +13,6 @@
       <th><%= sortable "target_date" %></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -28,8 +27,12 @@
         <td><%= batch.date %></td>
         <td><%= batch.target_date %></td>
         <td><%= link_to 'Show', batch %></td>
-        <td><%= link_to 'Edit', edit_batch_path(batch), :class => 'btn btn-mini pull-right' %></td>
-        <td><%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
+        <td>
+          <div class="pull-right">
+          <%= link_to 'Edit', edit_batch_path(batch), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>

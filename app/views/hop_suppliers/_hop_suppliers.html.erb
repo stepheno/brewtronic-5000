@@ -12,8 +12,12 @@
     <% @hop_suppliers.each do |hop_supplier| %>
     <tr>
       <td><%= link_to hop_supplier.name, hop_supplier%></td>
-      <td><%= link_to 'Edit', edit_hop_supplier_path(hop_supplier), :class => 'btn btn-mini pull-right' %></td>
-      <td><%= link_to 'Destroy', hop_supplier, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
+      <td>
+        <div class="pull-right">
+          <%= link_to 'Edit', edit_hop_supplier_path(hop_supplier), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', hop_supplier, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+        </div>
+      </td>
     </tr>
     <% end %>
   </tbody>

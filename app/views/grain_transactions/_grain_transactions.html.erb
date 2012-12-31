@@ -10,7 +10,6 @@
       <th>Total</th>
       <th><%= sortable "updated_at" , "Last Updated" %></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -23,8 +22,12 @@
         <td><%= Units.format_mass_for_user(grain_transaction.amount, current_user)%></td>
         <td><%= Units.format_mass_for_user(grain_transaction.amount * grain_transaction.quantity, current_user) %></td>
         <td><%= grain_transaction.updated_at.localtime.strftime('%F %r') %></td>
-        <td><%= link_to 'Edit', edit_grain_transaction_path(grain_transaction), :class=> 'btn btn-mini pull-right' %></td>
-        <td><%= link_to 'Destroy', grain_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
+        <td>
+          <div class="pull-right">
+            <%= link_to 'Edit', edit_grain_transaction_path(grain_transaction), :class=> 'btn btn-mini' %>
+            <%= link_to 'Destroy', grain_transaction, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>

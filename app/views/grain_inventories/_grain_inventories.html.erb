@@ -7,7 +7,6 @@
       <th><%= sortable "grain_supplier_id", "Grain Supplier" %></th>
       <th><%= sortable "amount" %></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -16,8 +15,12 @@
       <td><%= link_to grain_inventory.grain.name, grain_inventory unless grain_inventory.grain.nil? %></td>
       <td><%= grain_inventory.grain_supplier.name unless grain_inventory.grain_supplier.nil? %></td>
       <td><%= Units.format_mass_for_user(grain_inventory.amount,current_user) %></td>
-      <td><%= link_to 'Edit', edit_grain_inventory_path(grain_inventory), :class => 'btn btn-mini pull-right' %></td>
-      <td><%= link_to 'Destroy', grain_inventory, :method => :delete, :confirm => 'Are you sure?' , :class => 'btn btn-mini btn-danger pull-right' %></td>
+      <td>
+        <div class="pull-right">
+          <%= link_to 'Edit', edit_grain_inventory_path(grain_inventory), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', grain_inventory, :method => :delete, :confirm => 'Are you sure?' , :class => 'btn btn-mini btn-danger' %>
+        </div>
+      </td>
     </tr>
     <% end %>
   </tbody>

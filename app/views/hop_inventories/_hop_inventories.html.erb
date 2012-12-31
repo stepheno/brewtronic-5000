@@ -9,7 +9,6 @@
       <th><%= sortable "amount" %></th>
       <th><%= sortable "hop_type", "Type" %></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -20,8 +19,12 @@
       <td><%= hop_inventory.crop_year %></td>
       <td><%= Units.format_mass_for_user(hop_inventory.amount, current_user)%></td>
       <td><%= hop_inventory.hop_type %></td>
-      <td><%= link_to 'Edit', edit_hop_inventory_path(hop_inventory), :class => 'btn btn-mini pull-right' %></td>
-      <td><%= link_to 'Destroy', hop_inventory, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger pull-right' %></td>
+      <td>
+        <div class="pull-right">
+          <%= link_to 'Edit', edit_hop_inventory_path(hop_inventory), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', hop_inventory, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+        </div>
+      </td>
     </tr>
     <% end %>
   </tbody>
