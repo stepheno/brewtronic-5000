@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :name, :password_confirmation, :remember_me
   # User preferences
   attr_accessible :mass_units, :volume_units, :length_units, :temp_units, :time_zone
+  
+  # Associatons
+  has_many :users
   # attr_accessible :title, :body
   validate :name, :presence => true
   validate :email, :presence => true, :uniqueness => true

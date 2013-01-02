@@ -2,9 +2,9 @@ class Batch < ActiveRecord::Base
   include Searchable
   belongs_to :recipe
   belongs_to :fermenter
-  belongs_to :brewer
+  belongs_to :user
   attr_accessible :date, :finish_gravity, :original_gravity, :target_date, :yield
-  attr_accessible :recipe_id, :fermenter_id, :brewer_id
+  attr_accessible :recipe_id, :fermenter_id, :user_id
 
   attr_accessor :unit # Virtual field for units in forms
   attr_accessible :unit # Virtual field for units in forms

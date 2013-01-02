@@ -24,8 +24,8 @@
     <%= f.select :fermenter_id, Fermenter.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
-    <%= f.label :brewer_id %><br />
-    <%= f.select :brewer_id, Brewer.all.collect {|c| [c.name, c.id]} %>
+    <%= f.label :user_id %><br />
+    <%= f.select :user_id, User.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
     <%= f.label :original_gravity %><br />

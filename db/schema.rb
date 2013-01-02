@@ -11,30 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121231221046) do
+ActiveRecord::Schema.define(:version => 20130102062204) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
     t.date     "date"
     t.integer  "fermenter_id"
-    t.integer  "brewer_id"
     t.float    "original_gravity"
     t.float    "finish_gravity"
     t.float    "yield"
     t.date     "target_date"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "user_id"
   end
 
-  add_index "batches", ["brewer_id"], :name => "index_batches_on_brewer_id"
   add_index "batches", ["fermenter_id"], :name => "index_batches_on_fermenter_id"
   add_index "batches", ["recipe_id"], :name => "index_batches_on_recipe_id"
-
-  create_table "brewers", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+  add_index "batches", ["user_id"], :name => "index_batches_on_user_id"
 
   create_table "fermenters", :force => true do |t|
     t.float    "size"
