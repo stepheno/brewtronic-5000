@@ -5,6 +5,13 @@
   <%= @hop_supplier.name %>
 </p>
 
-
+<p>
+  <b>Hops:</b>
+  <ul>
+    <% @hop_supplier.hops.each do |hop| %>
+      <li><%= hop.name %></li>
+    <% end %>
+  </ul>
+</p>
 <%= link_to 'Edit', edit_hop_supplier_path(@hop_supplier) %> |
 <%= link_to 'Back', hop_suppliers_path %>

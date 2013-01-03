@@ -5,6 +5,7 @@ class Hop < ActiveRecord::Base
   has_many :hop_transactions, :dependent => :destroy
   has_many :recipes, :through => :recipe_hops
   has_many :recipe_hops
+  has_and_belongs_to_many :hop_suppliers
 
   validates :name, :presence => true
   validates :alpha, :presence => true, :numericality => true

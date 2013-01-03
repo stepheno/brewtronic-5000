@@ -6,6 +6,11 @@ class HopsController < ApplicationController
   # GET /hops.json
   def index
     @hops = Hop.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
+    respond_to do |format|
+     format.html
+     format.js
+     format.json { render :json => Hop.where("name like ?", "%#{params[:q]}%").map(&:attributes) }
+    end
   end
 
   # GET /hops/1
