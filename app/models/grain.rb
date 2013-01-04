@@ -5,6 +5,8 @@ class Grain < ActiveRecord::Base
   has_many :grain_transactions, :dependent => :destroy
   has_many :recipes, :through => :recipe_grains
   has_many :recipe_grains
+  has_and_belongs_to_many :grain_suppliers
+
   validates :extract_potential, :numericality => true
   validates :color, :numericality => true
   validates_uniqueness_of :name

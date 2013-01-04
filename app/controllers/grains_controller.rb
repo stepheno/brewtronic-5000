@@ -6,6 +6,11 @@ class GrainsController < ApplicationController
   # GET /grains.json
   def index
     @grains = Grain.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
+    respond_to do |format|
+     format.html
+     format.js
+     format.json { render :json => Grain.where("name like ?", "%#{params[:q]}%").map(&:attributes) }
+    end
   end
 
   # GET /grains/1
