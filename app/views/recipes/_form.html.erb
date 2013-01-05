@@ -36,30 +36,34 @@
     <%= f.label :yeast_id %><br />
     <%= f.select :yeast_id, Yeast.all.collect {|c| [c.name, c.id]} %>
   </div>
-    <%= f.fields_for :recipe_minerals do |rm| %>
-      <%= rm.label :mineral_id%><br />
-      <%= rm.collection_select(:mineral_id, Mineral.all, :id, :name) %>
-      <%= rm.label :amount %>
-      <%= rm.text_field :amount %>
-    <% end %>
   <div class="field">
-    <%= f.fields_for :recipe_grains do |mineral| %>
-      <%= mineral.label :grains %><br />
-      <%= mineral.collection_select(:grain_id, Grain.all, :id, :name) %>
+    <%= f.fields_for :recipe_hops do |hop| %>
+      <%= render 'recipe_hop_fields', f: hop%>
     <% end %>
   </div>
+  <%= link_to_add_fields "Add Hop", f, :recipe_hops %>
+
   <div class="field">
-    <%= f.fields_for :recipe_hops do |mineral| %>
-      <%= mineral.label :hops %><br />
-      <%= mineral.collection_select(:hop_id, Hop.all, :id, :name) %>
+    <%= f.fields_for :recipe_grains do |grain| %>
+      <%= render 'recipe_grain_fields', f: grain%>
     <% end %>
   </div>
+  <%= link_to_add_fields "Add Grain", f, :recipe_grains %>
+
   <div class="field">
-    <%= f.fields_for :recipe_mashes do |mineral| %>
-      <%= mineral.label :mash_steps %><br />
-      <%= mineral.collection_select(:mash_type_id, MashType.all, :id, :name) %>
+    <%= f.fields_for :recipe_mashes do |hop| %>
+      <%= render 'recipe_mash_fields', f: hop%>
     <% end %>
   </div>
+  <%= link_to_add_fields "Add Mash Steps", f, :recipe_mashes %>
+
+  <div class="field">
+    <%= f.fields_for :recipe_minerals do |hop| %>
+      <%= render 'recipe_mineral_fields', f: hop%>
+    <% end %>
+  </div>
+  <%= link_to_add_fields "Add Minerals", f, :recipe_minerals %>
+
   <div class="field">
     <%= f.label :boil_time %><br />
     <%= f.text_field :boil_time %>

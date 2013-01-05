@@ -6,6 +6,11 @@ class MashTypesController < ApplicationController
   # GET /mash_types.json
   def index
     @mash_types = MashType.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
+    respond_to do |format|
+     format.html
+     format.js
+     format.json { render :json => MashType.where("name like ?", "%#{params[:q]}%").map(&:attributes) }
+    end
   end
 
   # GET /mash_types/1

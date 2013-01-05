@@ -6,6 +6,12 @@ class MineralsController < ApplicationController
   # GET /minerals.json
   def index
     @minerals = Mineral.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
+    respond_to do |format|
+     format.html
+     format.js
+     format.json { render :json => Mineral.where("name like ?", "%#{params[:q]}%").map(&:attributes) }
+    end
+
   end
 
   # GET /minerals/1

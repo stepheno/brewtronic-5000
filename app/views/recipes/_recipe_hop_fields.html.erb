@@ -1,0 +1,11 @@
+<fieldset>
+  <div class="field">
+    <%= f.label :hop_id, "Hop" %><br />
+    <%= f.select :hop_id, Hop.all.collect {|c| [c.name, c.id]} %>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Hop" %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</fieldset>

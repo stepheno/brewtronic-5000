@@ -1,0 +1,11 @@
+<fieldset>
+  <div class="field">
+    <%= f.label :mineral_id, "Mineral" %><br />
+    <%= f.select :mineral_id, Mineral.all.collect {|c| [c.name, c.id]} %>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Mineral" %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</fieldset>

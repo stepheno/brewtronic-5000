@@ -55,6 +55,52 @@
   <%= @recipe.pitch_temperature %>
 </p>
 
+<p>
+  <b>Grains:</b>
+  <ul>
+    <% @recipe.recipe_grains.each do |recipe_grain| %>
+      <li>
+        <%= recipe_grain.grain.name %>
+        <%= recipe_grain.amount %>
+      </li>
+    <% end %>
+  </ul>
+</p>
 
+<p>
+  <b>Hops:</b>
+  <ul>
+    <% @recipe.recipe_hops.each do |recipe_hop| %>
+      <li>
+        <%= recipe_hop.hop.name %>
+        <%= recipe_hop.amount %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <b>Mash Steps:</b>
+  <ul>
+    <% @recipe.recipe_mashes.each do |recipe_mashes| %>
+      <li>
+        <%= recipe_mashes.mash_type.name %>
+        <%= recipe_mashes.temperature%>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <b>Minerals:</b>
+  <ul>
+    <% @recipe.recipe_minerals.each do |recipe_mineral| %>
+      <li>
+        <%= recipe_mineral.mineral.name %>
+        <%= recipe_mineral.amount %>
+      </li>
+    <% end %>
+  </ul>
+</p>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
