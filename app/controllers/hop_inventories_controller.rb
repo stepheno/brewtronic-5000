@@ -23,6 +23,7 @@ class HopInventoriesController < ApplicationController
   # GET /hop_inventories/1/edit
   def edit
     @hop_inventory = HopInventory.find(params[:id])
+    @hop_inventory.amount = Units.format_mass_for_user(@hop_inventory.amount, current_user).value
   end
 
   # POST /hop_inventories

@@ -23,6 +23,7 @@ class HopTransactionsController < ApplicationController
   # GET /hop_transactions/1/edit
   def edit
     @hop_transaction = HopTransaction.find(params[:id])
+    @hop_transaction.amount = Units.format_mass_for_user(@hop_transaction.amount, current_user).value
   end
 
   # POST /hop_transactions
@@ -39,7 +40,7 @@ class HopTransactionsController < ApplicationController
                                      .where(:hop_supplier_id => ht_params[:hop_supplier_id])
                                      .where(:hop_type => ht_params[:hop_type])
                                      .first
-        total_amount = Units.convert_mass_units(ht_params[:quantity].to_i * ht_params[:amount].to_f, ht_params[:unit])
+        total_amount = ht_params[:quantity].to_i * ht_params[:amount].to_f
 
         if (hop_inventory.nil?)
           hop_inventory = HopInventory.create(:hop_id => ht_params[:hop_id],

@@ -27,6 +27,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit
     @recipe = Recipe.find(params[:id])
+    @recipe.size= Units.format_volume_for_user(@recipe.size, current_user).value
   end
 
   # POST /recipes

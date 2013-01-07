@@ -23,18 +23,21 @@ class GrainTransactionsController < ApplicationController
   # GET /grain_transactions/1/edit
   def edit
     @grain_transaction = GrainTransaction.find(params[:id])
+    @grain_transaction.amount = Units.format_mass_for_user(@grain_transaction.amount, current_user).value
   end
 
   # POST /grain_transactions
   # POST /grain_transactions.json
   def create
+    params[:grain_transaction][:amount] = Units.convert_mass_units(params[:grain_transaction][:amount],params[:grain_transaction][:unit])
+
     @grain_transaction = GrainTransaction.new(params[:grain_transaction])
     gt_params = params[:grain_transaction] #get the grain transaction parameters
     respond_to do |format|
       if @grain_transaction.save
 
         grain_inventory = GrainInventory.where(:grain_id => gt_params[:grain_id]).where(:grain_supplier_id => gt_params[:grain_supplier_id]).first
-        total_amount = Units.convert_mass_units(gt_params[:quantity].to_i * gt_params[:amount].to_f, gt_params[:unit])
+        total_amount = gt_params[:quantity].to_i * gt_params[:amount]
 
         if (grain_inventory.nil?)
           grain_inventory = GrainInventory.create(:grain_id => gt_params[:grain_id], :grain_supplier_id => gt_params[:grain_supplier_id], :amount => total_amount)

@@ -23,6 +23,7 @@ class FermentersController < ApplicationController
   # GET /fermenters/1/edit
   def edit
     @fermenter = Fermenter.find(params[:id])
+    @fermenter.size = Units.format_volume_for_user(@fermenter.size, current_user).value
   end
 
   # POST /fermenters

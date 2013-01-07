@@ -23,6 +23,7 @@ class BatchesController < ApplicationController
   # GET /batches/1/edit
   def edit
     @batch = Batch.find(params[:id])
+    @batch.yield = Units.format_volume_for_user(@batch.yield, current_user).value
   end
 
   # POST /batches

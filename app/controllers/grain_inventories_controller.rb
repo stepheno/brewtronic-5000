@@ -23,6 +23,7 @@ class GrainInventoriesController < ApplicationController
   # GET /grain_inventories/1/edit
   def edit
     @grain_inventory = GrainInventory.find(params[:id])
+    @grain_inventory.amount = Units.format_mass_for_user(@grain_inventory.amount, current_user).value
   end
 
   # POST /grain_inventories
