@@ -36,6 +36,7 @@
     <%= f.label :yeast_id %><br />
     <%= f.select :yeast_id, Yeast.all.collect {|c| [c.name, c.id]} %>
   </div>
+  <%= f.label :hop_id, "Hops" %><br />
   <div class="field">
     <%= f.fields_for :recipe_hops do |hop| %>
       <%= render 'recipe_hop_fields', f: hop%>
@@ -43,6 +44,7 @@
   </div>
   <%= link_to_add_fields "Add Hop", f, :recipe_hops %>
 
+  <%= f.label :grain_id, "Grains" %><br />
   <div class="field">
     <%= f.fields_for :recipe_grains do |grain| %>
       <%= render 'recipe_grain_fields', f: grain%>
@@ -50,6 +52,7 @@
   </div>
   <%= link_to_add_fields "Add Grain", f, :recipe_grains %>
 
+  <%= f.label :mash_type_id, "Mash Steps" %><br />
   <div class="field">
     <%= f.fields_for :recipe_mashes do |hop| %>
       <%= render 'recipe_mash_fields', f: hop%>
@@ -57,6 +60,7 @@
   </div>
   <%= link_to_add_fields "Add Mash Steps", f, :recipe_mashes %>
 
+  <%= f.label :mineral_id, "Minerals" %><br />
   <div class="field">
     <%= f.fields_for :recipe_minerals do |hop| %>
       <%= render 'recipe_mineral_fields', f: hop%>

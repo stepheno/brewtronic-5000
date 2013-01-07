@@ -1,11 +1,7 @@
 <fieldset>
   <div class="field">
-    <%= f.label :mash_type_id, "Mash Step" %><br />
     <%= f.select :mash_type_id, MashType.all.collect {|c| [c.name, c.id]} %>
-    <%= f.label :temperature %><br />
     <%= f.text_field :temperature %>
+    <%= link_to raw('<i class="icon-remove"></i>'), "#", :class => 'remove_fields' %>
   </div>
-  <%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove Mash Step" %>
-  <%= link_to "remove", '#', class: "remove_fields" %>
 </fieldset>
