@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :grain %><br />
-    <%= f.select :grain_id, Grain.all.collect {|c| [c.name, c.id]} %>
+    <%= f.label :grain_supplier_id %><br />
+    <%= f.collection_select :grain_supplier_id, GrainSupplier.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :grain_supplier %><br />
-    <%= f.select :grain_supplier_id, GrainSupplier.all.collect {|c| [c.name, c.id]} %>
+    <%= f.label :grain_id %><br />
+    <%= f.grouped_collection_select :grain_id, GrainSupplier.all, :grains, :name, :id, :name, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :quantity %><br />
