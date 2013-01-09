@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :hop_year %><br />
-    <%= f.number_field :hop_year %>
+    <%= select_year Date.today, :field_name => 'hop_year' %>
   </div>
   <div class="field">
     <%= f.label :quantity %><br />
