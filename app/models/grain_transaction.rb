@@ -6,6 +6,8 @@ class GrainTransaction < ActiveRecord::Base
   attr_accessor :unit # Virtual field for units in forms
   attr_accessible :unit # Virtual field for units in forms
 
+  validates :grain, :presence => true
+  validates :grain_supplier, :presence => true
   validates :quantity, :presence => true, :numericality => true
   validates :amount, :presence => true, :numericality => true
 
