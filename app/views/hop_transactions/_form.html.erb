@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :hop_id %><br />
-    <%= f.select :hop_id, Hop.all.collect {|c| [c.name, c.id]} %>
+    <%= f.label :hop_supplier_id %><br />
+    <%= f.collection_select :hop_supplier_id, HopSupplier.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :hop_supplier_id %><br />
-    <%= f.select :hop_supplier_id, HopSupplier.all.collect {|c| [c.name, c.id]} %>
+    <%= f.label :hop_id %><br />
+    <%= f.grouped_collection_select :hop_id, HopSupplier.all, :hops, :name, :id, :name, include_blank: true %>
   </div>
    <div class="field">
     <%= f.label :hop_type %><br />
