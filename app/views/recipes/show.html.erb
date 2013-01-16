@@ -41,6 +41,11 @@
 </p>
 
 <p>
+  <b>Calculated Ibu:</b>
+  <%= "%0.2f" % @recipe.calculated_ibu %>
+</p>
+
+<p>
   <b>Abv:</b>
   <%= @recipe.abv %>
 </p>
@@ -74,6 +79,7 @@
       <li>
         <%= recipe_hop.hop.name %>
         <%= recipe_hop.amount %>
+        <%= "%0.2f" % recipe_hop.calculated_ibu %>
       </li>
     <% end %>
   </ul>

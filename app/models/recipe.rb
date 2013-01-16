@@ -33,4 +33,13 @@ class Recipe < ActiveRecord::Base
   validates :target_fg, :presence => true, :numericality => true
 
   self.per_page = 10
+
+  def calculated_ibu
+    self.recipe_hops.reduce(0) { |sum,x| sum + x.calculated_ibu}
+  end
+
+  def calculated_og
+    5
+  end
+
 end
