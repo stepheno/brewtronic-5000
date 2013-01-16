@@ -97,4 +97,7 @@ module Units
     end
   end
 
+  def Units.plato_to_sg(plato)
+    specific_gravity = 1 + plato/(258.6-((plato/258.2)*227.1))
+  end
 end

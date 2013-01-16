@@ -42,4 +42,9 @@ class Recipe < ActiveRecord::Base
     self.recipe_grains.reduce(0) { |sum,x| sum + x.calculated_og}
   end
 
+  # George Fix method
+  def calculated_abv
+    real_extract = (0.1808 * Units.plato_to_sg(self.target_og)) + (0.8192 * Units.plato_to_sg(self.target_fg))
+    abv = ((self.target_og - real_extract) / (2.0665 - (0.010665 * self.target_og))) * 0.789
+  end
 end
