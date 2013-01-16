@@ -22,6 +22,15 @@ class Recipe < ActiveRecord::Base
   attr_accessor :unit # Virtual field for units in forms
   attr_accessible :unit # Virtual field for units in forms
 
+  validates :name, :presence => true
+  validates :yeast, :presence => true
+  validates :style, :presence => true
+  validates :pitch_temperature, :presence => true, :numericality => true
+  validates :ibu, :numericality => true
+  validates :size, :presence => true, :numericality => true
+  validates :srm, :numericality => true
+  validates :target_og, :presence => true, :numericality => true
+  validates :target_fg, :presence => true, :numericality => true
 
   self.per_page = 10
 end
