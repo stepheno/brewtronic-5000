@@ -39,7 +39,7 @@ class Recipe < ActiveRecord::Base
   end
 
   def calculated_og
-    5
+    self.recipe_grains.reduce(0) { |sum,x| sum + x.calculated_og}
   end
 
 end

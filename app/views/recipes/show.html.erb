@@ -16,6 +16,11 @@
 </p>
 
 <p>
+  <b>Calculated og:</b>
+  <%= "%0.2f" % @recipe.calculated_og %>
+</p>
+
+<p>
   <b>Target fg:</b>
   <%= @recipe.target_fg %>
 </p>
@@ -67,6 +72,7 @@
       <li>
         <%= recipe_grain.grain.name %>
         <%= recipe_grain.amount %>
+        <%= "%0.2f" % recipe_grain.calculated_og %>
       </li>
     <% end %>
   </ul>
