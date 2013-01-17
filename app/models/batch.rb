@@ -9,6 +9,8 @@ class Batch < ActiveRecord::Base
   attr_accessor :unit # Virtual field for units in forms
   attr_accessible :unit # Virtual field for units in forms
 
+  validates :recipe, :presence => true
+  validates :fermenter, :presence => true
 
   self.per_page = 10
 
