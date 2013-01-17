@@ -3,6 +3,7 @@ class Hop < ActiveRecord::Base
   attr_accessible :alpha, :name, :beta
   has_many :hop_inventories, :dependent => :destroy
   has_many :hop_transactions, :dependent => :destroy
+  has_many :hop_contracts, :dependent => :destroy
   has_many :recipes, :through => :recipe_hops
   has_many :recipe_hops
   has_and_belongs_to_many :hop_suppliers

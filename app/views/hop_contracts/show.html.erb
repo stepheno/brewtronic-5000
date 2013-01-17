@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Hop supplier:</b>
+  <%= @hop_contract.hop_supplier.name %>
+</p>
+
+<p>
+  <b>Hop:</b>
+  <%= @hop_contract.hop.name %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @hop_contract.hop_year %>
+</p>
+
+<p>
+  <b>Contract amount:</b>
+  <%= @hop_contract.contract_amount %>
+</p>
+
+<p>
+  <b>Used amount:</b>
+  <%= @hop_contract.used_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_hop_contract_path(@hop_contract) %> |
+<%= link_to 'Back', hop_contracts_path %>

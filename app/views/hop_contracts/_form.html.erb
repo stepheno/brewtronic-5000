@@ -1,0 +1,43 @@
+<%= form_for(@hop_contract) do |f| %>
+  <% if @hop_contract.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hop_contract.errors.count, "error") %> prohibited this hop_contract from being saved:</h2>
+
+      <ul>
+      <% @hop_contract.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hop_supplier_id %><br />
+    <%= f.collection_select :hop_supplier_id, HopSupplier.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :hop_id %><br />
+    <%= f.grouped_collection_select :hop_id, HopSupplier.all, :hops, :name, :id, :name, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :hop_year %><br />
+    <%= select_year Date.today, :field_name => 'hop_year', :prefix => :hop_contract %>
+  </div>
+  <div class="field">
+    <%= f.label :hop_type %><br />
+    <%= f.select :hop_type, options_for_select(["Whole", "Pellet", "Plug"])%>
+  </div>
+  <div class="field">
+    <%= f.label :contract_amount %><br />
+    <%= f.text_field :contract_amount %>
+    <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %>
+  </div>
+  <div class="field">
+    <%= f.label :used_amount %><br />
+    <%= f.text_field :used_amount %>
+    <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

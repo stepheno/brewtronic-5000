@@ -1,4 +1,7 @@
 Brewtronic5000::Application.routes.draw do
+  resources :hop_contracts
+
+
   resources :hop_transactions
 
   resources :grain_transactions

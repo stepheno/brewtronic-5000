@@ -19,6 +19,7 @@ class HopTransaction < ActiveRecord::Base
   validates :hop_supplier, :presence => true
   validates :quantity, :presence => true, :numericality => true
   validates :amount, :presence => true, :numericality => true
+  validates :hop_year, :presence => true
 
   self.per_page = 10
 
