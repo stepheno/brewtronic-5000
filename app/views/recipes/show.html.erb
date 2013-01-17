@@ -72,15 +72,24 @@
 
 <p>
   <b>Grains:</b>
-  <ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Calculated OG</th>
+      </tr>
+    </thead>
+    <tbody>
     <% @recipe.recipe_grains.each do |recipe_grain| %>
-      <li>
-        <%= recipe_grain.grain.name %>
-        <%= recipe_grain.amount %>
-        <%= "%0.2f" % recipe_grain.calculated_og %>
-      </li>
+      <tr>
+        <td><%= recipe_grain.grain.name %></td>
+        <td><%= recipe_grain.amount %></td>
+        <td> <%= "%0.2f" % recipe_grain.calculated_og %></td>
+      </tr>
     <% end %>
-  </ul>
+    </tbody>
+  </table>
 </p>
 
 <p>
