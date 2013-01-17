@@ -34,6 +34,10 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       if @batch.save
+        @batch.recipe.recipe_grains.each do |recipe_grain|
+          gt = GrainTransaction.new(:grain_id => recipe_grain.grain.id, :grain_supplier_id => GrainSupplier.all.first.id, :amount => -recipe_grain.amount, :quantity => 1)
+          gt.save!
+        end
         format.html { redirect_to @batch, notice: 'Batch was successfully created.' }
         format.json { render json: @batch, status: :created, location: @batch }
       else
