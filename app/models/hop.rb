@@ -11,6 +11,7 @@ class Hop < ActiveRecord::Base
   validates :name, :presence => true
   validates :alpha, :presence => true, :numericality => true
   validates :beta, :numericality => true, :allow_blank => true
+  validates :hsi, :presence => true, :numericality => true
   validates_uniqueness_of :name
 
   self.per_page = 10
