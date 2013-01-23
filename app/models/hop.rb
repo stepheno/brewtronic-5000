@@ -1,6 +1,6 @@
 class Hop < ActiveRecord::Base
   include Searchable
-  attr_accessible :alpha, :name, :beta
+  attr_accessible :alpha, :name, :beta, :hsi
   has_many :hop_inventories, :dependent => :destroy
   has_many :hop_transactions, :dependent => :destroy
   has_many :hop_contracts, :dependent => :destroy
@@ -15,8 +15,4 @@ class Hop < ActiveRecord::Base
 
   self.per_page = 10
 
-#  def current_alpha
-#    self.alpha * (1 / Math::E) * (self.hsi * self.storage_temp * self.storage_factor * (Date.today - self.harvest_date))
-#  end
-
-end0
+end
