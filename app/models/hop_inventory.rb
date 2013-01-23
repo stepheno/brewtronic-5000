@@ -23,7 +23,9 @@ class HopInventory < ActiveRecord::Base
   end
 
   def current_alpha
-    self.hop.alpha * (1 / Math::E) * (self.hop.hsi * self.storage_temp * self.storage_factor * (Date.today - self.harvest_date))
+    factors = self.hop.hsi * self.storage_temp * self.storage_factor
+    date = Date.today - self.harvest_date
+    self.hop.alpha * ( 1 / Math.log(factors * date))
   end
 
 end
