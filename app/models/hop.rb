@@ -16,7 +16,7 @@ class Hop < ActiveRecord::Base
   self.per_page = 10
 
 #  def current_alpha
-#    self.alpha * (1 / Math::E) * (<HSI> * <tempFactor> * <storageFactor> * <days since last reading>)
+#    self.alpha * (1 / Math::E) * (<HSI> * <tempFactor> * <storageFactor> * (self.harvest_date - Date.today))
 #  end
 
 end
