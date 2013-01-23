@@ -15,4 +15,8 @@ class Hop < ActiveRecord::Base
 
   self.per_page = 10
 
+  def future_alpha
+    return = self.alpha * (1 / Math::e) * (<HSI> * <tempFactor> * <storageFactor> * <days since last reading>)
+  end
+
 end
