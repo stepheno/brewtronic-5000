@@ -22,4 +22,8 @@ class HopInventory < ActiveRecord::Base
     joins(:hop).where('hops.name LIKE ?', "%#{search}%")
   end
 
+#  def current_alpha
+#    self.hop.alpha * (1 / Math::E) * (self.hop.hsi * self.storage_temp * self.storage_factor * (Date.today - self.harvest_date))
+#  end
+
 end
