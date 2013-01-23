@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :grain_supplier_id %><br />
-    <%= f.collection_select :grain_supplier_id, GrainSupplier.all, :id, :name %>
+    <%= f.collection_select :grain_supplier_id, GrainSupplier.all, :id, :name, include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :grain_id %><br />
