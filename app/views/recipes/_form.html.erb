@@ -17,7 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :style_id %><br />
-    <%= f.select :style_id, Style.all.collect {|c| [c.name, c.id]} %>
+    <%= f.text_field   :style %>
+    <%= f.hidden_field :style_id %>
   </div>
   <div class="field">
     <%= f.label :target_og %><br />

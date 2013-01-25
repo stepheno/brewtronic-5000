@@ -4,8 +4,15 @@ class StylesController < ApplicationController
   before_filter :authenticate_user!
   # GET /styles
   # GET /styles.json
+
   def index
     @styles = Style.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+      format.json { render :json => Style.where("name like ?", "%#{params[:term]}%").map(&:attributes) }
+    end
   end
 
   # GET /styles/1
