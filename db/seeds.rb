@@ -6,23 +6,31 @@
 require 'csv'
 require 'rexml/document'
 
-grain_suppliers = ['Great Western','Breiss','Rahr','Weyermann','Simpsons']
-grain_suppliers.each { |grain_supplier| GrainSupplier.create(:name => grain_supplier) }
-
 # Insert grains
 CSV.foreach("db/seeds/grains.csv") do |grain|
   newGrain = Grain.new(:name => grain[0], :color => grain[1].to_f, :extract_potential => grain[2].to_f)
   newGrain.save
 end
 
-hop_suppliers = ['Hop Union','BSG']
-hop_suppliers.each { |hop_supplier| HopSupplier.create(:name => hop_supplier) }
+grain_suppliers = ['Great Western','Breiss','Rahr','Weyermann','Simpsons']
+grain_suppliers.each do |grain_supplier|
+  g = GrainSupplier.create(:name => grain_supplier)
+  g.grains = Grain.all
+  g.save!
+end
 
 # Insert hops 
 CSV.foreach("db/seeds/hops.csv") do |hop|
   hsi = hop[2].nil? ? 0 : hop[2].to_f
   newHop = Hop.new(:name => hop[0], :alpha=> hop[1].to_f, :hsi => hop[2].to_f)
   newHop.save
+end
+
+hop_suppliers = ['Hop Union','BSG']
+hop_suppliers.each do |hop_supplier|
+  h = HopSupplier.create(:name => hop_supplier)
+  h.hops = Hop.all
+  h.save!
 end
 
 # Insert minerals 
