@@ -1,62 +1,62 @@
-Admiral, 13.5
-Ahtanum, 5.0
-Amarillo, 8.5
-Bramling Cross, 6.0
-Brewers Gold, 7.75
-Bullion, 7.5
-Cascade, 5.5
-Centennial, 10.0
-Challenger, 7.5
-Chinook, 12.0
-Cluster, 6.5
-Columbus, 13
-Crystal, 3.5
-Eroica, 11
-First Gold, 7.5
-Fuggle, 4.5
-Galena, 12.0
-Golding, 5.0
-Hallertauer, 4.5
-Hallertauer Gold, 6.0
-Hallertauer Mittelfruh, 4.5
-Hallertauer Tradition, 4.5
-Hersbrucker, 4.50
-Horizon, 12.5
-Kent Golding, 4.5
-Liberty, 4.5
-Magnum, 14.0
-Mt. Hood, 5.5
-Northdown, 8.25,
-Northern Brewer, 8.0
-Northwest Golding, 8.5
-Nugget, 13.0
-Olympic, 12.0
-Perle, 7.5
-Phoenix, 4.8
-Pioner, 9.0
-Polish Lublin, 3.75
-Pride of Ringwood, 8.5
-Progress, 6.0
-Saaz (Czech), 3.75
-Saaz (U.S.), 4.0
-Santiam, 6.75
-Satus, 13.5
-Simcoe, 13.0
-Spalt, 4.75
-Spalt Select (German), 5.0
-Spalt Select (U.S.), 4.0
-Sterling, 7.5
-Strisslespalt, 4.0
-Styrian Golding, 5.25
-Target, 11.0
-Tettnanger (U.S), 4.2
-Tettnanger (German), 4.3
-Tomahawk, 16.0
-Tradition, 6.0
-Ultra, 3.0
-Vanguard, 4.75
-Warrior, 16.0
-WGV, 6.0
-Willamette, 4.8
-Yakima, 7.25
-Zeus, 15.0
+Admiral,13.5,0.15
+Ahtanum,5,0.3
+Amarillo,8.5,0.25
+Bramling Cross,6,0.35
+Brewers Gold,7.75,0.5
+Bullion,7.5,0.5
+Cascade,5.5,0.5
+Centennial,10,0.4
+Challenger,7.5,0.25
+Chinook,12,0.2
+Cluster,6.5,0.1
+Columbus,13,
+Crystal,3.5,0.5
+Eroica,11,0.35
+First Gold,7.5,0.12
+Fuggle,4.5,0.35
+Galena,12,0.15
+Golding,5,
+Hallertauer,4.5,0.5
+Hallertauer Gold,6,
+Hallertauer Mittelfruh,4.5,0.45
+Hallertauer Tradition,4.5,
+Hersbrucker,4.5,
+Horizon,12.5,0.3
+Kent Golding,4.5,
+Liberty,4.5,0.5
+Magnum,14,0.15
+Mt. Hood,5.5,0.4
+Northdown,8.25,0.15
+Northern Brewer,8,0.35
+Northwest Golding,8.5,
+Nugget,13,0.15
+Olympic,12,
+Perle,7.5,0.15
+Phoenix,4.8,0.1
+Pioner,9,0.17
+Polish Lublin,3.75,
+Pride of Ringwood,8.5,0.45
+Progress,6,0.15
+Saaz (Czech),3.75,0.42
+Saaz (U.S.),4,
+Santiam,6.75,0.35
+Satus,13.5,
+Simcoe,13,
+Spalt,4.75,
+Spalt Select (German),5,0.17
+Spalt Select (U.S.),4,
+Sterling,7.5,0.15
+Strisslespalt,4,0.35
+Styrian Golding,5.25,0.3
+Target,11,0.5
+Tettnanger (U.S),4.2,
+Tettnanger (German),4.3,0.4
+Tomahawk,16,0.4
+Tradition,6,0.1
+Ultra,3,0.275
+Vanguard,4.75,0.18
+Warrior,16,
+WGV,6,0.35
+Willamette,4.8,0.4
+Yakima,7.25,
+Zeus,15,0.45

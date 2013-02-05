@@ -20,7 +20,8 @@ hop_suppliers.each { |hop_supplier| HopSupplier.create(:name => hop_supplier) }
 
 # Insert hops 
 CSV.foreach("db/seeds/hops.csv") do |hop|
-  newHop = Hop.new(:name => hop[0], :alpha=> hop[1].to_f)
+  hsi = hop[2].nil? ? 0 : hop[2].to_f
+  newHop = Hop.new(:name => hop[0], :alpha=> hop[1].to_f, :hsi => hop[2].to_f)
   newHop.save
 end
 

@@ -13,6 +13,7 @@ class HopInventory < ActiveRecord::Base
   belongs_to :hop
   belongs_to :hop_supplier
   attr_accessible :amount, :crop_year, :hop_type, :hop_id, :hop_supplier_id
+  attr_accessible :storage_temp, :storage_factor, :harvest_date
   validates :hop_id, :uniqueness => {:scope => [:crop_year, :hop_supplier_id]}
   validates :hop_type, :presence => true
 
@@ -20,6 +21,12 @@ class HopInventory < ActiveRecord::Base
 
   def self.search_query(search)
     joins(:hop).where('hops.name LIKE ?', "%#{search}%")
+  end
+
+  def current_alpha
+    factors = self.hop.hsi * self.storage_temp * self.storage_factor
+    date = Date.today - self.harvest_date
+    self.hop.alpha * ( 1 / Math.log(factors * date))
   end
 
 end

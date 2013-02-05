@@ -2,7 +2,7 @@ class HopContract < ActiveRecord::Base
   include Searchable
   belongs_to :hop_supplier
   belongs_to :hop
-  attr_accessible :contract_amount, :used_amount, :hop_year, :hop_type
+  attr_accessible :contract_amount, :used_amount, :contract_year, :hop_type, :harvest_date
   attr_accessible :hop_id, :hop_supplier_id
 
   attr_accessor :unit #Virtual field for units in forms
@@ -13,7 +13,8 @@ class HopContract < ActiveRecord::Base
   validates :hop_type, :presence => true
   validates :contract_amount, :presence => true, :numericality => true
   validates :used_amount, :presence => true, :numericality => true
-  validates :hop_year, :presence => true
+  validates :contract_year, :presence => true
+  validates :harvest_date, :presence => true
   
   self.per_page = 10
 

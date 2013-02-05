@@ -5,7 +5,6 @@
     <tr>
       <th><%= sortable "name" %></th>
       <th><%= sortable "alpha" %></th>
-      <th><%= sortable "beta" %></th>
       <th></th>
     </tr>
   </thead>
@@ -14,7 +13,6 @@
     <tr>
       <td><%= link_to hop.name, hop %></td>
       <td><%= hop.alpha %></td>
-      <td><%= hop.beta %></td>
       <td>
         <div class="pull-right">
           <%= link_to 'Edit', edit_hop_path(hop), :class => 'btn btn-mini' %>

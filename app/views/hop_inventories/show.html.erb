@@ -25,6 +25,20 @@
   <%= @hop_inventory.hop_type %>
 </p>
 
+<p>
+  <b>Storage Temp:</b>
+  <%= @hop_inventory.storage_temp %>
+</p>
+
+<p>
+  <b>Storage factor:</b>
+  <%= @hop_inventory.storage_factor %>
+</p>
+
+<p>
+  <b>Harvest Date:</b>
+  <%= @hop_inventory.harvest_date %>
+</p>
 
 <%= link_to 'Edit', edit_hop_inventory_path(@hop_inventory) %> |
 <%= link_to 'Back', hop_inventories_path %>
