@@ -20,8 +20,12 @@
     <%= f.grouped_collection_select :hop_id, HopSupplier.all, :hops, :name, :id, :name, include_blank: true %>
   </div>
   <div class="field">
-    <%= f.label :hop_year %><br />
-    <%= select_year Date.today, :field_name => 'hop_year', :prefix => :hop_contract %>
+    <%= f.label :contract_year %><br />
+    <%= select_year Date.today, :field_name => 'contract_year', :prefix => :hop_contract %>
+  </div>
+  <div class="field">
+    <%= f.label :harvest_date %><br />
+    <%= f.text_field :harvest_date %>
   </div>
   <div class="field">
     <%= f.label :hop_type %><br />

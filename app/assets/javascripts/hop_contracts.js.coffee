@@ -14,3 +14,5 @@ jQuery ->
     else
       $('#hop_contract_hop_id').empty()
       $('#hop_contract_hop_id').parent().hide()
+  $('#hop_contract_harvest_date').datepicker
+    dateFormat: 'yy-mm-dd'

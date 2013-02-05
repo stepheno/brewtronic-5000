@@ -5,10 +5,11 @@
     <tr>
     <th><%= sortable "hop_id", "Hop" %></th>
     <th><%= sortable "hop_supplier_id", "Hop supplier" %></th>
-    <th><%= sortable "hop_year" %></th>
+    <th><%= sortable "contract_year" %></th>
     <th><%= sortable "hop_type" %></th>
     <th><%= sortable "contract_amount" %></th>
     <th><%= sortable "used_amount" %></th>
+    <th><%= sortable "harvest_date" %></th>
     <th></th>
     </tr>
   </thead>
@@ -17,8 +18,9 @@
       <tr>
         <td><%= link_to hop_contract.hop.name, hop_contract %></td>
         <td><%= hop_contract.hop_supplier.name unless hop_contract.hop_supplier.nil? %></td>
-        <td><%= hop_contract.hop_year%></td>
+        <td><%= hop_contract.contract_year%></td>
         <td><%= hop_contract.hop_type%></td>
+        <td><%= hop_contract.harvest_date%></td>
         <td><%= Units.format_mass_for_user(hop_contract.contract_amount, current_user)%></td>
         <td><%= Units.format_mass_for_user(hop_contract.used_amount, current_user) %></td>
         <td>
