@@ -15,7 +15,8 @@ class Recipe < ActiveRecord::Base
   belongs_to :yeast
   belongs_to :style
   has_many :batches
-  attr_accessible :abv, :boil_time, :ibu, :name, :pitch_temperature, :size, :srm, :target_fg, :target_og
+  attr_accessible :abv, :boil_time, :ibu, :name, :pitch_temperature, :size,
+                  :srm, :target_fg, :target_og, :creation_date
   attr_accessible :yeast_id, :style_id
   attr_accessible :recipe_minerals_attributes, :recipe_grains_attributes, :recipe_hops_attributes, :recipe_mashes_attributes
 
@@ -31,6 +32,7 @@ class Recipe < ActiveRecord::Base
   validates :srm, :numericality => true
   validates :target_og, :presence => true, :numericality => true
   validates :target_fg, :presence => true, :numericality => true
+  validates :creation_date, :presence => true
 
   self.per_page = 10
 

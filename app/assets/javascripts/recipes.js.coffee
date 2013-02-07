@@ -12,3 +12,6 @@ jQuery ->
     regexp = new RegExp($(this).data('id'), 'g')
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
+
+  $('#recipe_creation_date').datepicker
+    dateFormat: 'yy-mm-dd'

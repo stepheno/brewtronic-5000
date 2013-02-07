@@ -20,6 +20,10 @@
     <%= f.select :style_id, Style.all.collect {|c| [c.name, c.id]} %>
   </div>
   <div class="field">
+    <%= f.label :creation_date %><br />
+    <%= f.text_field :creation_date %>
+  </div>
+  <div class="field">
     <%= f.label :target_og %><br />
     <%= f.text_field :target_og %>
   </div>

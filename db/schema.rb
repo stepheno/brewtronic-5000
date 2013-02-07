@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207041254) do
+ActiveRecord::Schema.define(:version => 20130207052819) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -236,6 +236,7 @@ ActiveRecord::Schema.define(:version => 20130207041254) do
     t.float    "pitch_temperature"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.date     "creation_date"
   end
 
   add_index "recipes", ["style_id"], :name => "index_recipes_on_style_id"
