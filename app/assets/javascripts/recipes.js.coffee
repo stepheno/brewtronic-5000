@@ -13,20 +13,24 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
-  $("#recipe_style").autocomplete(
+  $("#recipe_style_virt_attr").autocomplete(
     minLength: 2
     source: "/styles.json"
     focus: (event, ui) ->
-      $("#recipe_style").val ui.item.name
+      $("#recipe_style_virt_attr").val ui.item.name
       false
 
     select: (event, ui) ->
-      $("#recipe_style").val ui.item.name
+      $("#recipe_style_virt_attr").val ui.item.name
       $("#recipe_style_id").val ui.item.id
       false
-  )
-
-#.data("autocomplete")._renderItem = (ul, item) ->
-    #$("<li></li>").data("item.autocomplete", item).append("<a>" + item.name + "</a>").appendTo ul
+  ).data("autocomplete")._renderItem = (ul, item) ->
+    $("<li></li>").data("item.autocomplete", item).append("<a>" + item.name + "</a>").appendTo( ul )
 
 
+    #select: (event, ui) ->
+      #$("#recipe_style_virt_attr").val ui.item.name
+      #$("#recipe_style_id").val ui.item.id
+      #false
+  #).data("autocomplete")._renderItem = (ul, item) ->
+    #$("<li></li>").data("item.autocomplete", item).append("<a>" + item.name + "</a>").appendTo( ul )
