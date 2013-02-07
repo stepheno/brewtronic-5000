@@ -31,8 +31,17 @@ class HopTransactionsController < ApplicationController
   def create
     params[:hop_transaction][:amount] = Units.convert_mass_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
 
-    @hop_transaction = HopTransaction.new(params[:hop_transaction])
     ht_params = params[:hop_transaction] #get the grain transaction parameters
+    if not ht_params[:hop_contract_id].nil?
+      hop_contract = HopContract.find(ht_params[:hop_contract_id])
+      if not hop_contract.nil?
+        ht_params[:hop_id] = hop_contract.hop.id
+        ht_params[:hop_supplier_id] = hop_contract.hop_supplier.id
+        ht_params[:hop_year] = hop_contract.harvest_date.year
+        ht_params[:hop_type] = hop_contract.hop_type
+      end
+    end
+    @hop_transaction = HopTransaction.new(params[:hop_transaction])
 
     respond_to do |format|
       if @hop_transaction.save
@@ -66,6 +75,16 @@ class HopTransactionsController < ApplicationController
   # PUT /hop_transactions/1.json
   def update
     params[:hop_transaction][:amount] = Units.convert_mass_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
+    ht_params = params[:hop_transaction] #get the grain transaction parameters
+    if not ht_params[:hop_contract_id].nil?
+      hop_contract = HopContract.find(ht_params[:hop_contract_id])
+      if not hop_contract.nil?
+        ht_params[:hop_id] = hop_contract.hop.id
+        ht_params[:hop_supplier_id] = hop_contract.hop_supplier.id
+        ht_params[:hop_year] = hop_contract.harvest_date.year
+        ht_params[:hop_type] = hop_contract.hop_type
+      end
+    end
     @hop_transaction = HopTransaction.find(params[:id])
 
     respond_to do |format|
