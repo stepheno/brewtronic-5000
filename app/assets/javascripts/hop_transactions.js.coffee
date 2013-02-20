@@ -15,9 +15,8 @@ jQuery ->
       $('#hop_transaction_hop_id').empty()
       $('#hop_transaction_hop_id').parent().hide()
   $('#hop_transaction_contract').click ->
-    $('#manual_entry_fields').hide(400)
-    $('#contract_fields').show(400)
+    $('#manual_entry_fields').hide("slide", "slow")
+    $('#contract_fields').show("slide", "slow")
   $('#hop_transaction_non_contract').click ->
-    $('#contract_fields').hide(400)
-    $('#manual_entry_fields').show(400)
-    #$('hop_info').html($.get('hop_transaction/hop_manual_entry_form'))
+    $('#contract_fields').hide("slide", "slow")
+    $('#manual_entry_fields').show("slide", "slow")
