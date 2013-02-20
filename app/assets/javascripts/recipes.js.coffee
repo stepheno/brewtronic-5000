@@ -15,14 +15,15 @@ jQuery ->
     closest_table.after(new_row)
     input_field = $(new_row).children('input')
    
-    $("#"+$($(new_row).children()[0]).children('input').attr('id')).autocomplete(
+    $("#" + $(new_row).find('input').attr('id')).autocomplete(
+
       minLength:2
       source: $(this).data('source')
       focus: (event, ui) ->
-        $("#"+$($(new_row).children()[0]).children('input').attr('id')).val ui.item.name
+        $("#"+$(new_row).find('input').attr('id')).val ui.item.name
         false
       select: (event, ui) ->
-        $("#"+$($(new_row).children()[0]).children('input').attr('id')).val ui.item.name
+        $("#"+$(new_row).find('input').attr('id')).val ui.item.name
         $("#"+$($(new_row).children()[1]).attr('id')).val ui.item.id
         false
     ).data("autocomplete")._renderItem = (ul, item) ->
