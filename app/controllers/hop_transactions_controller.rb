@@ -118,4 +118,16 @@ class HopTransactionsController < ApplicationController
     "hop_id"
   end
 
+  def hop_contract_form
+    respond_to do |format|
+      format.js { render 'hop_contract' }
+    end
+  end
+
+  def hop_manual_entry_form
+    respond_to do |format|
+      format.js { render 'hop_manual_entry' }
+    end
+  end
+
 end

@@ -1,0 +1,4 @@
+<div class="field">
+  <%= f.label :hop_contract_id %><br />
+  <%= f.select :hop_contract_id, HopContract.all.collect {|c| [c.hop.name, c.id]} %>
+</div>
