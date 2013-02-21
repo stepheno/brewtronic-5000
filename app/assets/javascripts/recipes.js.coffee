@@ -13,18 +13,18 @@ jQuery ->
     closest_table = $(this).siblings('table').find('tr').last()
     new_row = $(this).data('fields').replace(regexp, time)
     closest_table.after(new_row)
-    input_field = $(new_row).children('input')
+    virt_attr_input_field_id = '#' + $(new_row).find('input')[0].id
+    id_input_field_id = '#' + $(new_row).find('input')[1].id
    
-    $("#" + $(new_row).find('input').attr('id')).autocomplete(
-
+    $(virt_attr_input_field_id).autocomplete(
       minLength:2
       source: $(this).data('source')
       focus: (event, ui) ->
-        $("#"+$(new_row).find('input').attr('id')).val ui.item.name
+        $(virt_attr_input_field_id).val ui.item.name
         false
       select: (event, ui) ->
-        $("#"+$(new_row).find('input').attr('id')).val ui.item.name
-        $("#"+$($(new_row).children()[1]).attr('id')).val ui.item.id
+        $(virt_attr_input_field_id).val ui.item.name
+        $(id_input_field_id).val ui.item.id
         false
     ).data("autocomplete")._renderItem = (ul, item) ->
       $("<li></li>").data("item.autocomplete", item).append("<a>" + item.name + "</a>").appendTo( ul )
