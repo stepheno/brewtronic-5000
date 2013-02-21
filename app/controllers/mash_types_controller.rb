@@ -5,6 +5,7 @@ class MashTypesController < ApplicationController
   # GET /mash_types
   # GET /mash_types.json
   def index
+    params[:q] = params[:term] unless params[:term].nil?
     @mash_types = MashType.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
     respond_to do |format|
      format.html
