@@ -6,8 +6,8 @@ class RecipeHop < ActiveRecord::Base
   validates :time, :presence => true, :numericality => true
   self.per_page = 10
 
-  attr_accessor :hop_virt_attr # Virtual field for hop in forms
-  attr_accessible :hop_virt_attr # Virtual field for hop in forms
+  attr_accessor :hop_virt_attr, :unit # Virtual fields for hop in forms
+  attr_accessible :hop_virt_attr, :unit # Virtual fields for hop in forms
 
   def calculated_ibu
     utilization_factor = 1.65 * (0.000125**(Units.plato_to_sg(self.recipe.target_og) - 1))
