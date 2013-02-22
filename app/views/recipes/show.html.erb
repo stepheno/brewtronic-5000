@@ -80,7 +80,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Grain</th>
         <th>Amount</th>
         <th>Calculated OG</th>
       </tr>
@@ -99,39 +99,68 @@
 
 <p>
   <b>Hops:</b>
-  <ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Hop</th>
+        <th>Amount</th>
+        <th>Time</th>
+        <th>Calculated IBU</th>
+      </tr>
+    </thead>
+    <tbody>
     <% @recipe.recipe_hops.each do |recipe_hop| %>
-      <li>
-        <%= recipe_hop.hop.name %>
-        <%= recipe_hop.amount %>
-        <%= "%0.2f" % recipe_hop.calculated_ibu %>
-      </li>
+      <tr>
+        <td><%= recipe_hop.hop.name %></td>
+        <td><%= recipe_hop.amount %></td>
+        <td><%= recipe_hop.time %></td>
+        <td> <%= "%0.2f" % recipe_hop.calculated_ibu %></td>
+      </tr>
     <% end %>
-  </ul>
+    </tbody>
+  </table>
 </p>
 
 <p>
   <b>Mash Steps:</b>
-  <ul>
-    <% @recipe.recipe_mashes.each do |recipe_mashes| %>
-      <li>
-        <%= recipe_mashes.mash_type.name %>
-        <%= recipe_mashes.temperature%>
-      </li>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Mash Type</th>
+        <th>Temperature</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @recipe.recipe_mashes.each do |recipe_mash| %>
+      <tr>
+        <td><%= recipe_mash.mash_type.name %></td>
+        <td><%= recipe_mash.temperature %></td>
+        <td><%= recipe_mash.time %></td>
+      </tr>
     <% end %>
-  </ul>
+    </tbody>
+  </table>
 </p>
 
 <p>
   <b>Minerals:</b>
-  <ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Mineral</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
     <% @recipe.recipe_minerals.each do |recipe_mineral| %>
-      <li>
-        <%= recipe_mineral.mineral.name %>
-        <%= recipe_mineral.amount %>
-      </li>
+      <tr>
+        <td><%= recipe_mineral.mineral.name %></td>
+        <td><%= recipe_mineral.amount %></td>
+      </tr>
     <% end %>
-  </ul>
+    </tbody>
+  </table>
 </p>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>
