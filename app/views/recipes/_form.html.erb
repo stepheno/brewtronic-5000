@@ -54,32 +54,62 @@
         <% end %>
       </tbody>
     </table>
-    <%= link_to_add_fields "Add Hop", f, :recipe_hops, "/hops.json", "hop_virt_attr", "hop_id" %>
+    <%= link_to_add_fields "Add Hop", f, :recipe_hops, "/hops.json" %>
   </div>
 
-  <%= f.label :grain_id, "Grains" %><br />
   <div class="field">
-    <%= f.fields_for :recipe_grains do |grain| %>
-      <%= render 'recipe_grain_fields', f: grain%>
-    <% end %>
+    <%= f.label :grain_id, "Grains" %><br />
+    <table class="table">
+      <thead>
+        <th>Grain</th>
+        <th>Amount</th>
+        <th>Unit</th>
+        <th>Remove?</th>
+      </thead>
+      <tbody>
+        <%= f.fields_for :recipe_grains do |grain| %>
+          <%= render 'recipe_grain_fields', f: grain%>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to_add_fields "Add Grain", f, :recipe_grains, "/grains.json" %>
   </div>
-  <%#= link_to_add_fields "Add Grain", f, :recipe_grains %>
 
-  <%= f.label :mash_type_id, "Mash Steps" %><br />
   <div class="field">
-    <%= f.fields_for :recipe_mashes do |hop| %>
-      <%= render 'recipe_mash_fields', f: hop%>
-    <% end %>
+    <%= f.label :mineral_id, "Minerals" %><br />
+    <table class="table">
+      <thead>
+        <th>Mineral</th>
+        <th>Amount</th>
+        <th>Unit</th>
+        <th>Remove?</th>
+      </thead>
+      <tbody>
+        <%= f.fields_for :recipe_minerals do |mineral| %>
+          <%= render 'recipe_mineral_fields', f: mineral%>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to_add_fields "Add Mineral", f, :recipe_minerals, "/minerals.json" %>
   </div>
-  <%#= link_to_add_fields "Add Mash Steps", f, :recipe_mashes %>
 
-  <%= f.label :mineral_id, "Minerals" %><br />
   <div class="field">
-    <%= f.fields_for :recipe_minerals do |hop| %>
-      <%= render 'recipe_mineral_fields', f: hop%>
-    <% end %>
+    <%= f.label :mash_type_id, "Mash Steps" %><br />
+    <table class="table">
+      <thead>
+        <th>Mash Type</th>
+        <th>Time</th>
+        <th>Temperature</th>
+        <th>Remove?</th>
+      </thead>
+      <tbody>
+        <%= f.fields_for :recipe_mashes do |mash| %>
+          <%= render 'recipe_mash_fields', f: mash%>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to_add_fields "Add Hop", f, :recipe_mashes, "/mash_types.json" %>
   </div>
-  <%#= link_to_add_fields "Add Minerals", f, :recipe_minerals %>
 
   <div class="field">
     <%= f.label :boil_time %><br />

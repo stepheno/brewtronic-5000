@@ -1,7 +1,7 @@
-<fieldset>
-  <div class="field">
-    <%= f.select :mash_type_id, MashType.all.collect {|c| [c.name, c.id]} %>
-    <%= f.text_field :temperature %>
-    <%= link_to raw('<i class="icon-remove"></i>'), "#", :class => 'remove_fields' %>
-  </div>
-</fieldset>
+<tr>
+  <td> <%= f.text_field :mash_virt_attr, :class => 'recipe_autocomplete', :data => {:source => '/mash_types.json' }  %> </td>
+  <%= f.hidden_field :mash_type_id %> 
+  <td><%= f.text_field :time %> </td> 
+  <td><%= f.text_field :temperature %> </td> 
+  <td> <%= link_to raw('<i class="icon-remove"></i>'), "#", :class => 'remove_fields' %> </td>
+</tr>

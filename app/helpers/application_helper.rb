@@ -9,7 +9,7 @@ module ApplicationHelper
     link_to title_arrow.html_safe, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
 
-  def link_to_add_fields(name, f, association, source, nme, id)
+  def link_to_add_fields(name, f, association, source)
     new_object_class = f.object.send(association).klass
     new_object = new_object_class.new
     object_id = new_object.object_id
@@ -20,8 +20,6 @@ module ApplicationHelper
       objectid: object_id, 
       fields: fields.gsub("\n", ""),
       source: source, 
-      name: new_object_class.to_s + nme, 
-      id: new_object_class.to_s + id 
     })
   end
 end

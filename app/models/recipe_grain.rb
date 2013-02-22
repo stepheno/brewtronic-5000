@@ -3,6 +3,10 @@ class RecipeGrain < ActiveRecord::Base
   belongs_to :grain
   attr_accessible :amount, :grain_id, :recipe_id
 
+  attr_accessor :grain_virt_attr, :unit # Virtual fields for grain in forms
+  attr_accessible :grain_virt_attr, :unit # Virtual fields for grain in forms
+
+
   self.per_page = 10
 
   def calculated_og
