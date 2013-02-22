@@ -1,5 +1,5 @@
 <tr>
-  <td> <%= f.text_field :hop_virt_attr %> </td>
+  <td> <%= f.text_field :hop_virt_attr, :class => 'recipe_autocomplete', :data => {:source => '/hops.json' }  %> </td>
   <%= f.hidden_field :hop_id %> 
   <td> <%= f.text_field :amount %> </td>
   <td> <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %> </td>

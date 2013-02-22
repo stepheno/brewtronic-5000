@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :style_id %><br />
-    <%= f.text_field   :style_virt_attr %>
+    <%= f.text_field   :style_virt_attr, :class => 'recipe_autocomplete', :data => {:source => '/styles.json' }  %>
     <%= f.hidden_field :style_id %>
   </div>
   <div class="field">
@@ -35,7 +35,7 @@
   </div>
   <div class="field">
     <%= f.label :yeast_id %><br />
-    <%= f.text_field   :yeast_virt_attr %>
+    <%= f.text_field   :yeast_virt_attr, :class => 'recipe_autocomplete', :data => {:source => '/yeasts.json' }   %>
     <%= f.hidden_field :yeast_id %>
   </div>
   <div class="field">
