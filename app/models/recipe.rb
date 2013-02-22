@@ -29,9 +29,6 @@ class Recipe < ActiveRecord::Base
   attr_accessor :yeast_virt_attr # Virtual field for yeast in forms
   attr_accessible :yeast_virt_attr # Virtual field for yeast in forms
 
-  attr_accessor :grain_virt_attr # Virtual field for grain in forms
-  attr_accessible :grain_virt_attr # Virtual field for grain in forms
-
   validates :name, :presence => true
   validates :yeast, :presence => true
   validates :style, :presence => true
@@ -57,5 +54,13 @@ class Recipe < ActiveRecord::Base
   def calculated_abv
     real_extract = (0.1808 * Units.plato_to_sg(self.target_og)) + (0.8192 * Units.plato_to_sg(self.target_fg))
     abv = ((self.target_og - real_extract) / (2.0665 - (0.010665 * self.target_og))) * 0.789
+  end
+  
+  def style_virt_attr
+    self.style.name unless self.style.nil?
+  end
+
+  def yeast_virt_attr
+    self.yeast.name unless self.yeast.nil?
   end
 end

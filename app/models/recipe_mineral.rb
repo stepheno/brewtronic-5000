@@ -7,4 +7,8 @@ class RecipeMineral < ActiveRecord::Base
   attr_accessible :mineral_virt_attr, :unit # Virtual fields for mineral in forms
 
   self.per_page = 10
+  
+  def mineral_virt_attr
+    self.mineral.name unless self.mineral.nil?
+  end
 end

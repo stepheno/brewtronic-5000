@@ -7,4 +7,8 @@ class RecipeMash < ActiveRecord::Base
   attr_accessible :mash_virt_attr, :unit # Virtual fields for mash in forms
 
   self.per_page = 10
+
+  def mash_virt_attr
+    self.mash_type.name unless self.mash_type.nil?
+  end
 end

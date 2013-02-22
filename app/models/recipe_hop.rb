@@ -16,4 +16,7 @@ class RecipeHop < ActiveRecord::Base
     calc_ibu = (utilization_factor * boil_factor) * alpha_acid_concentration
   end
 
+  def hop_virt_attr
+    self.hop.name unless self.hop.nil?
+  end
 end

@@ -14,4 +14,8 @@ class RecipeGrain < ActiveRecord::Base
     sg = (specific_gravity / 1000) + 1
     plato = Units.sg_to_plato(sg)
   end
+
+  def grain_virt_attr
+    self.grain.name unless self.grain.nil?
+  end
 end
