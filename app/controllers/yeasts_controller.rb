@@ -6,6 +6,12 @@ class YeastsController < ApplicationController
   # GET /yeasts.json
   def index
     @yeasts = Yeast.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+      format.json { render :json => Yeast.where("name like ?", "%#{params[:term]}%").map(&:attributes) }
+    end 
   end
 
   # GET /yeasts/1

@@ -5,6 +5,7 @@ class HopsController < ApplicationController
   # GET /hops
   # GET /hops.json
   def index
+    params[:q] = params[:term] unless params[:term].nil?
     @hops = Hop.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
     respond_to do |format|
      format.html

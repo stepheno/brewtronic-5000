@@ -23,6 +23,15 @@ class Recipe < ActiveRecord::Base
   attr_accessor :unit # Virtual field for units in forms
   attr_accessible :unit # Virtual field for units in forms
 
+  attr_accessor :style_virt_attr # Virtual field for style in forms
+  attr_accessible :style_virt_attr # Virtual field for style in forms
+
+  attr_accessor :yeast_virt_attr # Virtual field for yeast in forms
+  attr_accessible :yeast_virt_attr # Virtual field for yeast in forms
+
+  attr_accessor :grain_virt_attr # Virtual field for grain in forms
+  attr_accessible :grain_virt_attr # Virtual field for grain in forms
+
   validates :name, :presence => true
   validates :yeast, :presence => true
   validates :style, :presence => true

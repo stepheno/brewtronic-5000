@@ -1,11 +1,8 @@
-<fieldset>
-  <div class="field">
-    <%= f.select :hop_id, Hop.all.collect {|c| [c.name, c.id]} %>
-    <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :time %>
-    <%= f.text_field :time %>
-  </div>
-    <%= link_to raw('<i class="icon-remove"></i>'), "#", :class => 'remove_fields' %>
-</fieldset>
+<tr>
+  <td> <%= f.text_field :hop_virt_attr, :class => 'recipe_autocomplete', :data => {:source => '/hops.json' }  %> </td>
+  <%= f.hidden_field :hop_id %> 
+  <td> <%= f.text_field :amount %> </td>
+  <td> <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %> </td>
+  <td> <%= f.text_field :time %> </td>
+  <td> <%= link_to raw('<i class="icon-remove"></i>'), "#", :class => 'remove_fields' %> </td>
+</tr>
