@@ -11,6 +11,7 @@
       <th><%= sortable "ibu" %></th>
       <th><%= sortable "abv" %></th>
       <th><%= sortable "srm" %></th>
+      <th><%= sortable "creation_date" %></th>
       <th></th>
     </tr>
   </thead>
@@ -25,6 +26,7 @@
         <td><%= recipe.ibu %></td>
         <td><%= recipe.abv %></td>
         <td><%= recipe.srm %></td>
+        <td><%= recipe.creation_date %></td>
         <td>
           <div class="pull-right">
             <%= link_to 'Edit', edit_recipe_path(recipe), :class => 'btn btn-mini' %>
