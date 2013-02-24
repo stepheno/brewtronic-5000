@@ -49,7 +49,7 @@ end
 yeast_manufacturers = ['Wyeast','White Labs']
 yeast_manufacturers.each { |yeast_manufacturer| YeastManufacturer.create(:name => yeast_manufacturer) }
 wyeast = YeastManufacturer.where(:name => "Wyeast").first
-white_labs = YeastManufacturer.where(:name => "Wyeast").first
+white_labs = YeastManufacturer.where(:name => "White Labs").first
 
 # Insert for Yeasts
 
