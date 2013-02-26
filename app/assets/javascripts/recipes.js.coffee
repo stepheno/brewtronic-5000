@@ -48,7 +48,7 @@ jQuery ->
         false
       select: (event, ui) ->
         $(this).val ui.item.name
-        $(this).parent().next('input').val ui.item.id
+        $(this).siblings('input').val ui.item.id
         false
     )
 
