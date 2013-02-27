@@ -17,7 +17,7 @@
 //= require_self
 //= require_tree .
 $(function() {
-  $("#index_table th a, #index_table .pagination a").live("click", function() {
+  $('body').on("click", "#index_table th a, #index_table .pagination a", function() {
     $.getScript(this.href);
     return false;
   });
