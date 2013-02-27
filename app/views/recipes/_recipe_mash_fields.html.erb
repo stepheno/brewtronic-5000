@@ -3,5 +3,6 @@
   <%= f.hidden_field :mash_type_id %> 
   <td><%= f.text_field :time %> </td> 
   <td><%= f.text_field :temperature %> </td> 
+  <td> <%= f.select :unit, options_for_select(["C", "F"], :selected => current_user.temp_units) %> </td>
   <td> <%= link_to raw('<i class="icon-remove"></i>'), "#", :class => 'remove_fields' %> </td>
 </tr>

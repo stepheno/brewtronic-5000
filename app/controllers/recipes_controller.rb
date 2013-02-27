@@ -32,6 +32,10 @@ class RecipesController < ApplicationController
     params[:recipe][:size] = Units.convert_volume_units(params[:recipe][:size],params[:recipe][:unit])
     @recipe = Recipe.new(params[:recipe])
 
+    params[:recipe][:recipe_mashes].each do |mash|
+      mash[:temperature] = Units.convert_temp_units(mash[:temperature],mash[:unit])
+    end
+
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
