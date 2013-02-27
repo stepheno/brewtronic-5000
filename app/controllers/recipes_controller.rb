@@ -30,11 +30,13 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     params[:recipe][:size] = Units.convert_volume_units(params[:recipe][:size],params[:recipe][:unit])
-    @recipe = Recipe.new(params[:recipe])
 
-    params[:recipe][:recipe_mashes].each do |mash|
+    params[:recipe][:recipe_mashes_attributes] = Hash[ params[:recipe][:recipe_mashes_attributes].map do |key,mash|
       mash[:temperature] = Units.convert_temp_units(mash[:temperature],mash[:unit])
-    end
+      [key, mash]
+    end ]
+
+    @recipe = Recipe.new(params[:recipe])
 
     respond_to do |format|
       if @recipe.save
