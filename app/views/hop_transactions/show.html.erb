@@ -32,9 +32,13 @@
 
 <p>
   <b>Unit amount:</b>
-  <%= @hop_transaction.amount %>
+  <%= Units.format_mass_for_user(@hop_transaction.amount, current_user) %>
 </p>
 
+<p>
+  <b>Total amount:</b>
+    <td><%= Units.format_mass_for_user(@hop_transaction.amount * @hop_transaction.quantity, current_user) %></td>
+</p>
 
 <%= link_to 'Edit', edit_hop_transaction_path(@hop_transaction) %> |
 <%= link_to 'Back', hop_transactions_path %>
