@@ -31,9 +31,9 @@ module Units
   def Units.convert_density_units(amount, unit)
     case unit
       when "sg" 
-        Units.sg_to_plato(amount)
+        Units.sg_to_plato(amount.to_f)
       when "plato" 
-        amount
+        amount.to_f
       else
         raise "Units.convert_density_units: Unknown unit #{unit}. Try again, sucker."
     end
