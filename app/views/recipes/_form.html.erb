@@ -45,6 +45,24 @@
     <%= f.hidden_field :yeast_id %>
   </div>
   <div class="field">
+    <%= f.label :grain_id, "Grains" %><br />
+    <table class="table">
+      <thead>
+        <th>Grain</th>
+        <th>Amount</th>
+        <th>Unit</th>
+        <th>Remove?</th>
+      </thead>
+      <tbody>
+        <%= f.fields_for :recipe_grains do |grain| %>
+          <%= render 'recipe_grain_fields', f: grain%>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to_add_fields "Add Grain", f, :recipe_grains, "/grains.json" %>
+  </div>
+
+  <div class="field">
     <%= f.label :hop_id, "Hops" %><br />
     <table class="table">
       <thead>
@@ -61,24 +79,6 @@
       </tbody>
     </table>
     <%= link_to_add_fields "Add Hop", f, :recipe_hops, "/hops.json" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :grain_id, "Grains" %><br />
-    <table class="table">
-      <thead>
-        <th>Grain</th>
-        <th>Amount</th>
-        <th>Unit</th>
-        <th>Remove?</th>
-      </thead>
-      <tbody>
-        <%= f.fields_for :recipe_grains do |grain| %>
-          <%= render 'recipe_grain_fields', f: grain%>
-        <% end %>
-      </tbody>
-    </table>
-    <%= link_to_add_fields "Add Grain", f, :recipe_grains, "/grains.json" %>
   </div>
 
   <div class="field">

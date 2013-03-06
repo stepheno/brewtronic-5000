@@ -24,6 +24,13 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     @recipe.size = Units.format_volume_for_user(@recipe.size, current_user).value
+    @recipe.pitch_temperature = Units.format_temp_for_user(@recipe.pitch_temperature, current_user).value
+    @recipe.target_og = Units.format_density_for_user(@recipe.target_og, current_user)
+    @recipe.target_fg = Units.format_density_for_user(@recipe.target_fg, current_user)
+    @recipe.recipe_grains.each {|grain| grain.amount = Units.format_mass_for_user(grain.amount,current_user).value }
+    @recipe.recipe_hops.each {|hop| hop.amount = Units.format_mass_for_user(hop.amount,current_user).value }
+    @recipe.recipe_minerals.each {|mineral| mineral.amount = Units.format_mass_for_user(mineral.amount,current_user).value }
+    @recipe.recipe_mashes.each {|mash| mash.temperature= Units.format_temp_for_user(mash.temperature,current_user).value }
   end
 
   # POST /recipes
