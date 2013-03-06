@@ -20,8 +20,8 @@
         <td><%= link_to batch.recipe.name , batch %></td>
         <td><%= batch.fermenter.name unless batch.fermenter.nil? %></td>
         <td><%= batch.user.name unless batch.user.nil? %></td>
-        <td><%= batch.original_gravity %></td>
-        <td><%= batch.finish_gravity %></td>
+        <td><%= Units.format_density_for_user(batch.original_gravity, current_user) %></td>
+        <td><%= Units.format_density_for_user(batch.finish_gravity, current_user) %></td>
         <td><%= Units.format_volume_for_user(batch.yield, current_user) %></td>
         <td><%= batch.date %></td>
         <td><%= batch.target_date %></td>

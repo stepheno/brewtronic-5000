@@ -101,7 +101,7 @@ module Units
     unless user.nil?
       case user.density_units
         when "sg"
-          Units.plato_to_sg(amount).round(2)
+          Units.plato_to_sg(amount).round(3)
         when "plato"
           amount.round(2)
         else
