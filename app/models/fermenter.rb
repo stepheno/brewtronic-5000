@@ -5,7 +5,7 @@ class Fermenter < ActiveRecord::Base
   attr_accessible :unit # Virtual field for units in forms
 
   has_many :batches
-  validates :name, :uniqueness => true
+  validates :name, :presence => true, :uniqueness => true
   validates :size, :numericality => true
  
   self.per_page = 10
