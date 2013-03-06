@@ -26,18 +26,22 @@
   <div class="field">
     <%= f.label :og_range_low %><br />
     <%= f.text_field :og_range_low %>
+    <%= f.select :og_low_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
   </div>
   <div class="field">
     <%= f.label :og_range_high %><br />
     <%= f.text_field :og_range_high %>
+    <%= f.select :og_high_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
   </div>
   <div class="field">
     <%= f.label :fg_range_low %><br />
     <%= f.text_field :fg_range_low %>
+    <%= f.select :fg_low_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
   </div>
   <div class="field">
     <%= f.label :fg_range_high %><br />
     <%= f.text_field :fg_range_high %>
+    <%= f.select :fg_high_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
   </div>
   <div class="field">
     <%= f.label :ibu_range_low %><br />

@@ -30,12 +30,17 @@ class StylesController < ApplicationController
   # GET /styles/1/edit
   def edit
     @style = Style.find(params[:id])
+    @style.og_range_low = Units.format_density_for_user(@style.og_range_low,current_user)
+    @style.og_range_high = Units.format_density_for_user(@style.og_range_high,current_user)
+    @style.fg_range_low = Units.format_density_for_user(@style.fg_range_low,current_user)
+    @style.fg_range_high = Units.format_density_for_user(@style.fg_range_high,current_user)
   end
 
   # POST /styles
   # POST /styles.json
   def create
-    @style = Style.new(params[:style])
+    style = convert_units(params[:style])
+    @style = Style.new(style)
 
     respond_to do |format|
       if @style.save
@@ -52,9 +57,10 @@ class StylesController < ApplicationController
   # PUT /styles/1.json
   def update
     @style = Style.find(params[:id])
+    style = convert_units(params[:style])
 
     respond_to do |format|
-      if @style.update_attributes(params[:style])
+      if @style.update_attributes(style)
         format.html { redirect_to @style, notice: 'Style was successfully updated.' }
         format.json { head :no_content }
       else
@@ -78,6 +84,14 @@ class StylesController < ApplicationController
 
   def model
     Style
+  end
+
+  def convert_units(style)
+    style[:og_range_low] = Units.convert_density_units(style[:og_range_low],style[:og_low_density_unit])
+    style[:og_range_high] = Units.convert_density_units(style[:og_range_high],style[:og_high_density_unit])
+    style[:fg_range_low] = Units.convert_density_units(style[:fg_range_low],style[:fg_low_density_unit])
+    style[:fg_range_high] = Units.convert_density_units(style[:fg_range_high],style[:fg_high_density_unit])
+    style
   end
 
 end

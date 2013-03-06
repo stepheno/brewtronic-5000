@@ -47,11 +47,11 @@ class RecipesController < ApplicationController
   # PUT /recipes/1
   # PUT /recipes/1.json
   def update
-    params[:recipe][:size] = Units.convert_volume_units(params[:recipe][:size],params[:recipe][:unit])
     @recipe = Recipe.find(params[:id])
+    recipe = convert_units(params[:recipe])
 
     respond_to do |format|
-      if @recipe.update_attributes(params[:recipe])
+      if @recipe.update_attributes(recipe)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
         format.json { head :no_content }
       else
