@@ -6,8 +6,8 @@ class Batch < ActiveRecord::Base
   attr_accessible :date, :finish_gravity, :original_gravity, :target_date, :yield
   attr_accessible :recipe_id, :fermenter_id, :user_id
 
-  attr_accessor :unit # Virtual field for units in forms
-  attr_accessible :unit # Virtual field for units in forms
+  attr_accessor :volume_unit, :og_density_unit, :fg_density_unit # Virtual field for units in forms
+  attr_accessible :volume_unit, :og_density_unit, :fg_density_unit # Virtual field for units in forms
 
   validates :recipe, :presence => true
   validates :fermenter, :presence => true

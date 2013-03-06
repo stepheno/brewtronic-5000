@@ -29,7 +29,9 @@ class BatchesController < ApplicationController
   # POST /batches
   # POST /batches.json
   def create
-    params[:batch][:yield] = Units.convert_volume_units(params[:batch][:yield],params[:batch][:unit])
+    params[:batch][:yield] = Units.convert_volume_units(params[:batch][:yield],params[:batch][:volume_unit])
+    params[:batch][:original_gravity] = Units.convert_density_units(params[:batch][:original_gravity],params[:batch][:og_density_unit])
+    params[:batch][:finish_gravity] = Units.convert_density_units(params[:batch][:finish_gravity],params[:batch][:fg_density_unit])
     @batch = Batch.new(params[:batch])
 
     respond_to do |format|
@@ -46,7 +48,9 @@ class BatchesController < ApplicationController
   # PUT /batches/1
   # PUT /batches/1.json
   def update
-    params[:batch][:yield] = Units.convert_volume_units(params[:batch][:yield],params[:batch][:unit])
+    params[:batch][:yield] = Units.convert_volume_units(params[:batch][:yield],params[:batch][:volume_unit])
+    params[:batch][:original_gravity] = Units.convert_density_units(params[:batch][:original_gravity],params[:batch][:og_density_unit])
+    params[:batch][:finish_gravity] = Units.convert_density_units(params[:batch][:finish_gravity],params[:batch][:fg_density_unit])
     @batch = Batch.find(params[:id])
 
     respond_to do |format|

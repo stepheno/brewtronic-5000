@@ -30,15 +30,17 @@
   <div class="field">
     <%= f.label :original_gravity %><br />
     <%= f.text_field :original_gravity %>
+    <%= f.select :og_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
   </div>
   <div class="field">
     <%= f.label :finish_gravity %><br />
     <%= f.text_field :finish_gravity %>
+    <%= f.select :fg_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
   </div>
   <div class="field">
     <%= f.label :yield %><br />
     <%= f.text_field :yield %>
-    <%= f.select :unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
+    <%= f.select :volume_unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
   </div>
   <div class="field">
     <%= f.label :target_date %><br />

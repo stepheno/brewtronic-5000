@@ -22,17 +22,17 @@
 
 <p>
   <b>Original gravity:</b>
-  <%= @batch.original_gravity %>
+  <%= Units.format_density_for_user(@batch.original_gravity, current_user) %>
 </p>
 
 <p>
   <b>Finish gravity:</b>
-  <%= @batch.finish_gravity %>
+  <%= Units.format_density_for_user(@batch.finish_gravity, current_user) %>
 </p>
 
 <p>
   <b>Yield:</b>
-  <%= @batch.yield %>
+  <%= Units.format_volume_for_user(@batch.yield, current_user) %>
 </p>
 
 <p>
