@@ -17,6 +17,8 @@ gem 'therubyracer', :require => "v8"
 # Quantity gem for unit converion
 gem 'quantify', :git => 'git://github.com/spatchcock/quantify.git'
 
+# Datetime validation
+gem 'validates_timeliness'
 
 # Theming
 gem 'bootstrap-sass'
