@@ -12,7 +12,7 @@
 
 <p>
   <b>Amount:</b>
-  <%= "%0.2f" % @grain_inventory.amount %>
+  <%= Units.format_mass_for_user(@grain_inventory.amount, current_user) %>
 </p>
 
 <%= link_to 'Edit', edit_grain_inventory_path(@grain_inventory) %> |
