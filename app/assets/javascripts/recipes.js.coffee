@@ -28,9 +28,16 @@ jQuery ->
       focus: (event, ui) ->
         $(virt_attr_input_field_id).val ui.item.name
         false
+      change: (event, ui) ->
+        unless $(this).val() is $(this).data('autocomplete_name')
+          $(this).addClass('autocomplete-error')
+          $(this).siblings('input').val ''
+        false
       select: (event, ui) ->
         $(virt_attr_input_field_id).val ui.item.name
         $(id_input_field_id).val ui.item.id
+        $(this).data('autocomplete_name', ui.item.name)
+        $(this).removeClass('autocomplete-error')
         false
     )
     event.preventDefault()
@@ -46,9 +53,16 @@ jQuery ->
       focus: (event, ui) ->
         $(this).val ui.item.name
         false
+      change: (event, ui) ->
+        unless $(this).val() is $(this).data('autocomplete_name')
+          $(this).addClass('autocomplete-error')
+          $(this).siblings('input').val ''
+        false
       select: (event, ui) ->
         $(this).val ui.item.name
         $(this).siblings('input').val ui.item.id
+        $(this).data('autocomplete_name', ui.item.name)
+        $(this).removeClass('autocomplete-error')
         false
     )
 
