@@ -20,6 +20,11 @@
   <%= "%d\ - %d %" % [@yeast.attenuation_low, @yeast.attenuation_high] %>
 </p>
 
+<p>
+  <b>Temperature Range:</b>
+  <%= "%s\ - %s %" % [Units.format_temp_for_user(@yeast.temp_low, current_user), Units.format_temp_for_user(@yeast.temp_high, current_user)] %>
+</p>
+
 
 <%= link_to 'Edit', edit_yeast_path(@yeast) %> |
 <%= link_to 'Back', yeasts_path %>
