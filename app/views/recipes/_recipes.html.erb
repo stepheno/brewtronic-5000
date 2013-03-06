@@ -20,8 +20,8 @@
       <tr>
         <td><%= link_to recipe.name, recipe %></td>
         <td><%= recipe.style.name %></td>
-        <td><%= recipe.target_og %></td>
-        <td><%= recipe.target_fg %></td>
+        <td><%= Units.format_density_for_user(recipe.target_og, current_user) %></td>
+        <td><%= Units.format_density_for_user(recipe.target_fg, current_user) %></td>
         <td><%= Units.format_volume_for_user(recipe.size, current_user) %></td>
         <td><%= recipe.ibu %></td>
         <td><%= recipe.abv %></td>
