@@ -39,6 +39,11 @@
   </div>
 
   <div>
+    <%= f.label :density_units %><br />
+    <%= f.select :density_units, options_for_select(["plato", "sg"], :selected => current_user.density_units)%>
+  </div>
+
+  <div>
     <%= f.label :time_zone %><br />
     <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
   </div>

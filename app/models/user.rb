@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :name, :password_confirmation, :remember_me
   # User preferences
-  attr_accessible :mass_units, :volume_units, :length_units, :temp_units, :time_zone
+  attr_accessible :mass_units, :volume_units, :length_units, :temp_units, :density_units, :time_zone
   
   # Associatons
   has_many :users
@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   validate :mass_units, :presence => true
   validate :volume_units, :presence => true
   validate :length_units, :presence => true
+  validate :density_units, :presence => true
   validate :time_zone, :presence => true
   
   self.per_page = 10

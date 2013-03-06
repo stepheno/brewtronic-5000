@@ -31,8 +31,8 @@ module Units
   def Units.convert_density_units(amount, unit)
     case unit
       when "sg" 
-        259 - (259/ amount.to_f) 
-      when "p" 
+        Units.sg_to_plato(amount)
+      when "plato" 
         amount
       else
         raise "Units.convert_density_units: Unknown unit #{unit}. Try again, sucker."
@@ -94,6 +94,21 @@ module Units
       end
     else
       amount.L.round!(2)
+    end
+  end
+
+  def Units.format_density_for_user(amount,user)
+    unless user.nil?
+      case user.density_units
+        when "sg"
+          Units.plato_to_sg(amount).round(2)
+        when "plato"
+          amount.round(2)
+        else
+          raise "Units.format_density_for_user: Unknown unit #{user.volume_units}."
+      end
+    else
+      amount.round(2)
     end
   end
 
