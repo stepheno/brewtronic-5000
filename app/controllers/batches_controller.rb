@@ -24,6 +24,8 @@ class BatchesController < ApplicationController
   def edit
     @batch = Batch.find(params[:id])
     @batch.yield = Units.format_volume_for_user(@batch.yield, current_user).value
+    @batch.original_gravity = Units.format_density_for_user(@batch.original_gravity, current_user)
+    @batch.finish_gravity = Units.format_density_for_user(@batch.finish_gravity, current_user)
   end
 
   # POST /batches
