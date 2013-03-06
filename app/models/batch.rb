@@ -11,6 +11,10 @@ class Batch < ActiveRecord::Base
 
   validates :recipe, :presence => true
   validates :fermenter, :presence => true
+  validates :yield, :presence => true, :numericality => true
+  validates :finish_gravity, :presence => true, :numericality => true
+  validates :original_gravity, :presence => true, :numericality => true
+  validates :date, :presence => true, :timeliness => { :type => :date}
 
   self.per_page = 10
 
