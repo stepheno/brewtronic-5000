@@ -17,17 +17,17 @@
 
 <p>
   <b>Target og:</b>
-  <%= Units.format_density_for_user(@recipe.target_og, current_user) %>
+  <%= "%0.3f" % Units.format_density_for_user(@recipe.target_og, current_user) %>
 </p>
 
 <p>
   <b>Calculated og:</b>
-  <%= Units.format_density_for_user(@recipe.calculated_og, current_user) %>
+  <%= "%0.3f" % Units.format_density_for_user(@recipe.calculated_og, current_user) %>
 </p>
 
 <p>
   <b>Target fg:</b>
-  <%= Units.format_density_for_user(@recipe.target_fg, current_user) %>
+  <%= "%0.3f" % Units.format_density_for_user(@recipe.target_fg, current_user) %>
 </p>
 
 <p>
