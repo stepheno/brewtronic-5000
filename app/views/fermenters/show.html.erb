@@ -2,7 +2,7 @@
 
 <p>
   <b>Size:</b>
-  <%= @fermenter.size %>
+  <%= Units.format_volume_for_user(@fermenter.size, current_user) %>
 </p>
 
 <p>
