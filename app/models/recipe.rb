@@ -20,8 +20,8 @@ class Recipe < ActiveRecord::Base
   attr_accessible :yeast_id, :style_id
   attr_accessible :recipe_minerals_attributes, :recipe_grains_attributes, :recipe_hops_attributes, :recipe_mashes_attributes
 
-  attr_accessor :unit # Virtual field for units in forms
-  attr_accessible :unit # Virtual field for units in forms
+  attr_accessor :size_unit, :temp_unit, :fg_density_unit, :og_density_unit # Virtual field for units in forms
+  attr_accessible :size_unit, :temp_unit, :fg_density_unit, :og_density_unit  # Virtual field for units in forms
 
   attr_accessor :style_virt_attr # Virtual field for style in forms
   attr_accessible :style_virt_attr # Virtual field for style in forms
@@ -38,7 +38,7 @@ class Recipe < ActiveRecord::Base
   validates :srm, :numericality => true
   validates :target_og, :presence => true, :numericality => true
   validates :target_fg, :presence => true, :numericality => true
-  validates :creation_date, :presence => true
+  validates :creation_date, :presence => true, :timeliness => { :type => :date}
 
   self.per_page = 10
 

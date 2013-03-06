@@ -27,15 +27,17 @@
   <div class="field">
     <%= f.label :target_og %><br />
     <%= f.text_field :target_og %>
+    <%= f.select :og_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
   </div>
   <div class="field">
     <%= f.label :target_fg %><br />
     <%= f.text_field :target_fg %>
+    <%= f.select :fg_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
   </div>
   <div class="field">
     <%= f.label :size %><br />
     <%= f.text_field :size %>
-    <%= f.select :unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
+    <%= f.select :size_unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
   </div>
   <div class="field">
     <%= f.label :yeast_id %><br />
@@ -135,6 +137,7 @@
   <div class="field">
     <%= f.label :pitch_temperature %><br />
     <%= f.text_field :pitch_temperature %>
+    <%= f.select :temp_unit, options_for_select(["C", "F"], :selected => current_user.temp_units) %>
   </div>
   <div class="actions">
     <%= f.submit %>

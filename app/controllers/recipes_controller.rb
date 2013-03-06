@@ -29,28 +29,7 @@ class RecipesController < ApplicationController
   # POST /recipes
   # POST /recipes.json
   def create
-    recipe = params[:recipe]
-    recipe[:size] = Units.convert_volume_units(recipe[:size],recipe[:unit])
-
-    recipe[:recipe_hops_attributes].map do |key,hop|
-      hop[:amount] = Units.convert_mass_units(hop[:amount],hop[:unit])
-      recipe[:recipe_hops_attributes][key] = hop 
-    end unless recipe[:recipe_hops_attributes].nil?
-
-    recipe[:recipe_grains_attributes].map do |key,grain|
-      grain[:amount] = Units.convert_mass_units(grain[:amount],grain[:unit])
-      recipe[:recipe_grains_attributes][key] = grain 
-    end unless recipe[:recipe_grains_attributes].nil?
-
-    recipe[:recipe_minerals_attributes].map do |key,mineral|
-      mineral[:amount] = Units.convert_mass_units(mineral[:amount],mineral[:unit])
-      recipe[:recipe_minerals_attributes][key] = mineral 
-    end unless recipe[:recipe_minerals_attributes].nil?
-
-    recipe[:recipe_mashes_attributes].map do |key,mash|
-      mash[:temperature] = Units.convert_temp_units(mash[:temperature],mash[:unit])
-      recipe[:recipe_mashes_attributes][key] = mash 
-    end unless recipe[:recipe_mashes_attributes].nil?
+    recipe = convert_units(params[:recipe])
 
     @recipe = Recipe.new(recipe)
 
@@ -96,6 +75,35 @@ class RecipesController < ApplicationController
 
   def model
     Recipe
+  end
+
+  def convert_units(recipe)
+    recipe[:size] = Units.convert_volume_units(recipe[:size],recipe[:size_unit])
+    recipe[:pitch_temperature] = Units.convert_temp_units(recipe[:pitch_temperature],recipe[:temp_unit])
+    recipe[:target_fg] = Units.convert_density_units(recipe[:target_fg],recipe[:fg_density_unit])
+    recipe[:target_og] = Units.convert_density_units(recipe[:target_og],recipe[:og_density_unit])
+
+    recipe[:recipe_hops_attributes].map do |key,hop|
+      hop[:amount] = Units.convert_mass_units(hop[:amount],hop[:unit])
+      recipe[:recipe_hops_attributes][key] = hop 
+    end unless recipe[:recipe_hops_attributes].nil?
+
+    recipe[:recipe_grains_attributes].map do |key,grain|
+      grain[:amount] = Units.convert_mass_units(grain[:amount],grain[:unit])
+      recipe[:recipe_grains_attributes][key] = grain 
+    end unless recipe[:recipe_grains_attributes].nil?
+
+    recipe[:recipe_minerals_attributes].map do |key,mineral|
+      mineral[:amount] = Units.convert_mass_units(mineral[:amount],mineral[:unit])
+      recipe[:recipe_minerals_attributes][key] = mineral 
+    end unless recipe[:recipe_minerals_attributes].nil?
+
+    recipe[:recipe_mashes_attributes].map do |key,mash|
+      mash[:temperature] = Units.convert_temp_units(mash[:temperature],mash[:unit])
+      recipe[:recipe_mashes_attributes][key] = mash 
+    end unless recipe[:recipe_mashes_attributes].nil?
+
+    recipe
   end
 
 end

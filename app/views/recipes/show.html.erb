@@ -17,22 +17,22 @@
 
 <p>
   <b>Target og:</b>
-  <%= @recipe.target_og %>
+  <%= Units.format_density_for_user(@recipe.target_og, current_user) %>
 </p>
 
 <p>
   <b>Calculated og:</b>
-  <%= "%0.2f" % @recipe.calculated_og %>
+  <%= Units.format_density_for_user(@recipe.calculated_og, current_user) %>
 </p>
 
 <p>
   <b>Target fg:</b>
-  <%= @recipe.target_fg %>
+  <%= Units.format_density_for_user(@recipe.target_fg, current_user) %>
 </p>
 
 <p>
   <b>Size:</b>
-  <%= @recipe.size %>
+  <%= Units.format_volume_for_user(@recipe.size, current_user) %>
 </p>
 
 <p>
@@ -72,7 +72,7 @@
 
 <p>
   <b>Pitch temperature:</b>
-  <%= @recipe.pitch_temperature %>
+  <%= Units.format_temp_for_user(@recipe.pitch_temperature, current_user) %>
 </p>
 
 <p>
@@ -89,7 +89,7 @@
     <% @recipe.recipe_grains.each do |recipe_grain| %>
       <tr>
         <td><%= recipe_grain.grain.name %></td>
-        <td><%= recipe_grain.amount %></td>
+        <td><%= Units.format_mass_for_user(recipe_grain.amount, current_user) %></td>
         <td> <%= "%0.2f" % recipe_grain.calculated_og %></td>
       </tr>
     <% end %>
@@ -112,7 +112,7 @@
     <% @recipe.recipe_hops.each do |recipe_hop| %>
       <tr>
         <td><%= recipe_hop.hop.name %></td>
-        <td><%= recipe_hop.amount %></td>
+        <td><%= Units.format_mass_for_user(recipe_hop.amount, current_user) %></td>
         <td><%= recipe_hop.time %></td>
         <td> <%= "%0.2f" % recipe_hop.calculated_ibu %></td>
       </tr>
@@ -135,7 +135,7 @@
     <% @recipe.recipe_mashes.each do |recipe_mash| %>
       <tr>
         <td><%= recipe_mash.mash_type.name %></td>
-        <td><%= recipe_mash.temperature %></td>
+        <td><%= Units.format_temp_for_user(recipe_mash.temperature, current_user) %></td>
         <td><%= recipe_mash.time %></td>
       </tr>
     <% end %>
@@ -156,7 +156,7 @@
     <% @recipe.recipe_minerals.each do |recipe_mineral| %>
       <tr>
         <td><%= recipe_mineral.mineral.name %></td>
-        <td><%= recipe_mineral.amount %></td>
+        <td><%= Units.format_mass_for_user(recipe_mineral.amount, current_user) %></td>
       </tr>
     <% end %>
     </tbody>
