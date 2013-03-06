@@ -1,11 +1,11 @@
 class Grain < ActiveRecord::Base
   include Searchable
-  attr_accessible :color, :extract_potential, :name
+  attr_accessible :color, :extract_potential, :name, :grain_supplier_id
   has_many :grain_inventories, :dependent => :destroy
   has_many :grain_transactions, :dependent => :destroy
   has_many :recipes, :through => :recipe_grains
   has_many :recipe_grains
-  has_and_belongs_to_many :grain_suppliers
+  belongs_to :grain_supplier
 
   validates :extract_potential, :numericality => true
   validates :color, :numericality => true

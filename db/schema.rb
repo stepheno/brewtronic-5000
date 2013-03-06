@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306051647) do
+ActiveRecord::Schema.define(:version => 20130306080602) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -81,7 +81,10 @@ ActiveRecord::Schema.define(:version => 20130306051647) do
     t.float    "color"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.integer  "grain_supplier_id"
   end
+
+  add_index "grains", ["grain_supplier_id"], :name => "index_grains_on_grain_supplier_id"
 
   create_table "hop_contracts", :force => true do |t|
     t.integer  "hop_supplier_id"

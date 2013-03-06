@@ -4,7 +4,7 @@ class GrainSupplier < ActiveRecord::Base
   attr_reader :grain_tokens
   has_many :grain_inventories
   has_many :grain_transactions
-  has_and_belongs_to_many :grains
+  has_many :grains
   validates_uniqueness_of :name
 
   self.per_page = 10

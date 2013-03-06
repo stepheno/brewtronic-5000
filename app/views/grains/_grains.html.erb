@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th><%= sortable "name" %></th>
+      <th><%= sortable "grain_supplier_id", "Grain Supplier" %></th>
       <th><%= sortable "extract_potential" %></th>
       <th><%= sortable "color" %></th>
       <th></th>
@@ -13,6 +14,7 @@
     <% @grains.each do |grain| %>
     <tr>
       <td><%= link_to grain.name, grain %></td>
+      <td><%= grain.grain_supplier.name unless grain.grain_supplier.nil?%></td>
       <td><%= grain.extract_potential %></td>
       <td><%= grain.color %></td>
       <td>
