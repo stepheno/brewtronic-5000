@@ -30,8 +30,8 @@ class HopContractsController < ApplicationController
   # POST /hop_contracts
   # POST /hop_contracts.json
   def create
-    params[:hop_contract][:contract_amount] = Units.convert_mass_units(params[:hop_contract][:contract_amount],params[:hop_contract][:unit])
-    params[:hop_contract][:used_amount] = Units.convert_mass_units(params[:hop_contract][:used_amount],params[:hop_contract][:unit])
+    params[:hop_contract][:contract_amount] = Units.convert_mass_units(params[:hop_contract][:contract_amount],params[:hop_contract][:contract_amount_unit])
+    params[:hop_contract][:used_amount] = Units.convert_mass_units(params[:hop_contract][:used_amount],params[:hop_contract][:used_amount_unit])
     @hop_contract = HopContract.new(params[:hop_contract])
 
     respond_to do |format|
@@ -48,8 +48,8 @@ class HopContractsController < ApplicationController
   # PUT /hop_contracts/1
   # PUT /hop_contracts/1.json
   def update
-    params[:hop_contract][:contract_amount] = Units.convert_mass_units(params[:hop_contract][:contract_amount],params[:hop_contract][:unit])
-    params[:hop_contract][:used_amount] = Units.convert_mass_units(params[:hop_contract][:used_amount],params[:hop_contract][:unit])
+    params[:hop_contract][:contract_amount] = Units.convert_mass_units(params[:hop_contract][:contract_amount],params[:hop_contract][:contract_amount_unit])
+    params[:hop_contract][:used_amount] = Units.convert_mass_units(params[:hop_contract][:used_amount],params[:hop_contract][:used_amount_unit])
 
     @hop_contract = HopContract.find(params[:id])
 

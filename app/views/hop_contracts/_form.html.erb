@@ -34,12 +34,12 @@
   <div class="field">
     <%= f.label :contract_amount %><br />
     <%= f.text_field :contract_amount %>
-    <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %>
+    <%= f.select :contract_amount_unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %>
   </div>
   <div class="field">
     <%= f.label :used_amount %><br />
     <%= f.text_field :used_amount %>
-    <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %>
+    <%= f.select :used_amount_unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -17,7 +17,7 @@
 
 <p>
   <b>Amount:</b>
-  <%= "%0.2f" % @hop_inventory.amount %>
+  <%= Units.format_mass_for_user(@hop_inventory.amount, current_user) %>
 </p>
 
 <p>

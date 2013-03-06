@@ -5,8 +5,8 @@ class HopContract < ActiveRecord::Base
   attr_accessible :contract_amount, :used_amount, :contract_year, :hop_type, :harvest_date
   attr_accessible :hop_id, :hop_supplier_id
 
-  attr_accessor :unit #Virtual field for units in forms
-  attr_accessible :unit #Virtual field for units in forms
+  attr_accessor :contract_amount_unit, :used_amount_unit #Virtual field for units in forms
+  attr_accessible :contract_amount_unit, :used_amount_unit #Virtual field for units in forms
  
   validates :hop_supplier, :presence => true
   validates :hop, :presence => true

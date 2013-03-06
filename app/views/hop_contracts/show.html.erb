@@ -22,12 +22,12 @@
 
 <p>
   <b>Contract amount:</b>
-  <%= @hop_contract.contract_amount %>
+  <%= Units.format_mass_for_user(@hop_contract.contract_amount, current_user) %>
 </p>
 
 <p>
   <b>Used amount:</b>
-  <%= @hop_contract.used_amount %>
+  <%= Units.format_mass_for_user(@hop_contract.used_amount, current_user) %>
 </p>
 
 
