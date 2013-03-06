@@ -17,8 +17,8 @@
       <tr>
         <td><%= link_to style.name, style %></td>
         <td><%= "%s%s" % [style.category,style.sub_category] %></td>
-        <td><%= "%0.2f - %0.2f" % [style.og_range_low, style.og_range_high] %></td>
-        <td><%= "%0.2f - %0.2f" % [style.fg_range_low, style.fg_range_high] %></td>
+        <td><%= "%0.3f - %0.3f" % [Units.format_density_for_user(style.og_range_low,current_user), Units.format_density_for_user(style.og_range_high,current_user)] %></td>
+        <td><%= "%0.3f - %0.3f" % [Units.format_density_for_user(style.fg_range_low,current_user), Units.format_density_for_user(style.fg_range_high,current_user)] %></td>
         <td><%= "%d - %d" % [style.ibu_range_low, style.ibu_range_high] %></td>
         <td><%= "%d - %d" % [style.srm_range_low, style.srm_range_high] %></td>
         <td>

@@ -16,45 +16,24 @@
 </p>
 
 <p>
-  <b>Og range low:</b>
-  <%= @style.og_range_low %>
+  <b>OG range:</b>
+  <%= "%0.3f - %0.3f" % [Units.format_density_for_user(@style.og_range_low,current_user), Units.format_density_for_user(@style.og_range_high,current_user)] %>
 </p>
 
 <p>
-  <b>Og range high:</b>
-  <%= @style.og_range_high %>
+  <b>FG range:</b>
+  <%= "%0.3f - %0.3f" % [Units.format_density_for_user(@style.fg_range_low,current_user), Units.format_density_for_user(@style.fg_range_high,current_user)] %>
 </p>
 
 <p>
-  <b>Fg range low:</b>
-  <%= @style.fg_range_low %>
+  <b>IBU range:</b>
+  <%= "%0.2f - %0.2f" % [@style.ibu_range_low,@style.ibu_range_high] %>
 </p>
 
 <p>
-  <b>Fg range high:</b>
-  <%= @style.fg_range_high %>
+  <b>SRM range:</b>
+  <%= "%0.2f - %0.2f" % [@style.srm_range_low,@style.srm_range_high] %>
 </p>
-
-<p>
-  <b>Ibu range low:</b>
-  <%= @style.ibu_range_low %>
-</p>
-
-<p>
-  <b>Ibu range high:</b>
-  <%= @style.ibu_range_high %>
-</p>
-
-<p>
-  <b>Srm range low:</b>
-  <%= @style.srm_range_low %>
-</p>
-
-<p>
-  <b>Srm range high:</b>
-  <%= @style.srm_range_high %>
-</p>
-
 
 <%= link_to 'Edit', edit_style_path(@style) %> |
 <%= link_to 'Back', styles_path %>
