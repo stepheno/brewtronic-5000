@@ -10,7 +10,7 @@ class GrainsController < ApplicationController
     respond_to do |format|
      format.html
      format.js
-     format.json { render :json => Grain.where("name like ?", "%#{params[:q]}%").map(&:attributes) }
+     format.json { render :json => Grain.where("name like ?", "%#{params[:q]}%").map { |x| x.attributes.merge(:name => x.display_name) } }
     end
   end
 
