@@ -6,25 +6,19 @@
 require 'csv'
 require 'rexml/document'
 
-# Insert grains
-CSV.foreach("db/seeds/grains.csv") do |grain|
-  newGrain = Grain.new(:name => grain[0], :color => grain[1].to_f, :extract_potential => grain[2].to_f)
-  newGrain.save
-end
-
 grain_suppliers = ['Great Western','Breiss','Rahr','Weyermann','Simpsons']
 grain_suppliers.each do |grain_supplier|
   g = GrainSupplier.create(:name => grain_supplier)
-  g.grains = Grain.all
   g.save!
 end
 
-# Insert hops 
-CSV.foreach("db/seeds/hops.csv") do |hop|
-  hsi = hop[2].nil? ? 0 : hop[2].to_f
-  newHop = Hop.new(:name => hop[0], :alpha=> hop[1].to_f, :hsi => hop[2].to_f)
-  newHop.save
+a_seeded_grain_supplier = GrainSupplier.find_by_name("Great Western")
+# Insert grains
+CSV.foreach("db/seeds/grains.csv") do |grain|
+  newGrain = Grain.new(:name => grain[0], :color => grain[1].to_f, :extract_potential => grain[2].to_f, :grain_supplier_id => a_seeded_grain_supplier.id)
+  newGrain.save
 end
+
 
 hop_suppliers = ['Hop Union','BSG']
 hop_suppliers.each do |hop_supplier|
@@ -32,6 +26,15 @@ hop_suppliers.each do |hop_supplier|
   h.hops = Hop.all
   h.save!
 end
+
+a_seeded_hop_supplier = HopSupplier.find_by_name("Hop Union")
+# Insert hops 
+CSV.foreach("db/seeds/hops.csv") do |hop|
+  hsi = hop[2].nil? ? 0 : hop[2].to_f
+  newHop = Hop.new(:name => hop[0], :alpha=> hop[1].to_f, :hsi => hop[2].to_f, :hop_supplier_id => a_seeded_hop_supplier.id, :year => Date.today.year)
+  newHop.save
+end
+
 
 # Insert minerals 
 CSV.foreach("db/seeds/minerals.csv") do |mineral|
@@ -112,4 +115,9 @@ doc.elements.each('styleguide/class/category') do |cat|
   end
 end
 
+# Seeding the mash types with two awesome names.  Decoction should be spelled differently.
+['Infusion Mash', 'Decoction Mash'].each do |mash_type|
+  newMashType = MashType.new(:name => mash_type)
+  newMashType.save  
+end
 
