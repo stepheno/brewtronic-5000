@@ -3,7 +3,9 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th><%= sortable "name" %></th>
+      <th><%= sortable "name" %></th>n
+      <th><%= sortable "hop_supplier_id", "Hop Supplier" %></th>
+      <th><%= sortable "year" %></th>
       <th><%= sortable "alpha" %></th>
       <th></th>
     </tr>
@@ -12,6 +14,8 @@
     <% @hops.each do |hop| %>
     <tr>
       <td><%= link_to hop.name, hop %></td>
+      <td><%= hop.hop_supplier.name unless hop.hop_supplier.nil?%></td>
+      <td><%= hop.year %></td>
       <td><%= hop.alpha %></td>
       <td>
         <div class="pull-right">

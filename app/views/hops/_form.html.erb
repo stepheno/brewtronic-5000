@@ -12,8 +12,17 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :hop_supplier_id %><br />
+    <%= f.collection_select :hop_supplier_id, HopSupplier.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= select_year Date.today, :field_name => 'year', :prefix => :hop %>
   </div>
   <div class="field">
     <%= f.label :alpha %><br />
