@@ -15,10 +15,6 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :hop_tokens , "Hops" %><br />
-    <%= f.text_field :hop_tokens, "data-pre" => @hop_supplier.hops.map(&:attributes).to_json %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
