@@ -10,7 +10,7 @@ class HopsController < ApplicationController
     respond_to do |format|
      format.html
      format.js
-     format.json { render :json => Hop.where("name like ?", "%#{params[:q]}%").map{|x| x.attributes.merge(:display_name => x.display_name)}}
+     format.json { render :json => Hop.where("name like ?", "%#{params[:q]}%").map{|x| x.attributes.merge(:name => x.display_name)}}
     end
   end
 
