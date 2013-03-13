@@ -12,7 +12,7 @@ class Hop < ActiveRecord::Base
   validates :alpha, :presence => true, :numericality => true
   validates :beta, :numericality => true, :allow_blank => true
   validates :hsi, :presence => true, :numericality => true
-  validates :hop_grain_supplier, :presence => true
+  validates :hop_supplier, :presence => true
   validates_uniqueness_of :name, :scope => [:hop_supplier_id, :year]
 
   self.per_page = 10
