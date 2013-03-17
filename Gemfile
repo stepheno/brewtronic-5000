@@ -17,6 +17,9 @@ gem 'therubyracer', :require => "v8"
 # Quantity gem for unit converion
 gem 'quantify', :git => 'git://github.com/spatchcock/quantify.git'
 
+# Calendar for displaying batch scheduling
+gem "simple_calendar", "~> 0.1.5"
+
 # Datetime validation
 gem 'validates_timeliness'
 

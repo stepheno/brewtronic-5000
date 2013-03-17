@@ -22,4 +22,8 @@ class Batch < ActiveRecord::Base
     joins(:recipe).where('recipes.name LIKE ?', "%#{search}%")
   end
 
+  def start_time
+    target_date
+  end
+
 end

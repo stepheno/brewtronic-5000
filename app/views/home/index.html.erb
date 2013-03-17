@@ -10,3 +10,6 @@
     <li><%= batch.recipe.name %> </li>
   <% end %>
 </ul>
+<%= calendar Batch.where("target_date > ?",Date.today) do |batch| %>
+  <div><%= link_to "%s (%s)" % [batch.recipe.name, batch.fermenter.name], batch %>
+<% end %>
