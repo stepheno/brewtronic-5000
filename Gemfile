@@ -20,6 +20,9 @@ gem 'quantify', :git => 'git://github.com/spatchcock/quantify.git'
 # Calendar for displaying batch scheduling
 gem "simple_calendar", "~> 0.1.5"
 
+# Set locale info
+gem 'rails-i18n'
+
 # Datetime validation
 gem 'validates_timeliness'
 
