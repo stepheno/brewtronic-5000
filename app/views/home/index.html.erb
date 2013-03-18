@@ -1,15 +1,10 @@
-<h1> Latest Batches</h1>
+<h1> Newest Recipes</h1>
 <ul>
-  <% Batch.all(:order => 'date DESC', :limit => 7).each do |batch| %>
-    <li><%= batch.recipe.name %> </li>
+  <% Recipe.all(:order => 'creation_date DESC', :limit => 7).each do |recipe| %>
+    <li><%= link_to recipe.name, recipe%> </li>
   <% end %>
 </ul>
-<h1>Prenatal beer</h1>
-<ul>
-  <% Batch.where("target_date > ?",Date.today).each do |batch| %>
-    <li><%= batch.recipe.name %> </li>
-  <% end %>
-</ul>
-<%= calendar Batch.where("target_date > ?",Date.today) do |batch| %>
+<h1>Fermenter schedule</h1>
+<%= calendar @batches do |batch| %>
   <div><%= link_to "%s (%s)" % [batch.recipe.name, batch.fermenter.name], batch %>
 <% end %>
