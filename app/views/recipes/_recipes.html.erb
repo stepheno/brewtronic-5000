@@ -30,6 +30,7 @@
         <td>
           <div class="pull-right">
             <%= link_to 'Edit', edit_recipe_path(recipe), :class => 'btn btn-mini' %>
+            <%= link_to 'Clone', duplicate_recipe_path(recipe), :class => 'btn btn-mini' %>
             <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
           </div>
         </td>

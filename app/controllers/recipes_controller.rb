@@ -20,6 +20,14 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
+  # GET /recipes/1/duplicate
+  # Bryan wrote this from scratch, so be HIGHLY suspicous of it.
+  def duplicate
+    @prev_recipe = Recipe.find(params[:id])
+    @recipe = @prev_recipe.dup  
+    @recipe.name = @prev_recipe.name + " (duplicate)"
+  end
+
   # GET /recipes/1/edit
   def edit
     @recipe = Recipe.find(params[:id])
