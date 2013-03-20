@@ -38,6 +38,17 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       if @batch.save
+        recipe = Recipe.find(params[:batch][:recipe_id])
+        if not recipe.nil?
+          recipe.recipe_grains.each do |grain|
+            g = GrainTransaction.create(:grain_id => grain.grain.id, :grain_supplier_id => grain.grain.grain_supplier.id, :amount => -grain.amount, :quantity => 1)
+            g.save!
+          end
+          recipe.recipe_hops.each do |hop|
+            h = HopTransaction.create(:hop_id => hop.hop.id, :hop_supplier_id => hop.hop.hop_supplier_id, :amount => -hop.amount, :quantity => 1, :hop_year => hop.hop.year)
+            h.save!
+          end
+        end
         format.html { redirect_to @batch, notice: 'Batch was successfully created.' }
         format.json { render json: @batch, status: :created, location: @batch }
       else
@@ -57,6 +68,18 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       if @batch.update_attributes(params[:batch])
+        recipe = Recipe.find(params[:batch][:recipe_id])
+        if not recipe.nil?
+          recipe.recipe_grains.each do |grain|
+            g = GrainTransaction.create(:grain_id => grain.grain.id, :grain_supplier_id => grain.grain.grain_supplier.id, :amount => -grain.amount, :quantity => 1)
+            g.save!
+          end
+          recipe.recipe_hops.each do |hop|
+            h = HopTransaction.create(:hop_id => hop.hop.id, :hop_supplier_id => hop.hop.hop_supplier_id, :amount => -hop.amount, :quantity => 1, :hop_year => hop.hop.year)
+            h.save!
+          end
+        end
+
         format.html { redirect_to @batch, notice: 'Batch was successfully updated.' }
         format.json { head :no_content }
       else
