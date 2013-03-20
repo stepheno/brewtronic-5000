@@ -2,7 +2,7 @@
 
 <p>
   <b>Recipe:</b>
-  <%= @batch.recipe.name unless @batch.recipe.nil?  %>
+  <%= link_to @batch.recipe.name, @batch.recipe unless @batch.recipe.nil?  %>
 </p>
 
 <p>
