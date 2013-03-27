@@ -29,4 +29,24 @@ class HopTransaction < ActiveRecord::Base
     joins(:hop).where('hops.name LIKE ?', "%#{search}%")
   end
 
+  def modify_inventory
+    hop_inventory = HopInventory.where(:hop_id => self.hop_id)
+                                     .where(:hop_supplier_id => self.hop_supplier_id)
+                                     .where(:hop_type => self.hop_type)
+                                     .first
+
+   total_amount = self.quantity * self.amount
+
+    if (hop_inventory.nil?)
+      hop_inventory = HopInventory.create(:hop_id => self.hop_id,
+          :hop_supplier_id => self.hop_supplier_id,
+          :amount => total_amount,
+          :hop_type => self.hop_type,
+          :crop_year => self.hop_year)
+    else
+      hop_inventory.amount = hop_inventory.amount + total_amount
+    end
+    hop_inventory.save
+  end
+
 end

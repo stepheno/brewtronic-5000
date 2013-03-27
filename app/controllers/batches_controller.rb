@@ -41,11 +41,21 @@ class BatchesController < ApplicationController
         recipe = Recipe.find(params[:batch][:recipe_id])
         if not recipe.nil?
           recipe.recipe_grains.each do |grain|
-            g = GrainTransaction.create(:grain_id => grain.grain.id, :grain_supplier_id => grain.grain.grain_supplier.id, :amount => -grain.amount, :quantity => 1)
+            g = GrainTransaction.create(:grain_id => grain.grain.id,
+                :grain_supplier_id => grain.grain.grain_supplier.id,
+                :amount => -grain.amount,
+                :quantity => 1)
+            g.modify_inventory
             g.save!
           end
           recipe.recipe_hops.each do |hop|
-            h = HopTransaction.create(:hop_id => hop.hop.id, :hop_supplier_id => hop.hop.hop_supplier_id, :amount => -hop.amount, :quantity => 1, :hop_year => hop.hop.year)
+            h = HopTransaction.create(:hop_id => hop.hop.id,
+                :hop_supplier_id => hop.hop.hop_supplier_id,
+                :hop_type => hop.hop_type,
+                :amount => -hop.amount,
+                :quantity => 1,
+                :hop_year => hop.hop.year)
+            h.modify_inventory
             h.save!
           end
         end

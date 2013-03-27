@@ -104,6 +104,7 @@
       <tr>
         <th>Hop</th>
         <th>Amount</th>
+        <th>Type</th>
         <th>Time</th>
         <th>Calculated IBU</th>
       </tr>
@@ -113,6 +114,7 @@
       <tr>
         <td><%= recipe_hop.hop.name %></td>
         <td><%= Units.format_mass_for_user(recipe_hop.amount, current_user) %></td>
+        <td><%= recipe_hop.hop_type %></td>
         <td><%= recipe_hop.time %></td>
         <td> <%= "%0.2f" % recipe_hop.calculated_ibu %></td>
       </tr>

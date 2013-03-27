@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313023240) do
+ActiveRecord::Schema.define(:version => 20130327064615) do
 
   create_table "batches", :force => true do |t|
     t.integer  "recipe_id"
@@ -196,6 +196,7 @@ ActiveRecord::Schema.define(:version => 20130313023240) do
     t.string   "location"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "hop_type"
   end
 
   add_index "recipe_hops", ["hop_id"], :name => "index_recipe_hops_on_hop_id"

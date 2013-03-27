@@ -17,4 +17,16 @@ class GrainTransaction < ActiveRecord::Base
     joins(:grain).where('grains.name LIKE ?', "%#{search}%")
   end
 
+  def modify_inventory
+    grain_inventory = GrainInventory.where(:grain_id => self.grain_id).where(:grain_supplier_id => self.grain_supplier_id).first
+    total_amount = self.quantity * self.amount
+
+    if (grain_inventory.nil?)
+      grain_inventory = GrainInventory.create(:grain_id => self.grain_id, :grain_supplier_id => self.grain_supplier_id, :amount => total_amount)
+    else
+      grain_inventory.amount = grain_inventory.amount + total_amount
+    end
+    grain_inventory.save
+  end
+
 end

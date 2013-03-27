@@ -3,6 +3,7 @@
   <%= f.hidden_field :hop_id %> 
   <td> <%= f.text_field :amount %> </td>
   <td> <%= f.select :unit, options_for_select(["kg", "lb", "oz", "g"], :selected => current_user.mass_units) %> </td>
+  <td> <%= f.select :hop_type, options_for_select(["Whole", "Pellet", "Plug"])%> </td>
   <td> <%= f.text_field :time %> </td>
   <td> <%= link_to raw('<i class="icon-remove"></i>'), "#", :class => 'remove_fields' %> </td>
 </tr>

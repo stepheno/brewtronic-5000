@@ -1,7 +1,7 @@
 class RecipeHop < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :hop
-  attr_accessible :amount, :location, :time, :recipe_id, :hop_id
+  attr_accessible :amount, :hop_type, :location, :time, :recipe_id, :hop_id
 
   validates :time, :presence => true, :numericality => true
   self.per_page = 10
