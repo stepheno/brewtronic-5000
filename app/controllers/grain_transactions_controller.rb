@@ -35,17 +35,8 @@ class GrainTransactionsController < ApplicationController
     gt_params = params[:grain_transaction] #get the grain transaction parameters
     respond_to do |format|
       if @grain_transaction.save
-
-        grain_inventory = GrainInventory.where(:grain_id => gt_params[:grain_id]).where(:grain_supplier_id => gt_params[:grain_supplier_id]).first
-        total_amount = gt_params[:quantity].to_i * gt_params[:amount]
-
-        if (grain_inventory.nil?)
-          grain_inventory = GrainInventory.create(:grain_id => gt_params[:grain_id], :grain_supplier_id => gt_params[:grain_supplier_id], :amount => total_amount)
-        else
-          grain_inventory.amount = grain_inventory.amount + total_amount
-        end
-        grain_inventory.save
-
+        @grain_transaction.modify_inventory
+ 
         format.html { redirect_to @grain_transaction, notice: 'Grain transaction was successfully created.' }
         format.json { render json: @grain_transaction, status: :created, location: @grain_transaction }
       else
