@@ -1,6 +1,12 @@
 <%= hidden_field_tag :month, params[:month] %>
 <%= calendar @batches do |batch| %>
   <div>
-    <ul><li><%= link_to "%s (%s)" % [batch.recipe.name, batch.fermenter.name], batch %></li></ul>
+    <ul>
+      <li>
+        <div class="well well-small">
+          <%= link_to "%s (%s)" % [batch.recipe.name, batch.fermenter.name], batch %>
+        </div>
+      </li>
+    </ul>
   </div>
 <% end %>
