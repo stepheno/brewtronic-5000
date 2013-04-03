@@ -28,6 +28,7 @@
         <td>
           <div class="pull-right">
           <%= link_to 'Edit', edit_batch_path(batch), :class => 'btn btn-mini' %>
+          <%= link_to 'Clone', duplicate_batch_path(batch), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', batch, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
           </div>
         </td>

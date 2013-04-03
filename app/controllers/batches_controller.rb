@@ -20,6 +20,12 @@ class BatchesController < ApplicationController
     @batch = Batch.new
   end
 
+  # GET /batches/1/duplicate
+  def duplicate
+    @prev_batch = Batch.find(params[:id])
+    @batch = @prev_batch.dup  
+  end
+
   # GET /batches/1/edit
   def edit
     @batch = Batch.find(params[:id])

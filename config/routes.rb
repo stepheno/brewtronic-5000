@@ -48,6 +48,7 @@ Brewtronic5000::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   match 'recipes/:id/duplicate' => 'recipes#duplicate', :as => :duplicate_recipe
+  match 'batches/:id/duplicate' => 'batches#duplicate', :as => :duplicate_batch
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
