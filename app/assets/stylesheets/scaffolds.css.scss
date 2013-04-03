@@ -33,6 +33,12 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+  &.field-optional {
+    margin-bottom: 10px;
+    label:after {
+      content: " (optional)";
+    }
+  }
 }
 
 #notice {
