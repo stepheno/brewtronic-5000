@@ -2,7 +2,8 @@ class GrainTransaction < ActiveRecord::Base
   include Searchable
   belongs_to :grain
   belongs_to :grain_supplier
-  attr_accessible :quantity, :amount, :grain_id, :grain_supplier_id
+  belongs_to :grain_inventory
+  attr_accessible :quantity, :amount, :grain_id, :grain_supplier_id, :grain_inventory_id
   attr_accessor :unit # Virtual field for units in forms
   attr_accessible :unit # Virtual field for units in forms
 
@@ -18,15 +19,17 @@ class GrainTransaction < ActiveRecord::Base
   end
 
   def modify_inventory
-    grain_inventory = GrainInventory.where(:grain_id => self.grain_id).where(:grain_supplier_id => self.grain_supplier_id).first
-    total_amount = self.quantity * self.amount
-
-    if (grain_inventory.nil?)
-      grain_inventory = GrainInventory.create(:grain_id => self.grain_id, :grain_supplier_id => self.grain_supplier_id, :amount => total_amount)
+    if self.grain_inventory.nil?
+      self.grain_inventory = GrainInventory.create(:grain_id => self.grain_id, :grain_supplier_id => self.grain_supplier_id, :amount => self.total_amount)
     else
-      grain_inventory.amount = grain_inventory.amount + total_amount
+      self.grain_inventory.amount = grain_inventory.amount + self.total_amount
     end
-    grain_inventory.save
+    self.grain_inventory.save!
+    self.save!
+  end
+
+  def total_amount
+    self.amount * self.quantity
   end
 
 end

@@ -15,5 +15,14 @@
   <%= Units.format_mass_for_user(@grain_inventory.amount, current_user) %>
 </p>
 
+<p>
+  <b>Grain Transactions:</b>
+  <ul>
+    <% @grain_inventory.grain_transactions.each do |t| %> 
+      <li> <%= link_to "%s, Added on %s" % [Units.format_mass_for_user(t.amount * t.quantity, current_user), t.created_at.localtime.strftime('%F %r')], t %> </li>
+    <% end %>
+</ul> 
+</p>
+
 <%= link_to 'Edit', edit_grain_inventory_path(@grain_inventory) %> |
 <%= link_to 'Back', grain_inventories_path %>

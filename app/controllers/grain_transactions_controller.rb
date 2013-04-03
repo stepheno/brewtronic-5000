@@ -32,6 +32,7 @@ class GrainTransactionsController < ApplicationController
     params[:grain_transaction][:amount] = Units.convert_mass_units(params[:grain_transaction][:amount],params[:grain_transaction][:unit])
 
     @grain_transaction = GrainTransaction.new(params[:grain_transaction])
+    @grain_transaction.grain_inventory = GrainInventory.where(:grain_id => @grain_transaction.grain_id).where(:grain_supplier_id => @grain_transaction.grain_supplier_id).first
     gt_params = params[:grain_transaction] #get the grain transaction parameters
     respond_to do |format|
       if @grain_transaction.save
@@ -50,9 +51,16 @@ class GrainTransactionsController < ApplicationController
   # PUT /grain_transactions/1.json
   def update
     @grain_transaction = GrainTransaction.find(params[:id])
+    old_total = @grain_transaction.total_amount
+
+    params[:grain_transaction][:grain_inventory_id] = @grain_transaction.grain_inventory_id
 
     respond_to do |format|
       if @grain_transaction.update_attributes(params[:grain_transaction])
+        new_total = @grain_transaction.total_amount
+        @grain_transaction.grain_inventory.amount = @grain_transaction.grain_inventory.amount + (new_total-old_total)
+        @grain_transaction.grain_inventory.save
+
         format.html { redirect_to @grain_transaction, notice: 'Grain transaction was successfully updated.' }
         format.json { head :no_content }
       else

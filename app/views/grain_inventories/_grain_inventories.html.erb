@@ -17,7 +17,6 @@
       <td><%= Units.format_mass_for_user(grain_inventory.amount,current_user) %></td>
       <td>
         <div class="pull-right">
-          <%= link_to 'Edit', edit_grain_inventory_path(grain_inventory), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', grain_inventory, :method => :delete, :confirm => 'Are you sure?' , :class => 'btn btn-mini btn-danger' %>
         </div>
       </td>

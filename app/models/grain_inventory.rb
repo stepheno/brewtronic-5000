@@ -5,6 +5,7 @@ class GrainInventory < ActiveRecord::Base
   attr_accessible :unit # Virtual field for units in forms
   belongs_to :grain
   belongs_to :grain_supplier
+  has_many :grain_transactions
   validates :amount, :numericality => true
   validates :grain_id, :uniqueness => {:scope => :grain_supplier_id}
 
