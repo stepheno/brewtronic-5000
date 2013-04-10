@@ -52,7 +52,7 @@
 
 <p>
   <b>Calculated Ibu:</b>
-  <%= "%0.2f" % @recipe.calculated_ibu %>
+  <%= "%0.2f" % @recipe.calculated_ibu(current_user) %>
 </p>
 
 <p>
@@ -116,7 +116,7 @@
         <td><%= Units.format_mass_for_user(recipe_hop.amount, current_user) %></td>
         <td><%= recipe_hop.hop_type %></td>
         <td><%= recipe_hop.time %></td>
-        <td> <%= "%0.2f" % recipe_hop.calculated_ibu %></td>
+        <td> <%= "%0.2f" % recipe_hop.calculated_ibu(current_user) %></td>
       </tr>
     <% end %>
     </tbody>

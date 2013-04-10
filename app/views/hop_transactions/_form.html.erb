@@ -15,10 +15,10 @@
     <button id="hop_transaction_non_contract" type="button" class="btn ">Non-Contract</button>
   </div>
     
-  <div id="manual_entry_fields" hidden="true">
+  <div id="manual_entry_fields" hidden=<%@hop_transaction.hop_contract.nil?.to_s%>>
     <%= render 'hop_manual_entry', :f => f %>
   </div>
-  <div id="contract_fields">
+  <div id="contract_fields" hidden=<%(not @hop_transaction.hop_contract.nil?).to_s%>>
     <%= render 'hop_contract', :f => f %>
   </div>
   <div class="field">

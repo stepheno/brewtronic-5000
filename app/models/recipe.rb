@@ -42,8 +42,8 @@ class Recipe < ActiveRecord::Base
 
   self.per_page = 10
 
-  def calculated_ibu
-    self.recipe_hops.reduce(0) { |sum,x| sum + x.calculated_ibu}
+  def calculated_ibu(user)
+    self.recipe_hops.reduce(0) { |sum,x| sum + x.calculated_ibu(user)}
   end
 
   def calculated_og

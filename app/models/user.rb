@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :name, :password_confirmation, :remember_me
   # User preferences
-  attr_accessible :mass_units, :volume_units, :length_units, :temp_units, :density_units, :time_zone
+  attr_accessible :mass_units, :volume_units, :length_units, :temp_units, :density_units, :time_zone, :hop_formula
   
   # Associatons
   has_many :users

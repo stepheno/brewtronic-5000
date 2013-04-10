@@ -44,6 +44,11 @@
   </div>
 
   <div>
+    <%= f.label :hop_formula %><br />
+    <%= f.select :hop_formula, options_for_select(["tinseth", "rager"], :selected => current_user.hop_formula)%>
+  </div>
+
+  <div>
     <%= f.label :time_zone %><br />
     <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
   </div>
