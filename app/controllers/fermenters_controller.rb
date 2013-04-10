@@ -12,6 +12,7 @@ class FermentersController < ApplicationController
   # GET /fermenters/1.json
   def show
     @fermenter = Fermenter.find(params[:id])
+    @batches = Batch.where(:fermenter_id => @fermenter.id).includes(:recipe).order("target_date DESC").limit 20
   end
 
   # GET /fermenters/new

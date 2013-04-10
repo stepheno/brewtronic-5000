@@ -15,6 +15,14 @@
   <%= @fermenter.fermenter_type %>
 </p>
 
+<p>
+  <b>Recipe log:</b>
+  <ul>
+    <% @batches.each do |b| %>
+      <li> <%= link_to "%s, Finished on %s" % [b.recipe.name, b.target_date], b %> </li>
+    <% end %>
+  </ul>
+</p>
 
 <%= link_to 'Edit', edit_fermenter_path(@fermenter) %> |
 <%= link_to 'Back', fermenters_path %>
