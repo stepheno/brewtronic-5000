@@ -40,5 +40,14 @@
   <%= @hop_inventory.harvest_date %>
 </p>
 
+<p>
+  <b>Hop Transactions:</b>
+  <ul>
+    <% @hop_inventory.hop_transactions.each do |t| %>
+      <li> <%= link_to "%s, Added on %s" % [Units.format_mass_for_user(t.amount * t.quantity, current_user), t.created_at.localtime.strftime('%F %r')], t %> </li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_hop_inventory_path(@hop_inventory) %> |
 <%= link_to 'Back', hop_inventories_path %>

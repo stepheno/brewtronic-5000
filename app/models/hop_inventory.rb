@@ -12,6 +12,7 @@ class HopInventory < ActiveRecord::Base
 
   belongs_to :hop
   belongs_to :hop_supplier
+  has_many :hop_transactions
   attr_accessible :amount, :crop_year, :hop_type, :hop_id, :hop_supplier_id
   attr_accessible :storage_temp, :storage_factor, :harvest_date
   validates :hop_id, :uniqueness => {:scope => [:crop_year, :hop_supplier_id]}

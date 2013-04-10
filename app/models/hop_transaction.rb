@@ -11,7 +11,8 @@ class HopTransaction < ActiveRecord::Base
   belongs_to :hop
   belongs_to :hop_supplier
   belongs_to :hop_contract
-  attr_accessible :quantity, :amount, :hop_year, :hop_type, :hop_id, :hop_supplier_id
+  belongs_to :hop_inventory
+  attr_accessible :quantity, :amount, :hop_year, :hop_type, :hop_id, :hop_supplier_id, :hop_inventory_id
   attr_accessible :hop_contract_id
 
   attr_accessor :unit #Virtual field for units in forms
@@ -37,16 +38,21 @@ class HopTransaction < ActiveRecord::Base
 
    total_amount = self.quantity * self.amount
 
-    if (hop_inventory.nil?)
-      hop_inventory = HopInventory.create(:hop_id => self.hop_id,
+    if self.hop_inventory.nil?
+      self.hop_inventory = HopInventory.create(:hop_id => self.hop_id,
           :hop_supplier_id => self.hop_supplier_id,
-          :amount => total_amount,
+          :amount => self.total_amount,
           :hop_type => self.hop_type,
           :crop_year => self.hop_year)
     else
-      hop_inventory.amount = hop_inventory.amount + total_amount
+      self.hop_inventory.amount = hop_inventory.amount + self.total_amount
     end
-    hop_inventory.save
+    self.hop_inventory.save!
+    self.save!
+  end
+
+  def total_amount
+    self.amount * self.quantity
   end
 
 end

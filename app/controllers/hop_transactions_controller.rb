@@ -42,6 +42,7 @@ class HopTransactionsController < ApplicationController
       end
     end
     @hop_transaction = HopTransaction.new(params[:hop_transaction])
+    @hop_transaction.hop_inventory = HopInventory.where(:hop_id => @hop_transaction.hop_id).where(:crop_year => @hop_transaction.hop_year).where(:hop_supplier_id => @hop_transaction.hop_supplier_id).first
 
     respond_to do |format|
       if @hop_transaction.save
@@ -70,10 +71,17 @@ class HopTransactionsController < ApplicationController
         ht_params[:hop_type] = hop_contract.hop_type
       end
     end
+
     @hop_transaction = HopTransaction.find(params[:id])
+    old_total = @hop_transaction.total_amount
+    params[:hop_transaction][:hop_inventory_id] = @hop_transaction.hop_inventory_id
 
     respond_to do |format|
       if @hop_transaction.update_attributes(params[:hop_transaction])
+        new_total = @hop_transaction.total_amount
+        @hop_transaction.hop_inventory.amount = @hop_transaction.hop_inventory.amount + (new_total-old_total)
+        @hop_transaction.hop_inventory.save
+
         format.html { redirect_to @hop_transaction, notice: 'Hop transaction was successfully updated.' }
         format.json { head :no_content }
       else
