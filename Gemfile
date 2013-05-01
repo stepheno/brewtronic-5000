@@ -45,6 +45,14 @@ group :assets do
   gem 'jquery-ui-rails'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'ffaker'
+  gem 'shoulda-matchers'
+  gem 'fabrication'
+  gem 'capybara'
+end
+
 gem 'jquery-rails', '~> 2.1'
 
 gem 'bootstrap-will_paginate'
