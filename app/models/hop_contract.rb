@@ -23,7 +23,7 @@ class HopContract < ActiveRecord::Base
     joins(:hop).where('hops.name LIKE ?', "%#{search}%")
   end
 
-  def self.remaining_amount
-    self.hop_transactions.reduce(0) {|sum,x| sum + x.total_amount}
+  def remaining_amount
+    self.contract_amount - self.hop_transactions.reduce(0) {|sum,x| sum + x.total_amount}
   end
 end

@@ -26,8 +26,17 @@
 </p>
 
 <p>
-  <b>Used amount:</b>
-  <%= Units.format_mass_for_user(@hop_contract.used_amount, current_user) %>
+  <b>Remaining amount:</b>
+  <%= Units.format_mass_for_user(@hop_contract.remaining_amount, current_user) %>
+</p>
+
+<p>
+  <b>Transactions:</b>
+  <ul>
+    <% @hop_contract.hop_transactions.each do |ht| %>
+      <li><%= "%s - %s" % [Units.format_mass_for_user(ht.total_amount, current_user), ht.updated_at]%></li>
+    <% end %>
+  </ul>
 </p>
 
 
