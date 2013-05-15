@@ -15,8 +15,10 @@ jQuery ->
       $('#hop_transaction_hop_id').empty()
       $('#hop_transaction_hop_id').parent().hide()
   $('#hop_transaction_contract').click ->
+    $('#is_hop_contract').val(true)
     $('#manual_entry_fields').hide("slide", "slow")
     $('#contract_fields').show("slide", "slow")
   $('#hop_transaction_non_contract').click ->
+    $('#is_hop_contract').val(false)
     $('#contract_fields').hide("slide", "slow")
     $('#manual_entry_fields').show("slide", "slow")
