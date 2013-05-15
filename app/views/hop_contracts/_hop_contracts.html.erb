@@ -9,7 +9,7 @@
     <th><%= sortable "hop_type" %></th>
     <th><%= sortable "harvest_date" %></th>
     <th><%= sortable "contract_amount" %></th>
-    <th><%= sortable "used_amount" %></th>
+    <th><%= sortable "remaining_amount" %></th>
     <th></th>
     </tr>
   </thead>
@@ -22,7 +22,7 @@
         <td><%= hop_contract.hop_type%></td>
         <td><%= hop_contract.harvest_date%></td>
         <td><%= Units.format_mass_for_user(hop_contract.contract_amount, current_user)%></td>
-        <td><%= Units.format_mass_for_user(hop_contract.used_amount, current_user) %></td>
+        <td><%= Units.format_mass_for_user(hop_contract.remaining_amount, current_user) %></td>
         <td>
           <div class="pull-right">
             <%= link_to 'Edit', edit_hop_contract_path(hop_contract), :class => 'btn btn-mini' %>
