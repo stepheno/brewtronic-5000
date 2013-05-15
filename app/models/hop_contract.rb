@@ -2,6 +2,7 @@ class HopContract < ActiveRecord::Base
   include Searchable
   belongs_to :hop_supplier
   belongs_to :hop
+  has_many :hop_transactions
   attr_accessible :contract_amount, :used_amount, :contract_year, :hop_type, :harvest_date
   attr_accessible :hop_id, :hop_supplier_id
 
@@ -22,4 +23,7 @@ class HopContract < ActiveRecord::Base
     joins(:hop).where('hops.name LIKE ?', "%#{search}%")
   end
 
+  def self.remaining_amount
+    self.hop_transactions.reduce(0) {|sum,x| sum + x.total_amount}
+  end
 end
