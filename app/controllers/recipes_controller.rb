@@ -50,7 +50,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Recipe #{@recipe.name} successfully created." }
         format.json { render json: @recipe, status: :created, location: @recipe }
       else
         format.html { render action: "new" }

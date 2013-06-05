@@ -32,7 +32,7 @@ class YeastManufacturersController < ApplicationController
 
     respond_to do |format|
       if @yeast_manufacturer.save
-        format.html { redirect_to @yeast_manufacturer, notice: 'Yeast manufacturer was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Yeast manufacturer #{@yeast_manufacturer.name} successfully created." }
         format.json { render json: @yeast_manufacturer, status: :created, location: @yeast_manufacturer }
       else
         format.html { render action: "new" }

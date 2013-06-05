@@ -38,7 +38,7 @@ class YeastsController < ApplicationController
 
     respond_to do |format|
       if @yeast.save
-        format.html { redirect_to @yeast, notice: 'Yeast was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Yeast #{@yeast.name} successfully created." }
         format.json { render json: @yeast, status: :created, location: @yeast }
       else
         format.html { render action: "new" }

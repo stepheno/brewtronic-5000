@@ -35,7 +35,7 @@ class FermentersController < ApplicationController
 
     respond_to do |format|
       if @fermenter.save
-        format.html { redirect_to @fermenter, notice: 'Fermenter was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Fermenter #{@fermenter.name} successfully created." }
         format.json { render json: @fermenter, status: :created, location: @fermenter }
       else
         format.html { render action: "new" }

@@ -38,7 +38,7 @@ class GrainsController < ApplicationController
 
     respond_to do |format|
       if @grain.save
-        format.html { redirect_to @grain, notice: 'Grain was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Grain #{@grain.name} successfully created." }
         format.json { render json: @grain, status: :created, location: @grain }
       else
         format.html { render action: "new" }

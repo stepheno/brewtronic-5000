@@ -44,7 +44,7 @@ class StylesController < ApplicationController
 
     respond_to do |format|
       if @style.save
-        format.html { redirect_to @style, notice: 'Style was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Style #{@style.name} successfully created." }
         format.json { render json: @style, status: :created, location: @style }
       else
         format.html { render action: "new" }

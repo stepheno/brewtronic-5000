@@ -38,7 +38,7 @@ class MashTypesController < ApplicationController
 
     respond_to do |format|
       if @mash_type.save
-        format.html { redirect_to @mash_type, notice: 'Mash type was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Mash type #{@mash_type.name} successfully created." }
         format.json { render json: @mash_type, status: :created, location: @mash_type }
       else
         format.html { render action: "new" }
