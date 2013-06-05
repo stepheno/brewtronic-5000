@@ -39,7 +39,7 @@ class MineralsController < ApplicationController
 
     respond_to do |format|
       if @mineral.save
-        format.html { redirect_to @mineral, notice: 'Mineral was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Mineral #{@mineral.name} successfully created." }
         format.json { render json: @mineral, status: :created, location: @mineral }
       else
         format.html { render action: "new" }

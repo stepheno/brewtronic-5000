@@ -36,7 +36,7 @@ class HopContractsController < ApplicationController
 
     respond_to do |format|
       if @hop_contract.save
-        format.html { redirect_to @hop_contract, notice: 'Hop contract was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Hop contract #{@hop_contract.hop.name}:#{@hop_contract.hop_supplier.name} created." }
         format.json { render json: @hop_contract, status: :created, location: @hop_contract }
       else
         format.html { render action: "new" }

@@ -37,8 +37,7 @@ class GrainTransactionsController < ApplicationController
     respond_to do |format|
       if @grain_transaction.save
         @grain_transaction.modify_inventory
- 
-        format.html { redirect_to @grain_transaction, notice: 'Grain transaction was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Grain transaction #{@grain_transaction.grain.name}:#{@grain_transaction.grain_supplier.name} successfully created." } 
         format.json { render json: @grain_transaction, status: :created, location: @grain_transaction }
       else
         format.html { render action: "new" }

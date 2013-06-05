@@ -32,7 +32,7 @@ class GrainSuppliersController < ApplicationController
 
     respond_to do |format|
       if @grain_supplier.save
-        format.html { redirect_to @grain_supplier, notice: 'Grain supplier was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Grain supplier #{@grain_supplier.name} successfully created." }
         format.json { render json: @grain_supplier, status: :created, location: @grain_supplier }
       else
         format.html { render action: "new" }

@@ -65,7 +65,7 @@ class BatchesController < ApplicationController
             h.save!
           end
         end
-        format.html { redirect_to @batch, notice: 'Batch was successfully created.' }
+        format.html { redirect_to action: "index" and flash[:notice] = "Batch #{@batch.recipe.name} successfully created." }
         format.json { render json: @batch, status: :created, location: @batch }
       else
         format.html { render action: "new" }
