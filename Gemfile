@@ -49,6 +49,8 @@ gem 'jquery-rails', '~> 2.1'
 
 gem 'bootstrap-will_paginate'
 
+# Multi-part (wizard) forms
+gem 'wicked'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

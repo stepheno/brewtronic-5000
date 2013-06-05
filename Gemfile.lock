@@ -143,6 +143,9 @@ GEM
       timeliness (~> 0.3.6)
     warden (1.2.1)
       rack (>= 1.0)
+    wicked (0.6.1)
+      activesupport (>= 3.0.7)
+      rails (>= 3.0.7)
     will_paginate (3.0.4)
 
 PLATFORMS
@@ -166,3 +169,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   unicorn
   validates_timeliness
+  wicked
