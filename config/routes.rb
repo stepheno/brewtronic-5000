@@ -21,6 +21,7 @@ Brewtronic5000::Application.routes.draw do
   resources :yeasts
 
   resources :batches
+  resources :batch_steps
 
   resources :fermenters
 
