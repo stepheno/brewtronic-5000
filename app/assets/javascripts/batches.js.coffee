@@ -6,3 +6,4 @@ jQuery ->
     dateFormat: 'yy-mm-dd'
   $('#batch_date').datepicker
     dateFormat: 'yy-mm-dd'
+  $('#batch_wizard').wizard

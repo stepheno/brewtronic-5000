@@ -46,7 +46,7 @@ group :assets do
 end
 
 gem 'jquery-rails', '~> 2.1'
-
+gem 'fuelux-rails', :git => 'git://github.com/stephenbaldwin/fuelux-rails.git'
 gem 'bootstrap-will_paginate'
 
 # To use ActiveModel has_secure_password

@@ -11,40 +11,60 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :recipe_id %><br />
-    <%= f.select :recipe_id, Recipe.all.collect {|c| [c.name, c.id]} %>
+  <div id="batch_wizard" class="wizard">
+    <ul class="steps">
+      <li data-target="#step1" class="active"><span class="badge badge-info">1</span>Step 1<span class="chevron"></span></li>
+      <li data-target="#step2"><span class="badge">2</span>Step 2<span class="chevron"></span></li>
+      <li data-target="#step3"><span class="badge">3</span>Step 3<span class="chevron"></span></li>
+    </ul>
+    <div class="actions">
+        <button type="button" class="btn btn-mini btn-prev"> <i class="icon-arrow-left"></i>Prev</button>
+        <button type="button" class="btn btn-mini btn-next" data-last="Finish">Next<i class="icon-arrow-right"></i></button>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.text_field :date %>
-  </div>
-  <div class="field">
-    <%= f.label :fermenter_id %><br />
-    <%= f.select :fermenter_id, Fermenter.all.collect {|c| [c.name, c.id]} %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.select :user_id, User.all.collect {|c| [c.name, c.id]} %>
-  </div>
-  <div class="field">
-    <%= f.label :original_gravity %><br />
-    <%= f.text_field :original_gravity %>
-    <%= f.select :og_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
-  </div>
-  <div class="field">
-    <%= f.label :finish_gravity %><br />
-    <%= f.text_field :finish_gravity %>
-    <%= f.select :fg_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
-  </div>
-  <div class="field">
-    <%= f.label :yield %><br />
-    <%= f.text_field :yield %>
-    <%= f.select :volume_unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
-  </div>
-  <div class="field">
-    <%= f.label :target_date %><br />
-    <%= f.text_field :target_date %>
+  <div class="step-content">
+    <div class="step-pane active" id="step1">
+      Choose Recipe
+      <div class="field">
+        <%= f.label :recipe_id %><br />
+        <%= f.select :recipe_id, Recipe.all.collect {|c| [c.name, c.id]} %>
+      </div>
+    </div>
+    <div class="step-pane" id="step2">
+      <div class="field">
+        <%= f.label :date %><br />
+        <%= f.text_field :date %>
+      </div>
+      <div class="field">
+      <%= f.label :target_date %><br />
+      <%= f.text_field :target_date %>
+      </div>
+      <div class="field">
+        <%= f.label :fermenter_id %><br />
+        <%= f.select :fermenter_id, Fermenter.all.collect {|c| [c.name, c.id]} %>
+      </div>
+      <div class="field">
+        <%= f.label :user_id %><br />
+        <%= f.select :user_id, User.all.collect {|c| [c.name, c.id]} %>
+      </div>
+    </div>
+    <div class="step-pane" id="step3">
+      <div class="field">
+        <%= f.label :original_gravity %><br />
+        <%= f.text_field :original_gravity %>
+        <%= f.select :og_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
+      </div>
+      <div class="field">
+        <%= f.label :finish_gravity %><br />
+        <%= f.text_field :finish_gravity %>
+        <%= f.select :fg_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
+      </div>
+      <div class="field">
+        <%= f.label :yield %><br />
+        <%= f.text_field :yield %>
+        <%= f.select :volume_unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
+      </div>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit %>
