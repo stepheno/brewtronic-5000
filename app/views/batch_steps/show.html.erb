@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Recipe:</b>
+  <%= link_to @batch.recipe.name, @batch.recipe unless @batch.recipe.nil?  %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @batch.date %>
+</p>
+
+<p>
+  <b>Fermenter:</b>
+  <%= @batch.fermenter.name unless @batch.fermenter.nil? %>
+</p>
+
+<p>
+  <b>Brewer:</b>
+  <%= @batch.user.name  unless @batch.user.nil? %>
+</p>
+
+<p>
+  <b>Original gravity:</b>
+  <%= Units.format_density_for_user(@batch.original_gravity, current_user) %>
+</p>
+
+<p>
+  <b>Finish gravity:</b>
+  <%= Units.format_density_for_user(@batch.finish_gravity, current_user) %>
+</p>
+
+<p>
+  <b>Yield:</b>
+  <%= Units.format_volume_for_user(@batch.yield, current_user) %>
+</p>
+
+<p>
+  <b>Target date:</b>
+  <%= @batch.target_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_batch_path(@batch) %> |
+<%= link_to 'Back', batches_path %>

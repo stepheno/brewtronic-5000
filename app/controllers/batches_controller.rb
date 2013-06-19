@@ -37,38 +37,38 @@ class BatchesController < ApplicationController
   # POST /batches
   # POST /batches.json
   def create
-    params[:batch][:yield] = Units.convert_volume_units(params[:batch][:yield],params[:batch][:volume_unit])
-    params[:batch][:original_gravity] = Units.convert_density_units(params[:batch][:original_gravity],params[:batch][:og_density_unit])
-    params[:batch][:finish_gravity] = Units.convert_density_units(params[:batch][:finish_gravity],params[:batch][:fg_density_unit])
+    #params[:batch][:yield] = Units.convert_volume_units(params[:batch][:yield],params[:batch][:volume_unit])
+    #params[:batch][:original_gravity] = Units.convert_density_units(params[:batch][:original_gravity],params[:batch][:og_density_unit])
+    #params[:batch][:finish_gravity] = Units.convert_density_units(params[:batch][:finish_gravity],params[:batch][:fg_density_unit])
     @batch = Batch.new(params[:batch])
 
     respond_to do |format|
       if @batch.save
-        recipe = Recipe.find(params[:batch][:recipe_id])
-        if not recipe.nil?
-          recipe.recipe_grains.each do |grain|
-            g = GrainTransaction.create(:grain_id => grain.grain.id,
-                :grain_supplier_id => grain.grain.grain_supplier.id,
-                :amount => -grain.amount,
-                :quantity => 1)
-            g.modify_inventory
-            g.save!
-          end
-          recipe.recipe_hops.each do |hop|
-            h = HopTransaction.create(:hop_id => hop.hop.id,
-                :hop_supplier_id => hop.hop.hop_supplier_id,
-                :hop_type => hop.hop_type,
-                :amount => -hop.amount,
-                :quantity => 1,
-                :hop_year => hop.hop.year)
-            h.modify_inventory
-            h.save!
-          end
-        end
-        format.html { redirect_to action: "index" and flash[:notice] = "Batch #{@batch.recipe.name} successfully created." }
+#        recipe = Recipe.find(params[:batch][:recipe_id])
+#        if not recipe.nil?
+#          recipe.recipe_grains.each do |grain|
+#            g = GrainTransaction.create(:grain_id => grain.grain.id,
+#                :grain_supplier_id => grain.grain.grain_supplier.id,
+#                :amount => -grain.amount,
+#                :quantity => 1)
+#            g.modify_inventory
+#            g.save!
+#          end
+#          recipe.recipe_hops.each do |hop|
+#            h = HopTransaction.create(:hop_id => hop.hop.id,
+#                :hop_supplier_id => hop.hop.hop_supplier_id,
+#                :hop_type => hop.hop_type,
+#                :amount => -hop.amount,
+#                :quantity => 1,
+#                :hop_year => hop.hop.year)
+#            h.modify_inventory
+#            h.save!
+#          end
+#        end
+        format.html { redirect_to batch_steps_path(:id => @batch.id) }
         format.json { render json: @batch, status: :created, location: @batch }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to batch_steps_path(:id => @batch.id) }
         format.json { render json: @batch.errors, status: :unprocessable_entity }
       end
     end

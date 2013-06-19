@@ -1,0 +1,53 @@
+<%= form_for(@batch) do |f| %>
+  <% if @batch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@batch.errors.count, "error") %> prohibited this batch from being saved:</h2>
+
+      <ul>
+      <% @batch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :recipe_id %><br />
+    <%= f.select :recipe_id, Recipe.all.collect {|c| [c.name, c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :fermenter_id %><br />
+    <%= f.select :fermenter_id, Fermenter.all.collect {|c| [c.name, c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.select :user_id, User.all.collect {|c| [c.name, c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :original_gravity %><br />
+    <%= f.text_field :original_gravity %>
+    <%= f.select :og_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
+  </div>
+  <div class="field">
+    <%= f.label :finish_gravity %><br />
+    <%= f.text_field :finish_gravity %>
+    <%= f.select :fg_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
+  </div>
+  <div class="field">
+    <%= f.label :yield %><br />
+    <%= f.text_field :yield %>
+    <%= f.select :volume_unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
+  </div>
+  <div class="field">
+    <%= f.label :target_date %><br />
+    <%= f.text_field :target_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
