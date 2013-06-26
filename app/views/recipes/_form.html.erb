@@ -4,143 +4,169 @@
       <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
       <ul>
-      <% @recipe.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @recipe.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div id="recipe_wizard" class="wizard">
+    <ul class="steps">
+      <li data-target="#step1" class="active"><span class="badge badge-info">1</span>Basic Info<span class="chevron"></span></li>
+      <li data-target="#step2"><span class="badge">2</span>Grains<span class="chevron"></span></li>
+      <li data-target="#step3"><span class="badge">3</span>Hops<span class="chevron"></span></li>
+      <li data-target="#step4"><span class="badge">4</span>Minerals<span class="chevron"></span></li>
+      <li data-target="#step5"><span class="badge">5</span>Mash Steps<span class="chevron"></span></li>
+      <li data-target="#step6"><span class="badge">6</span>Others<span class="chevron"></span></li>
+    </ul>
+    <div class="actions">
+        <button type="button" class="btn btn-mini btn-prev"> <i class="icon-arrow-left"></i>Prev</button>
+        <button type="button" class="btn btn-mini btn-next" data-last="Finish">Next<i class="icon-arrow-right"></i></button>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :style_id %><br />
-    <%= f.text_field   :style_virt_attr, :class => 'recipe_autocomplete', :data => {:source => '/styles.json' }  %>
-    <%= f.hidden_field :style_id %>
-  </div>
-  <div class="field">
-    <%= f.label :creation_date %><br />
-    <%= f.text_field :creation_date %>
-  </div>
-  <div class="field">
-    <%= f.label :target_og %><br />
-    <%= f.text_field :target_og %>
-    <%= f.select :og_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
-  </div>
-  <div class="field">
-    <%= f.label :target_fg %><br />
-    <%= f.text_field :target_fg %>
-    <%= f.select :fg_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br />
-    <%= f.text_field :size %>
-    <%= f.select :size_unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
-  </div>
-  <div class="field">
-    <%= f.label :yeast_id %><br />
-    <%= f.text_field   :yeast_virt_attr, :class => 'recipe_autocomplete', :data => {:source => '/yeasts.json' }   %>
-    <%= f.hidden_field :yeast_id %>
-  </div>
-  <div class="field">
-    <%= f.label :grain_id, "Grains" %><br />
-    <table class="table">
-      <thead>
-        <th>Grain</th>
-        <th>Amount</th>
-        <th>Unit</th>
-        <th>Remove?</th>
-      </thead>
-      <tbody>
-        <%= f.fields_for :recipe_grains do |grain| %>
-          <%= render 'recipe_grain_fields', f: grain%>
-        <% end %>
-      </tbody>
-    </table>
-    <%= link_to_add_fields "Add Grain", f, :recipe_grains, "/grains.json" %>
-  </div>
+  <div class="step-content">
+    <div class="step-pane active" id="step1">
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :style_id %><br />
+        <%= f.text_field   :style_virt_attr, :class => 'recipe_autocomplete', :data => {:source => '/styles.json' }  %>
+        <%= f.hidden_field :style_id %>
+      </div>
+      <div class="field">
+        <%= f.label :creation_date %><br />
+        <%= f.text_field :creation_date %>
+      </div>
+      <div class="field">
+        <%= f.label :target_og %><br />
+        <%= f.text_field :target_og %>
+        <%= f.select :og_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
+      </div>
+      <div class="field">
+        <%= f.label :target_fg %><br />
+        <%= f.text_field :target_fg %>
+        <%= f.select :fg_density_unit, options_for_select(["plato", "sg"], :selected => current_user.density_units) %>
+      </div>
+      <div class="field">
+        <%= f.label :size %><br />
+        <%= f.text_field :size %>
+        <%= f.select :size_unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
+      </div>
+      <div class="field">
+        <%= f.label :yeast_id %><br />
+        <%= f.text_field   :yeast_virt_attr, :class => 'recipe_autocomplete', :data => {:source => '/yeasts.json' }   %>
+        <%= f.hidden_field :yeast_id %>
+      </div>
+    </div>
+    <div class="step-pane" id="step2">
+      <div class="field">
+        <%= f.label :grain_id, "Grains" %><br />
+        <table class="table">
+          <thead>
+            <th>Grain</th>
+            <th>Amount</th>
+            <th>Unit</th>
+            <th>Remove?</th>
+          </thead>
+          <tbody>
+            <%= f.fields_for :recipe_grains do |grain| %>
+              <%= render 'recipe_grain_fields', f: grain%>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to_add_fields "Add Grain", f, :recipe_grains, "/grains.json" %>
+      </div>
+    </div>
+    <div class="step-pane" id="step3">
+      <div class="field">
+        <%= f.label :hop_id, "Hops" %><br />
+        <table class="table">
+          <thead>
+            <th>Hop</th>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Unit</th>
+            <th>Time(mins)</th>
+            <th>Remove?</th>
+          </thead>
+          <tbody>
+            <%= f.fields_for :recipe_hops do |hop| %>
+              <%= render 'recipe_hop_fields', f: hop%>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to_add_fields "Add Hop", f, :recipe_hops, "/hops.json" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :hop_id, "Hops" %><br />
-    <table class="table">
-      <thead>
-        <th>Hop</th>
-        <th>Amount</th>
-        <th>Type</th>
-        <th>Unit</th>
-        <th>Time(mins)</th>
-        <th>Remove?</th>
-      </thead>
-      <tbody>
-        <%= f.fields_for :recipe_hops do |hop| %>
-          <%= render 'recipe_hop_fields', f: hop%>
-        <% end %>
-      </tbody>
-    </table>
-    <%= link_to_add_fields "Add Hop", f, :recipe_hops, "/hops.json" %>
-  </div>
+    <div class="step-pane" id="step4">
+      <div class="field">
+        <%= f.label :mineral_id, "Minerals" %><br />
+        <table class="table">
+          <thead>
+            <th>Mineral</th>
+            <th>Amount</th>
+            <th>Unit</th>
+            <th>Remove?</th>
+          </thead>
+          <tbody>
+            <%= f.fields_for :recipe_minerals do |mineral| %>
+              <%= render 'recipe_mineral_fields', f: mineral%>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to_add_fields "Add Mineral", f, :recipe_minerals, "/minerals.json" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :mineral_id, "Minerals" %><br />
-    <table class="table">
-      <thead>
-        <th>Mineral</th>
-        <th>Amount</th>
-        <th>Unit</th>
-        <th>Remove?</th>
-      </thead>
-      <tbody>
-        <%= f.fields_for :recipe_minerals do |mineral| %>
-          <%= render 'recipe_mineral_fields', f: mineral%>
-        <% end %>
-      </tbody>
-    </table>
-    <%= link_to_add_fields "Add Mineral", f, :recipe_minerals, "/minerals.json" %>
-  </div>
+    <div class="step-pane" id="step5">
+      <div class="field">
+        <%= f.label :mash_type_id, "Mash Steps" %><br />
+        <table class="table">
+          <thead>
+            <th>Mash Type</th>
+            <th>Time(mins)</th>
+            <th>Temperature</th>
+            <th>Unit</th>
+            <th>Remove?</th>
+          </thead>
+          <tbody>
+            <%= f.fields_for :recipe_mashes do |mash| %>
+              <%= render 'recipe_mash_fields', f: mash%>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to_add_fields "Add Mash Step", f, :recipe_mashes, "/mash_types.json" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :mash_type_id, "Mash Steps" %><br />
-    <table class="table">
-      <thead>
-        <th>Mash Type</th>
-        <th>Time(mins)</th>
-        <th>Temperature</th>
-        <th>Unit</th>
-        <th>Remove?</th>
-      </thead>
-      <tbody>
-        <%= f.fields_for :recipe_mashes do |mash| %>
-          <%= render 'recipe_mash_fields', f: mash%>
-        <% end %>
-      </tbody>
-    </table>
-    <%= link_to_add_fields "Add Mash Step", f, :recipe_mashes, "/mash_types.json" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :boil_time %><br />
-    <%= f.text_field :boil_time %>
-  </div>
-  <div class="field">
-    <%= f.label :ibu %><br />
-    <%= f.text_field :ibu %>
-  </div>
-  <div class="field">
-    <%= f.label :abv %><br />
-    <%= f.text_field :abv %>
-  </div>
-  <div class="field">
-    <%= f.label :srm %><br />
-    <%= f.text_field :srm %>
-  </div>
-  <div class="field">
-    <%= f.label :pitch_temperature %><br />
-    <%= f.text_field :pitch_temperature %>
-    <%= f.select :temp_unit, options_for_select(["C", "F"], :selected => current_user.temp_units) %>
+    <div class="step-pane" id="step6">
+      <div class="field">
+        <%= f.label :boil_time %><br />
+        <%= f.text_field :boil_time %>
+      </div>
+      <div class="field">
+        <%= f.label :ibu %><br />
+        <%= f.text_field :ibu %>
+      </div>
+      <div class="field">
+        <%= f.label :abv %><br />
+        <%= f.text_field :abv %>
+      </div>
+      <div class="field">
+        <%= f.label :srm %><br />
+        <%= f.text_field :srm %>
+      </div>
+      <div class="field">
+        <%= f.label :pitch_temperature %><br />
+        <%= f.text_field :pitch_temperature %>
+        <%= f.select :temp_unit, options_for_select(["C", "F"], :selected => current_user.temp_units) %>
+      </div>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

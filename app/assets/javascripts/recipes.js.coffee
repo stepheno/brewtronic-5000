@@ -21,7 +21,7 @@ jQuery ->
     closest_table.after(new_row)
     virt_attr_input_field_id = '#' + $(new_row).find('input')[0].id
     id_input_field_id = '#' + $(new_row).find('input')[1].id
-   
+
     $(virt_attr_input_field_id).autocomplete(
       minLength:2
       source: $(this).data('source')
@@ -66,4 +66,7 @@ jQuery ->
         false
     )
 
+
+  $('#recipe_wizard').wizard().on 'finished', ->
+    $('#new_recipe').submit()
 
