@@ -6,4 +6,5 @@ jQuery ->
     dateFormat: 'yy-mm-dd'
   $('#batch_date').datepicker
     dateFormat: 'yy-mm-dd'
-  $('#batch_wizard').wizard
+  $('#batch_wizard').wizard().on 'finished', ->
+    $('#new_batch').submit()
