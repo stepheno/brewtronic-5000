@@ -8,3 +8,7 @@ jQuery ->
     dateFormat: 'yy-mm-dd'
   $('#batch_wizard').wizard().on 'finished', ->
     $('#new_batch').submit()
+  $('#btn_wizard_next').wizard().on 'click', ->
+    $('#batch_wizard').wizard('next', 'foo')
+  $('#btn_wizard_prev').wizard().on 'click', ->
+    $('#batch_wizard').wizard('previous')

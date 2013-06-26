@@ -64,8 +64,8 @@
         <%= f.select :volume_unit, options_for_select(["l", "gal", "bbl"], :selected => current_user.volume_units) %>
       </div>
     </div>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+    <input type="button" class="btn btn-mini" id="btn_wizard_prev" value="Previous">
+    <input type="button" class="btn btn-mini" id="btn_wizard_next" value="Next">
   </div>
 <% end %>

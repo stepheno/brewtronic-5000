@@ -66,7 +66,12 @@ jQuery ->
         false
     )
 
-
   $('#recipe_wizard').wizard().on 'finished', ->
     $('#new_recipe').submit()
+
+  $('#btn_wizard_next').wizard().on 'click', ->
+    $('#recipe_wizard').wizard('next', 'foo')
+
+  $('#btn_wizard_prev').wizard().on 'click', ->
+    $('#recipe_wizard').wizard('previous')
 

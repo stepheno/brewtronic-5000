@@ -166,7 +166,8 @@
         <%= f.select :temp_unit, options_for_select(["C", "F"], :selected => current_user.temp_units) %>
       </div>
     </div>
-  </div>
-  <div class="actions">
+
+    <input type="button" class="btn btn-mini" id="btn_wizard_prev" value="Previous">
+    <input type="button" class="btn btn-mini" id="btn_wizard_next" value="Next">
   </div>
 <% end %>
