@@ -23,7 +23,7 @@ jQuery ->
     id_input_field_id = '#' + $(new_row).find('input')[1].id
 
     $(virt_attr_input_field_id).autocomplete(
-      minLength:2
+      minLength:1
       source: $(this).data('source')
       focus: (event, ui) ->
         $(virt_attr_input_field_id).val ui.item.name
@@ -48,7 +48,7 @@ jQuery ->
   # Add autcomplete to all fields of class 'recipe_autocomplete'
   $(".recipe_autocomplete").each ->
     $(this).autocomplete (
-      minLength: 2
+      minLength:1
       source: $(this).data("source")
       focus: (event, ui) ->
         $(this).val ui.item.name
