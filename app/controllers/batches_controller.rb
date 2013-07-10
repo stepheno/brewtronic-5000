@@ -51,6 +51,7 @@ class BatchesController < ApplicationController
                 :grain_supplier_id => grain.grain.grain_supplier.id,
                 :amount => -grain.amount,
                 :quantity => 1)
+            g.grain_inventory = GrainInventory.where(:grain_id => g.grain_id).where(:grain_supplier_id => g.grain_supplier_id).first
             g.modify_inventory
             g.save!
           end
@@ -61,6 +62,7 @@ class BatchesController < ApplicationController
                 :amount => -hop.amount,
                 :quantity => 1,
                 :hop_year => hop.hop.year)
+            h.hop_inventory = HopInventory.where(:hop_id => h.hop_id).where(:crop_year => h.hop_year).where(:hop_supplier_id => h.hop_supplier_id).first
             h.modify_inventory
             h.save!
           end
