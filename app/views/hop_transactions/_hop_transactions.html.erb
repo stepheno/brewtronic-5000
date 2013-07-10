@@ -5,6 +5,7 @@
     <tr>
     <th><%= sortable "hop_id", "Hop" %></th>
     <th><%= sortable "hop_supplier_id", "Hop supplier" %></th>
+    <th><%= sortable "hop_contract_id", "Hop contract?" %></th>
     <th><%= sortable "hop_year" %></th>
     <th><%= sortable "hop_type" %></th>
     <th><%= sortable "quantity" %></th>
@@ -18,6 +19,11 @@
       <tr>
         <td><%= link_to hop_transaction.hop.name, hop_transaction %></td>
         <td><%= hop_transaction.hop_supplier.name unless hop_transaction.hop_supplier.nil? %></td>
+        <td>
+          <div align=center>
+            <%= hop_transaction.hop_contract_id ? raw('<i class="icon-ok"></i>') : raw('<i class="icon-remove"></i>') %>
+          </div>
+        </td>
         <td><%= hop_transaction.hop_year%></td>
         <td><%= hop_transaction.hop_type%></td>
         <td><%= "%d units" % hop_transaction.quantity %></td>
