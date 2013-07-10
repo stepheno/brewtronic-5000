@@ -32,22 +32,25 @@ class HopTransactionsController < ApplicationController
     params[:hop_transaction][:amount] = Units.convert_mass_units(params[:hop_transaction][:amount],params[:hop_transaction][:unit])
 
     ht_params = params[:hop_transaction] #get the grain transaction parameters
-    if params[:is_hop_contract] 
+    if params[:is_hop_contract] == "true"
       hop_contract = HopContract.find(ht_params[:hop_contract_id])
-      if not hop_contract.nil? 
+      if not hop_contract.nil?
         ht_params[:hop_id] = hop_contract.hop.id
         ht_params[:hop_supplier_id] = hop_contract.hop_supplier.id
         ht_params[:hop_year] = hop_contract.harvest_date.year
         ht_params[:hop_type] = hop_contract.hop_type
       end
+    else  # not a hop contract
+      ht_params[:hop_contract_id] = nil
     end
+
     @hop_transaction = HopTransaction.new(ht_params)
     @hop_transaction.hop_inventory = HopInventory.where(:hop_id => @hop_transaction.hop_id).where(:crop_year => @hop_transaction.hop_year).where(:hop_supplier_id => @hop_transaction.hop_supplier_id).first
 
     respond_to do |format|
       if @hop_transaction.save
         @hop_transaction.modify_inventory
-        
+
         format.html { redirect_to action: "index" and flash[:notice] = "Hop Transaction #{@hop_transaction.hop.name unless @hop_transaction.hop.nil?}:#{@hop_transaction.hop_supplier.name unless @hop_transaction.hop_supplier.nil?} was successfully created." }
         format.json { render json: @hop_transaction, status: :created, location: @hop_transaction }
       else
