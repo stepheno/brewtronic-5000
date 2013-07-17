@@ -12,5 +12,3 @@ jQuery ->
     $('#batch_wizard').wizard('next', 'foo')
   $('#btn_wizard_prev').wizard().on 'click', ->
     $('#batch_wizard').wizard('previous')
-  #$('.delete_row').bind 'ajax:success', ->
-  #  $(this).closest('tr').fadeOut()
