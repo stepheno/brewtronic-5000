@@ -19,7 +19,7 @@
         <td>
           <div class="pull-right">
           <%= link_to 'Edit', edit_fermenter_path(fermenter), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', fermenter, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Destroy', fermenter, method: :delete, data: { confirm: 'Are you sure?', type: 'json'}, remote: 'true', :rel => 'nofollow', :class => 'btn btn-mini btn-danger delete_row' %>
           </div>
         </td>
       </tr>

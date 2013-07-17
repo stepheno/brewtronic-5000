@@ -1,5 +1,5 @@
 <%= hidden_field_tag :direction, params[:direction] %>
-<%= hidden_field_tag :sort, params[:sort] %>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -20,7 +20,7 @@
       <td>
         <div class="pull-right">
           <%= link_to 'Edit', edit_hop_path(hop), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', hop, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %>
+          <%= link_to 'Destroy', hop, method: :delete, data: { confirm: 'Are you sure?', type: 'json'}, remote: 'true', :rel => 'nofollow', :class => 'btn btn-mini btn-danger delete_row' %>
         </div>
       </td>
     </tr>
