@@ -11,16 +11,17 @@
     </div>
   <% end %>
   <div class="btn-group" data-toggle="buttons-radio">
-    <button id="hop_transaction_contract" type="button" class="btn active">Contract</button>
-    <button id="hop_transaction_non_contract" type="button" class="btn ">Non-Contract</button>
+    <% contract_yup = true if @hop_transaction.new_record? or not @hop_transaction.hop_contract.nil? %>
+    <button id="hop_transaction_contract" type="button" class="btn <%= 'active' if contract_yup %>">Contract</button>
+    <button id="hop_transaction_non_contract" type="button" class="btn <%= 'active' unless contract_yup %>">Non-Contract</button>
   </div>
 
   <%= hidden_field_tag "is_hop_contract", true %>
-  <div id="manual_entry_fields" <%="hidden" if @hop_transaction.hop_contract.nil?%>>
-    <%= render 'hop_manual_entry', :f => f %>
-  </div>
-  <div id="contract_fields" <%="hidden" unless @hop_transaction.hop_contract.nil?%>>
+  <div id="contract_fields" <%="hidden" unless contract_yup %>>
     <%= render 'hop_contract', :f => f %>
+  </div>
+  <div id="manual_entry_fields" <%="hidden" if contract_yup %>>
+    <%= render 'hop_manual_entry', :f => f %>
   </div>
   <div class="field">
     <%= f.label :quantity %><br />
