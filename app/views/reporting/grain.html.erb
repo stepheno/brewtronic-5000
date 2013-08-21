@@ -12,7 +12,16 @@
     <%= submit_tag "Generate Report" %>
   </div>
 <% end %>
+<h2>Grains Received Totals</h2>
 <ul>
-<% @grains.each do |grain| %>
-<li> <%= "%0.2f of %s used on %s" % [ grain.amount, grain.grain.name, grain.created_at] %>
+<% @grain_received_totals.each do |grain, amount| %>
+<li> <%= "%0.2f of %s " % [ amount, grain.name] %>
 <% end %>
+</ul>
+
+<h2>Grains Used Totals</h2>
+<ul>
+<% @grain_used_totals.each do |grain, amount| %>
+<li> <%= "%0.2f of %s " % [ amount.abs, grain.name] %>
+<% end %>
+</ul>
