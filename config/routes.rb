@@ -1,4 +1,12 @@
 Brewtronic5000::Application.routes.draw do
+  get "reporting/ttb"
+
+  get "reporting/grain"
+
+  get "reporting/hop"
+
+  get "reporting/fermenter"
+
   resources :hop_contracts
 
 
