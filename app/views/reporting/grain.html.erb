@@ -1,2 +1,18 @@
-<h1>Reporting#grain</h1>
-<p>Find me in app/views/reporting/grain.html.erb</p>
+<h1>Grains used</h1>
+<%= form_tag(reporting_grain_path, :method => :post) do %>
+  <div class="field">
+    <label for="start_date">Start Date</label>
+    <%= text_field_tag 'start_date' %>
+  </div>
+  <div class="field">
+    <label for="end_date">End Date</label>
+    <%= text_field_tag 'end_date' %>
+  </div>
+  <div class="submit">
+    <%= submit_tag "Generate Report" %>
+  </div>
+<% end %>
+<ul>
+<% @grains.each do |grain| %>
+<li> <%= "%0.2f of %s used on %s" % [ grain.amount, grain.grain.name, grain.created_at] %>
+<% end %>
