@@ -66,3 +66,6 @@ gem 'unicorn'
 
 # To use debugger
 # gem 'debugger'
+
+# Charting
+gem 'chartkick'
