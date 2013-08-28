@@ -20,7 +20,7 @@ module Units
       when "gal" 
         amount.to_f.gal.to_L.value
       when "bbl" 
-        amount.to_f.bbl.to_L.value
+        amount.to_f.bbl_fl_us.to_L.value
       when "l" 
         amount
       else
@@ -86,7 +86,7 @@ module Units
         when "gal"
           amount.L.to_gal.round!(2)
         when "bbl"
-          amount.L.to_bbl.round!(2)
+          amount.L.to_bbl_fl_us.round!(2)
         when "l"
           amount.L.round!(2)
         else
