@@ -68,6 +68,7 @@ jQuery ->
 
   $('#recipe_wizard').wizard().on 'finished', ->
     $('#new_recipe').submit()
+    $('.edit_recipe').submit()
 
   $('#btn_wizard_next').wizard().on 'click', ->
     $('#recipe_wizard').wizard('next', 'foo')
