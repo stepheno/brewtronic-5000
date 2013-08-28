@@ -1,12 +1,12 @@
 Brewtronic5000::Application.routes.draw do
   get "reporting/ttb"
-  get "reporting/post"
+  post "reporting/ttb"
 
   get "reporting/grain"
   post "reporting/grain"
 
   get "reporting/hop"
-  get "reporting/post"
+  post "reporting/hop"
 
   get "reporting/fermenter"
   post "reporting/fermenter"

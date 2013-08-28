@@ -1,2 +1,34 @@
-<h1>Reporting#ttb</h1>
-<p>Find me in app/views/reporting/ttb.html.erb</p>
+<h1>TTB Report</h1>
+<%= form_tag(reporting_ttb_path, :method => :post) do %>
+  <div class="field">
+    <label for="start_date">Start Date</label>
+    <%= text_field_tag 'start_date', params[:start_date] %>
+  </div>
+  <div class="field">
+    <label for="end_date">End Date</label>
+    <%= text_field_tag 'end_date', params[:end_date] %>
+  </div>
+  <div class="submit">
+    <%= submit_tag "Generate Report" %>
+  </div>
+<% end %>
+<h2>Grains Received Totals</h2>
+<ul>
+<% @grain_received_totals.each do |grain, amount| %>
+<li> <%= "%0.2f of %s " % [ amount, grain.name] %>
+<% end %>
+</ul>
+
+<h2>Grains Used Totals</h2>
+<ul>
+<% @grain_used_totals.each do |grain, amount| %>
+<li> <%= "%0.2f of %s " % [ amount.abs, grain.name] %>
+<% end %>
+</ul>
+
+<h2>Batch Totals</h2>
+<ul>
+<% @batch_totals.each do |batch, amount| %>
+<li> <%= "%0.2f of %s " % [ amount.abs, batch.name] %>
+<% end %>
+</ul>
