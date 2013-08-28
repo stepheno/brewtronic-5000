@@ -7,6 +7,8 @@ gem 'rails', '~> 3.2.11'
 
 gem 'sqlite3'
 gem 'activerecord-postgresql-adapter'
+gem 'pg'
+gem 'taps'
 
 # Javascript runtime
 gem 'therubyracer', :require => "v8"
@@ -69,3 +71,4 @@ gem 'unicorn'
 
 # Charting
 gem 'chartkick'
+gem 'groupdate'

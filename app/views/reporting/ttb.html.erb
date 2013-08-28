@@ -1,4 +1,5 @@
 <h1>TTB Report</h1>
+<%= line_chart HopTransaction.group_by_day(:created_at).count %>
 <%= form_tag(reporting_ttb_path, :method => :post) do %>
   <div class="field">
     <label for="start_date">Start Date</label>
