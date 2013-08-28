@@ -1,6 +1,11 @@
 class ReportingController < ApplicationController
   def ttb
-    
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+    @grain_received_totals = self.transactable_usage(start_date, end_date, GrainTransaction, :grain, "amount > 0")
+    @grain_used_totals = self.transactable_usage(start_date, end_date, GrainTransaction, :grain, "amount < 0")
+    @hop_received_totals = self.transactable_usage(start_date, end_date, HopTransaction, :hop, "amount > 0")
+    @hop_used_totals = self.transactable_usage(start_date, end_date, HopTransaction, :hop, "amount < 0")
   end
 
   def grain
@@ -11,6 +16,10 @@ class ReportingController < ApplicationController
   end
 
   def hop
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+    @hop_received_totals = self.transactable_usage(start_date, end_date, HopTransaction, :hop, "amount > 0")
+    @hop_used_totals = self.transactable_usage(start_date, end_date, HopTransaction, :hop, "amount < 0")
   end
 
   def fermenter
