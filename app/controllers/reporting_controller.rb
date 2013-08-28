@@ -4,8 +4,8 @@ class ReportingController < ApplicationController
     end_date = params[:end_date]
     @grain_received_totals = self.transactable_usage(start_date, end_date, GrainTransaction, :grain, :created_at, :total_amount, "amount > 0")
     @grain_used_totals = self.transactable_usage(start_date, end_date, GrainTransaction, :grain, :created_at, :total_amount, "amount < 0")
-    #@hop_received_totals = self.transactable_usage(start_date, end_date, HopTransaction, :hop, :created_at, :total_amount, "amount > 0")
-    #@hop_used_totals = self.transactable_usage(start_date, end_date, HopTransaction, :hop, :created_at, :total_amount, "amount < 0")
+    @hop_received_totals = self.transactable_usage(start_date, end_date, HopTransaction, :hop, :created_at, :total_amount, "amount > 0")
+    @hop_used_totals = self.transactable_usage(start_date, end_date, HopTransaction, :hop, :created_at, :total_amount, "amount < 0")
     @batch_totals = self.transactable_usage(start_date, end_date, Batch, :recipe, :target_date, :yield, nil)
   end
 

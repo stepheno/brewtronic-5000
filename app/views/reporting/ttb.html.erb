@@ -26,6 +26,20 @@
 <% end %>
 </ul>
 
+<h2>Hops Received Totals</h2>
+<ul>
+<% @hop_received_totals.each do |hop, amount| %>
+<li> <%= "%0.2f of %s " % [ amount, hop.name] %>
+<% end %>
+</ul>
+
+<h2>Hops Used Totals</h2>
+<ul>
+<% @hop_used_totals.each do |hop, amount| %>
+<li> <%= "%0.2f of %s " % [ amount.abs, hop.name] %>
+<% end %>
+</ul>
+
 <h2>Batch Totals</h2>
 <ul>
 <% @batch_totals.each do |batch, amount| %>
